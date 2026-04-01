@@ -48,6 +48,9 @@ async function scanTab() {
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
     // Source_Line 41-48: https://github.com/astapable/into-data-viz/blob/main/02_quantities/02_stacked_bars/bar_stacked.js
     // Here I have all unique independant elements so I make an Array.from for every element Im pulling from lines 28-34 to get only unique ones
+    // Source Set(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+    // Source new Set(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+    // Source Array.from(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
     // ChatGPT link: https://chatgpt.com/share/69cc847f-0c98-8329-b513-9815df07996a
     // FOR FUTURE UPDATES_Source about spread: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
     const uniColors = Array.from(new Set(retDataRaw.map(el => el.color)));
