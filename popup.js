@@ -25,7 +25,6 @@ async function scanTab() {
             allElements.forEach((el) => { // I need to run through all the element in the tab. Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
                 const elStyle = getComputedStyle(el); // This picks the element and returns its properties data applied in CSS. Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle. ChatGPT link where I accidentally found this function: https://chatgpt.com/share/69cc26c7-e5ac-8325-80d5-40bb5e8833c0
                 data.push({ // While im running throug the elements in line 25, this picks data array and add elements to the end of data array until it runs out of the elements described in lines 28-34. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
-                    // ChatGPT link about CSS data i can potentially get: https://chatgpt.com/share/69cc26c7-e5ac-8325-80d5-40bb5e8833c0
                     color: elStyle.color,
                     backgroundColor: elStyle.backgroundColor,
                     borderColor: elStyle.borderColor,
@@ -45,5 +44,4 @@ async function scanTab() {
 // Called out the function dented in line 16
 // Line 9_async function getTabId() doesnt need to start as it is called in line 16
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
-//ChatGPT link about splitting functions: https://chatgpt.com/share/69cc31f3-0e98-8332-be15-e81e8bbcc447
 scanTab();
