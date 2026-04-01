@@ -2,3 +2,7 @@ body {
     min-width: 32rem;
     padding: 1.5rem;
 }
+
+li {
+    gap: 2rem;
+}
