@@ -61,7 +61,7 @@ async function scanTab() {
     const uniFontWeights = Array.from(new Set(retDataRaw.map(el => el.fontWeight)));
     const uniLineHeights = Array.from(new Set(retDataRaw.map(el => el.lineHeight)));
     
-    console.log(uniColors);
+    const uniColorsList = document.querySelector("#uniColors");
     console.log(uniBackColors);
     console.log(uniBorderColors);
     console.log(uniFontFamilies);
