@@ -38,10 +38,39 @@ async function scanTab() {
             return data; // Give me thar data from lines 28-34
         }
     });
-    console.log(result[0].result); // Check if it works
+
+    // Here I keep all my results from pulling data from lines 28-34 and make it variable. Thus, I make it appropriate for reuse
+    // I use result[0] since Im pulling data from single tab/page.
+    // JS arrays starts from 0, so 1 frame/tab = [0]. 
+    const retDataRaw = result[0].result; 
+    
+    // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
+    // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
+    // Source_Line 41-48: https://github.com/astapable/into-data-viz/blob/main/02_quantities/02_stacked_bars/bar_stacked.js
+    // Here I have all unique independant elements so I make an Array.from for every element Im pulling from lines 28-34 to get only unique ones
+    // ChatGPT link: https://chatgpt.com/share/69cc847f-0c98-8329-b513-9815df07996a
+    // FOR FUTURE UPDATES_Source about spread: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+    const uniColors = Array.from(new Set(retDataRaw.map(el => el.color)));
+    const uniBackColors = Array.from(new Set(retDataRaw.map(el => el.backgroundColor)));
+    const uniBorderColors = Array.from(new Set(retDataRaw.map(el => el.borderColor)));
+    const uniFontFamilies = Array.from(new Set(retDataRaw.map(el => el.fontFamily)));
+    const uniFontSizes = Array.from(new Set(retDataRaw.map(el => el.fontSize)));
+    const uniFontWeights = Array.from(new Set(retDataRaw.map(el => el.fontWeight)));
+    const uniLineHeights = Array.from(new Set(retDataRaw.map(el => el.lineHeight)));
+    
+    console.log(uniColors);
+    console.log(uniBackColors);
+    console.log(uniBorderColors);
+    console.log(uniFontFamilies);
+    console.log(uniFontSizes);
+    console.log(uniFontWeights);
+    console.log(uniLineHeights);
 }
 
-// Called out the function dented in line 16
+// Called out the function denoted in line 16
+// The browser read the core from top to bottom
+// When it sees the function from line 16 it accnowledge it but not stert it
+// When browser reads scanTab() that is when it starts it. This was mentioned by Eric in the extension loom demo
 // Line 9_async function getTabId() doesnt need to start as it is called in line 16
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 scanTab();
