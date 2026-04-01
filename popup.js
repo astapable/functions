@@ -1,5 +1,3 @@
-console.log("This is a popup!")
-
 // Removed content_scripts from original demo manifest.json since I will use executeScript
 // Why executeScript? My popup.js will control the outcome
 // The extension will not work automatically after the page loads
@@ -14,7 +12,7 @@ async function getTabId() {
 }
 
 async function scanTab() {
-    // Wait until line 9_getTabId() is finished and return it as a variable here
+    // Wait until line 7_getTabId() is finished and return it as a variable here
     const tabId = await getTabId();
     const result = await chrome.scripting.executeScript({
         target: { tabId: tabId },
@@ -24,22 +22,21 @@ async function scanTab() {
 
             allElements.forEach((el) => { // I need to run through all the element in the tab. Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
                 const elStyle = getComputedStyle(el); // This picks the element and returns its properties data applied in CSS. Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle. ChatGPT link where I accidentally found this function: https://chatgpt.com/share/69cc26c7-e5ac-8325-80d5-40bb5e8833c0
-                data.push({ // While im running throug the elements in line 25, this picks data array and add elements to the end of data array until it runs out of the elements described in lines 28-34. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+                data.push({ // While im running throug the elements in line 23, this picks data array and add elements to the end of data array until it runs out of the elements described in lines 26-31. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
                     color: elStyle.color,
                     backgroundColor: elStyle.backgroundColor,
                     borderColor: elStyle.borderColor,
                     fontFamily: elStyle.fontFamily,
                     fontSize: elStyle.fontSize,
                     fontWeight: elStyle.fontWeight,
-                    lineHeight: elStyle.lineHeight
                 });
             });
 
-            return data; // Give me thar data from lines 28-34
+            return data; // Give me thar data from lines 26-31
         }
     });
 
-    // Here I keep all my results from pulling data from lines 28-34 and make it variable. Thus, I make it appropriate for reuse
+    // Here I keep all my results from pulling data from lines 26-31 and make it variable. Thus, I make it appropriate for reuse
     // I use result[0] since Im pulling data from single tab/page.
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
     const retDataRaw = result[0].result; 
@@ -47,7 +44,8 @@ async function scanTab() {
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
     // Source_Line 41-48: https://github.com/astapable/into-data-viz/blob/main/02_quantities/02_stacked_bars/bar_stacked.js
-    // Here I have all unique independant elements so I make an Array.from for every element Im pulling from lines 28-34 to get only unique ones
+    // Here I have all unique independant elements so I make an Array.from for every element Im pulling from lines 26-31 to get only unique ones
+
     // Source Set(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
     // Source new Set(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
     // Source Array.from(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
@@ -59,21 +57,33 @@ async function scanTab() {
     const uniFontFamilies = Array.from(new Set(retDataRaw.map(el => el.fontFamily)));
     const uniFontSizes = Array.from(new Set(retDataRaw.map(el => el.fontSize)));
     const uniFontWeights = Array.from(new Set(retDataRaw.map(el => el.fontWeight)));
-    const uniLineHeights = Array.from(new Set(retDataRaw.map(el => el.lineHeight)));
     
+    // I need empty separator betveen data elements so I use .join() to remove default comma as I wrap it in <li> with flex colun=mn in HTML
+    // Moreover, .join() required to merge all elements in one string for HTML use. 
+    // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
     const uniColorsList = document.querySelector("#uniColors");
-    console.log(uniBackColors);
-    console.log(uniBorderColors);
-    console.log(uniFontFamilies);
-    console.log(uniFontSizes);
-    console.log(uniFontWeights);
-    console.log(uniLineHeights);
+    uniColorsList.innerHTML = uniColors.map(el => `<li>${el}</li>`).join(""); 
+
+    const uniBackColorsList = document.querySelector("#uniBackColors");
+    uniBackColorsList.innerHTML = uniBackColors.map(el => `<li>${el}</li>`).join("");
+
+    const uniBorderColorsList = document.querySelector("#uniBorderColors");
+    uniBorderColorsList.innerHTML = uniBorderColors.map(el => `<li>${el}</li>`).join("");
+
+    const uniFontFamiliesList = document.querySelector("#uniFontFamilies");
+    uniFontFamiliesList.innerHTML = uniFontFamilies.map(el => `<li>${el}</li>`).join("");
+
+    const uniFontSizesList = document.querySelector("#uniFontSizes");
+    uniFontSizesList.innerHTML = uniFontSizes.map(el => `<li>${el}</li>`).join("");
+
+    const uniFontWeightsList = document.querySelector("#uniFontWeights");
+    uniFontWeightsList.innerHTML = uniFontWeights.map(el => `<li>${el}</li>`).join("");
 }
 
-// Called out the function denoted in line 16
+// Called out the function denoted in line 14
 // The browser read the core from top to bottom
-// When it sees the function from line 16 it accnowledge it but not stert it
+// When it sees the function from line 14 it accnowledge it but not stert it
 // When browser reads scanTab() that is when it starts it. This was mentioned by Eric in the extension loom demo
-// Line 9_async function getTabId() doesnt need to start as it is called in line 16
+// Line 7_async function getTabId() doesnt need to start as it is called in line 14
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 scanTab();

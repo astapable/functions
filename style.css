@@ -3,6 +3,20 @@ body {
     padding: 1.5rem;
 }
 
-li {
+section {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
