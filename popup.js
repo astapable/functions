@@ -56,6 +56,14 @@ async function scanTab() {
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
     const retColorRaw = result[0].result.colorData;
     const retTextRaw = result[0].result.textData;
+    console.log("reached tagData")
+    const tagData = {};
+    retTextRaw.forEach(el => {
+        if (!tagData[el.tag]) {
+            tagData[el.tag] = el;
+        }
+    });
+    console.log(tagData)
 
     
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
