@@ -15,12 +15,6 @@ ul {
     gap: 0.75rem;
 }
 
-/* li {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-} */
-
 li {
     display: flex;
     flex-direction: column;
@@ -51,13 +45,11 @@ li {
     gap: 0.5rem;
 }
 
-
 .color-box {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.75rem;
-    background-color: blueviolet;
 }
 
 
