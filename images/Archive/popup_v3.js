@@ -46,6 +46,7 @@ async function scanTab() {
                 });
             });
 
+
             return { colorData, textData }; // Give me thar data from lines 27-29 and 39-45
         }
     });
@@ -55,7 +56,7 @@ async function scanTab() {
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
     const retColorRaw = result[0].result.colorData;
     const retTextRaw = result[0].result.textData;
-
+    // console.log("reached tagData")
     const tagData = {}; // I create normal object  for the future dynamic keys. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 
     retTextRaw.forEach(el => { 
         if (!tagData[el.tag]) { // firs, I check if there are tag like h1, if there are not (logical NOT (!)) - move on. If there are, I add it to the {} from linr 60 and un throug other elements of forEach.
@@ -63,6 +64,7 @@ async function scanTab() {
         }
     });
 
+    
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
     // Source_Line 41-48: https://github.com/astapable/into-data-viz/blob/main/02_quantities/02_stacked_bars/bar_stacked.js
@@ -77,11 +79,6 @@ async function scanTab() {
     const uniColors = Array.from(new Set(retColorRaw.map(el => el.color)));
     const uniBackColors = Array.from(new Set(retColorRaw.map(el => el.backgroundColor)));
     const uniBorderColors = Array.from(new Set(retColorRaw.map(el => el.borderColor)));
-    const allUniColors = Array.from(new Set([
-        ...uniColors,
-        ...uniBackColors,
-        ...uniBorderColors
-    ]));
 
     // I need empty separator betveen data elements so I use .join() to remove default comma as I wrap it in <li> with flex colun=mn in HTML
     // Moreover, .join() required to merge all elements in one string for HTML use. 
@@ -96,23 +93,12 @@ async function scanTab() {
     const uniBorderColorsList = document.querySelector("#uniBorderColors");
     uniBorderColorsList.innerHTML = uniBorderColors.map(el => `<li>${el}</li>`).join("");
 
-    document.querySelector("#all-colors").innerHTML = allUniColors.map(el =>
-        `
-        <li>
-            <div class="color-box" style="background-color:${el}">
-                <p>${el}</p>
-                <p class="footnote">Number of instances</p>
-            </div>  
-        </li>
-        `
-    ).join("");
-    
     // MVP UPD_This was hard to find to be honest. I went through this the Working with Objects at some point in my research
     // I fin this line of text talking about listing obj propertiess - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects#enumerating_properties
     // I find this line of text which made me think about using this function - "If you need both the property keys and values, use Object.entries() instead.
     // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys#description
     // ChatGPT link to clarify the difference in terms of my task: https://chatgpt.com/share/69d56cb5-33f4-8326-b4aa-aedaa2654205
-    document.querySelector("#typography").innerHTML = 
+    document.querySelector("#FontStyles").innerHTML = 
     Object.entries(tagData).map(([tag, data]) => 
         `
         <li>
@@ -143,7 +129,7 @@ async function scanTab() {
             <div class="data-wrapper">
                 <p>Text Color</p>
                 <div class="text-color">
-                    <div class="text-color-box" style="background-color:${data.color}"></div>
+                    <div class="color-box" style="background-color:${data.color}"></div>
                     <p>${data.color}</p>
                 </div>
             </div>
@@ -159,6 +145,3 @@ async function scanTab() {
 // Line 7_async function getTabId() doesnt need to start as it is called in line 14
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 scanTab();
-
-
-
