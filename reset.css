@@ -1,0 +1,56 @@
+/* Derived from: https://github.com/elad2412/the-new-css-reset */
+
+/* Remove all the styles of the “User-Agent-Stylesheet” except for the `display` property. */
+*:where(:not(html, svg *, symbol *)) {
+	all: unset;
+	display: revert;
+}
+
+/* Preferred box-sizing value. */
+*, *::before, *::after { box-sizing: border-box }
+
+/* Fix mobile Safari increase font-size on landscape mode. */
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+/* Reapply the pointer cursor for anchor tags. */
+a, button, summary { cursor: revert }
+
+/* Remove list styles (bullets/numbers). */
+ol, ul, menu, summary { list-style: none }
+
+/* For images to not be able to exceed their container. */
+img {
+	max-block-size: 100%;
+	max-inline-size: 100%;
+}
+
+/* Remove spacing between cells in tables. */
+table { border-collapse: collapse }
+
+/* Safari issue when using text input. */
+input, textarea { -webkit-user-select: auto }
+
+/* Revert for textarea elements on Safari. */
+textarea { white-space: revert }
+
+/* Minimum style to allow to style meter element. */
+meter { appearance: revert }
+
+/* Default text opacity of input placeholder. */
+::placeholder { color: unset }
+
+/* Nix user-agent overlay colors. */
+::backdrop { background: unset }
+
+/* Fix the feature of 'hidden' attribute. */
+:where([hidden]) { display: none }
+
+/* Restore draggable feature. */
+:where([draggable='true']) { -webkit-user-drag: element }
+
+/* Remove details/summary styles. */
+::-webkit-details-marker { display: none }
