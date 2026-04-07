@@ -74,6 +74,7 @@ async function scanTab() {
     // ChatGPT link: https://chatgpt.com/share/69cc847f-0c98-8329-b513-9815df07996a
     // FOR FUTURE UPDATES_Source about spread: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
     // COLOR SPEC
+    // ChatGPT link: https://chatgpt.com/share/69d5808c-6a78-832a-a0c1-b0f049a9d6c1
     const uniColors = Array.from(new Set(retColorRaw.map(el => el.color)));
     const uniBackColors = Array.from(new Set(retColorRaw.map(el => el.backgroundColor)));
     const uniBorderColors = Array.from(new Set(retColorRaw.map(el => el.borderColor)));
@@ -87,15 +88,6 @@ async function scanTab() {
     // Moreover, .join() required to merge all elements in one string for HTML use. 
     // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
     // COLOR SPEC
-    const uniColorsList = document.querySelector("#uniColors");
-    uniColorsList.innerHTML = uniColors.map(el => `<li>${el}</li>`).join(""); 
-
-    const uniBackColorsList = document.querySelector("#uniBackColors");
-    uniBackColorsList.innerHTML = uniBackColors.map(el => `<li>${el}</li>`).join("");
-
-    const uniBorderColorsList = document.querySelector("#uniBorderColors");
-    uniBorderColorsList.innerHTML = uniBorderColors.map(el => `<li>${el}</li>`).join("");
-
     document.querySelector("#all-colors").innerHTML = allUniColors.map(el =>
         `
         <li>
@@ -106,12 +98,13 @@ async function scanTab() {
         </li>
         `
     ).join("");
-    
+
     // MVP UPD_This was hard to find to be honest. I went through this the Working with Objects at some point in my research
     // I fin this line of text talking about listing obj propertiess - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects#enumerating_properties
     // I find this line of text which made me think about using this function - "If you need both the property keys and values, use Object.entries() instead.
     // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys#description
     // ChatGPT link to clarify the difference in terms of my task: https://chatgpt.com/share/69d56cb5-33f4-8326-b4aa-aedaa2654205
+    // TYPO SPEC
     document.querySelector("#typography").innerHTML = 
     Object.entries(tagData).map(([tag, data]) => 
         `
