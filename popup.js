@@ -110,7 +110,18 @@ async function scanTab() {
     uniLetterSpacingsList.innerHTML = uniLetterSpacings.map(el => `<li>${el}</li>`).join("");
 
     const uniTextColorsList = document.querySelector("#uniTextColors");
-    uniTextColorsList.innerHTML = uniTextColors.map(el => `<li>${el}</li>`).join("");
+    // uniTextColorsList.innerHTML = uniTextColors.map(el => `<li>${el}</li>`).join("");
+    uniTextColorsList.innerHTML = uniTextColors.map(el => 
+        `
+        <li>
+            <p>Text Color</p>
+            <div class="text-color">
+                <div class="color-box" style="background-color:${el}"></div>
+                <p>${el}</p>
+            </div>
+        </li>
+        `
+    ).join("");
 }
 
 // Called out the function denoted in line 14

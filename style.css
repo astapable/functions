@@ -21,21 +21,22 @@ li {
     gap: 1.5rem;
 }
 
-.text-clor {
+.text-color {
     display: flex;
     flex-direction: row;
     gap: 0.25rem;
 }
 
 .color-box {
+    display: block;
     width: 1.75rem;
     height: 1.75rem;
 }
 
-div {
+/* div {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
+} */
 
 
