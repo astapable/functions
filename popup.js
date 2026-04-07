@@ -95,19 +95,54 @@ async function scanTab() {
 
     // TEST SPEC
     const uniFontFamiliesList = document.querySelector("#uniFontFamilies");
-    uniFontFamiliesList.innerHTML = uniFontFamilies.map(el => `<li>${el}</li>`).join("");
+    uniFontFamiliesList.innerHTML = uniFontFamilies.map(el =>
+        `
+        <li>
+            <p>Font Family</p>
+            <p>${el}</p>
+        </li>
+        `
+    ).join("");
 
     const uniFontSizesList = document.querySelector("#uniFontSizes");
-    uniFontSizesList.innerHTML = uniFontSizes.map(el => `<li>${el}</li>`).join("");
+    uniFontSizesList.innerHTML = uniFontSizes.map(el =>
+        `
+        <li>
+            <p>Font Size</p>
+            <p>${el}</p>
+        </li>
+        `
+    ).join("");
 
     const uniLineHeightsList = document.querySelector("#uniLineHeights");
-    uniLineHeightsList.innerHTML = uniLineHeights.map(el => `<li>${el}</li>`).join("");
+    uniLineHeightsList.innerHTML = uniLineHeights.map(el =>
+        `
+        <li>
+            <p>Line Height</p>
+            <p>${el}</p>
+        </li>
+        `
+    ).join("");
 
     const uniFontWeightsList = document.querySelector("#uniFontWeights");
-    uniFontWeightsList.innerHTML = uniFontWeights.map(el => `<li>${el}</li>`).join("");
+    uniFontWeightsList.innerHTML = uniFontWeights.map(el => 
+        `
+        <li>
+            <p>Weight</p>
+            <p>${el}</p>
+        </li>
+        `
+    ).join("");
 
     const uniLetterSpacingsList = document.querySelector("#uniLetterSpacings");
-    uniLetterSpacingsList.innerHTML = uniLetterSpacings.map(el => `<li>${el}</li>`).join("");
+    uniLetterSpacingsList.innerHTML = uniLetterSpacings.map(el => 
+        `
+        <li>
+            <p>Letter Spacing</p>
+            <p>${el}</p>
+        </li>
+        `
+    ).join("");
 
     const uniTextColorsList = document.querySelector("#uniTextColors");
     // uniTextColorsList.innerHTML = uniTextColors.map(el => `<li>${el}</li>`).join("");
