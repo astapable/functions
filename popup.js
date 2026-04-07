@@ -93,7 +93,12 @@ async function scanTab() {
     const uniBorderColorsList = document.querySelector("#uniBorderColors");
     uniBorderColorsList.innerHTML = uniBorderColors.map(el => `<li>${el}</li>`).join("");
 
-    document.querySelector("#uniFontFamilies").innerHTML = 
+    // MVP UPD_This was hard to find to be honest. I went through this the Working with Objects at some point in my research
+    // I fin this line of text talking about listing obj propertiess - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects#enumerating_properties
+    // I find this line of text which made me think about using this function - "If you need both the property keys and values, use Object.entries() instead.
+    // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys#description
+    // ChatGPT link to clarify the difference in terms of my task: https://chatgpt.com/share/69d56cb5-33f4-8326-b4aa-aedaa2654205
+    document.querySelector("#FontStyles").innerHTML = 
     Object.entries(tagData).map(([tag, data]) => 
         `
         <li>
