@@ -56,14 +56,13 @@ async function scanTab() {
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
     const retColorRaw = result[0].result.colorData;
     const retTextRaw = result[0].result.textData;
-    console.log("reached tagData")
-    const tagData = {};
-    retTextRaw.forEach(el => {
-        if (!tagData[el.tag]) {
-            tagData[el.tag] = el;
+    // console.log("reached tagData")
+    const tagData = {}; // I create normal object  for the future dynamic keys. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 
+    retTextRaw.forEach(el => { 
+        if (!tagData[el.tag]) { // firs, I check if there are tag like h1, if there are not (logical NOT (!)) - move on. If there are, I add it to the {} from linr 60 and un throug other elements of forEach.
+            tagData[el.tag] = el; // This what allow to put element with tag in the key and its properties in the value of the key. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#property_names
         }
     });
-    console.log(tagData)
 
     
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
@@ -80,13 +79,6 @@ async function scanTab() {
     const uniColors = Array.from(new Set(retColorRaw.map(el => el.color)));
     const uniBackColors = Array.from(new Set(retColorRaw.map(el => el.backgroundColor)));
     const uniBorderColors = Array.from(new Set(retColorRaw.map(el => el.borderColor)));
-    // TEXT SPEC
-    const uniFontFamilies = Array.from(new Set(retTextRaw.map(el => el.fontFamily)));
-    const uniFontSizes = Array.from(new Set(retTextRaw.map(el => el.fontSize)));
-    const uniLineHeights = Array.from(new Set(retTextRaw.map(el => el.lineHeight)));
-    const uniFontWeights = Array.from(new Set(retTextRaw.map(el => el.fontWeight)));
-    const uniLetterSpacings = Array.from(new Set(retTextRaw.map(el => el.letterSpacing)));
-    const uniTextColors = Array.from(new Set(retTextRaw.map(el => el.color)));
 
     // I need empty separator betveen data elements so I use .join() to remove default comma as I wrap it in <li> with flex colun=mn in HTML
     // Moreover, .join() required to merge all elements in one string for HTML use. 
@@ -101,66 +93,40 @@ async function scanTab() {
     const uniBorderColorsList = document.querySelector("#uniBorderColors");
     uniBorderColorsList.innerHTML = uniBorderColors.map(el => `<li>${el}</li>`).join("");
 
-    // TEST SPEC
-    const uniFontFamiliesList = document.querySelector("#uniFontFamilies");
-    uniFontFamiliesList.innerHTML = uniFontFamilies.map(el =>
+    document.querySelector("#uniFontFamilies").innerHTML = 
+    Object.entries(tagData).map(([tag, data]) => 
         `
         <li>
-            <p>Font Family</p>
-            <p>${el}</p>
-        </li>
-        `
-    ).join("");
-
-    const uniFontSizesList = document.querySelector("#uniFontSizes");
-    uniFontSizesList.innerHTML = uniFontSizes.map(el =>
-        `
-        <li>
-            <p>Font Size</p>
-            <p>${el}</p>
-        </li>
-        `
-    ).join("");
-
-    const uniLineHeightsList = document.querySelector("#uniLineHeights");
-    uniLineHeightsList.innerHTML = uniLineHeights.map(el =>
-        `
-        <li>
-            <p>Line Height</p>
-            <p>${el}</p>
-        </li>
-        `
-    ).join("");
-
-    const uniFontWeightsList = document.querySelector("#uniFontWeights");
-    uniFontWeightsList.innerHTML = uniFontWeights.map(el => 
-        `
-        <li>
-            <p>Weight</p>
-            <p>${el}</p>
-        </li>
-        `
-    ).join("");
-
-    const uniLetterSpacingsList = document.querySelector("#uniLetterSpacings");
-    uniLetterSpacingsList.innerHTML = uniLetterSpacings.map(el => 
-        `
-        <li>
-            <p>Letter Spacing</p>
-            <p>${el}</p>
-        </li>
-        `
-    ).join("");
-
-    const uniTextColorsList = document.querySelector("#uniTextColors");
-    // uniTextColorsList.innerHTML = uniTextColors.map(el => `<li>${el}</li>`).join("");
-    uniTextColorsList.innerHTML = uniTextColors.map(el => 
-        `
-        <li>
-            <p>Text Color</p>
-            <div class="text-color">
-                <div class="color-box" style="background-color:${el}"></div>
-                <p>${el}</p>
+            <header class="box-title">
+                <p class="tag">${tag}</p>
+                <p class="footnote">Number of instances</p>
+            </header>
+            <div class="data-wrapper">
+                <p>Font Family</p>
+                <p>${data.fontFamily}</p>
+            </div>
+            <div class="data-wrapper">
+                <p>Font Size</p>
+                <p>${data.fontSize}</p>
+            </div>
+            <div class="data-wrapper">
+                <p>Line Height</p>
+                <p>${data.lineHeight}</p>
+            </div>
+            <div class="data-wrapper">
+                <p>Font Weight</p>
+                <p>${data.fontWeight}</p>
+            </div>
+            <div class="data-wrapper">
+                <p>Letter Spacing</p>
+                <p>${data.letterSpacing}</p>
+            </div>
+            <div class="data-wrapper">
+                <p>Text Color</p>
+                <div class="text-color">
+                    <div class="color-box" style="background-color:${data.color}"></div>
+                    <p>${data.color}</p>
+                </div>
             </div>
         </li>
         `
