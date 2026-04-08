@@ -150,7 +150,7 @@ async function scanTab() {
         // In my case indexStart = 0 (ie first element, remeber 0 is always first number), indexEnd = indexOf(",")
         // indexOf(",") looking for value before (",") and take it to my execution. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf#using_indexof
         `
-        <li>
+        <li class="text-category-wrapper">
             <header class="box-title">
                 <p class="tag">${tag}</p>
                 <p class="footnote">Number of instances</p>
