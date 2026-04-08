@@ -6,5 +6,7 @@ chrome.sidePanel
 
 // Source: https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onActivated
 chrome.tabs.onActivated.addListener(() => {
-  chrome.runtime.sendMessage({ action: "tabSwitched" });
+  chrome.runtime.sendMessage({ action: "tabSwitched" })
+    .catch(() => {}); 
 });
+// I had an error cuz I havent this line written. So basically error occured due to the  worker.js was sending sendMessage but my reveel wasnt opened yet. As I understand it .catch(() => {}) helps to just ignore the error and wait until reveel.html opened. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch 
