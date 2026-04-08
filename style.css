@@ -73,8 +73,7 @@ main {
     flex-direction: column;
     gap: 2rem;
     padding-inline: 1rem;
-    padding-block-start: 3rem;
-    padding-block-end: 3.5rem;
+    padding-block: 4.5rem;
     background-color: #fafafa;
 }
 
