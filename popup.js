@@ -108,6 +108,14 @@ async function scanTab() {
         `
     ).join("");
 
+    document.querySelector("#color-summary").innerHTML = allUniColors.map(el =>
+        `
+        <li>
+            <div class="color-box" style="background-color:${el}"></div>  
+        </li>
+        `
+    ).join("");
+
     // MVP UPD_This was hard to find to be honest. I went through this the Working with Objects at some point in my research
     // I fin this line of text talking about listing obj propertiess - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects#enumerating_properties
     // I find this line of text which made me think about using this function - "If you need both the property keys and values, use Object.entries() instead.
