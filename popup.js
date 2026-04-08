@@ -21,7 +21,6 @@ async function getTabId() {
 
 async function scanTab() {
     // Wait until line 7_getTabId() is finished and return it as a variable here
-    // const tabId = await getTabId();
     const tabId = await getTabId();
     const result = await chrome.scripting.executeScript({
         target: { tabId: tabId },
@@ -162,11 +161,11 @@ async function scanTab() {
     ).join("");
 }
 
-// Called out the function denoted in line 14
+// Called out the function denoted in line 22
 // The browser read the core from top to bottom
-// When it sees the function from line 14 it accnowledge it but not stert it
+// When it sees the function from line 22 it accnowledge it but not stert it
 // When browser reads scanTab() that is when it starts it. This was mentioned by Eric in the extension loom demo
-// Line 7_async function getTabId() doesnt need to start as it is called in line 14
+// Line 15_async function getTabId() doesnt need to start as it is called in line 22
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 scanTab();
 
