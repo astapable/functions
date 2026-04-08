@@ -2,7 +2,7 @@
 // Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage
 chrome.runtime.onMessage.addListener((message) => {
     if (message.action === 'tabSwitched') {
-        scanTab();
+        scanTab(); // When user switch tab run scanTab()
     }
 });
 
@@ -31,17 +31,17 @@ async function scanTab() {
             const colorData = []; // Now I need an empty array to store upcoming data. Source: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array
             allColors.forEach((el) => { 
                 const elStyle = getComputedStyle(el); // This picks the element and returns its properties data applied in CSS. Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle. ChatGPT link where I accidentally found this function: https://chatgpt.com/share/69cc26c7-e5ac-8325-80d5-40bb5e8833c0
-                colorData.push({ // While im running throug the elements in line 25, this picks data array and add elements to the end of data array until it runs out of the elements described in lines 27-29. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+                colorData.push({ // While im running throug the elements in line 32, this picks data array and add elements to the end of data array until it runs out of the elements described in lines 27-29. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
                     color: elStyle.color,
                     backgroundColor: elStyle.backgroundColor,
                     borderColor: elStyle.borderColor,
                 });
             });
 
-            // MVP UPD_Ths is basically the same as line 22-32, the only diff is that Im calling out semantic elements related to text
-            const textTags = ["h1","h2","h3","h4","h5","h6","p","li","a","span","label"]; // MVP UPD_ok, this is a little different from line. 22. Here Im just calling for tag names (Might miss some, double chek later)
+            // MVP UPD_Ths is basically the same as line 30-32, the only diff is that Im calling out semantic elements related to text
+            const textTags = ["h1","h2","h3","h4","h5","h6","p","li","a","span","label"]; // Ok, this is a little different from line. 30. Here Im just calling for tag names (Might miss some, double chek later)
             const textData = []; 
-            document.querySelectorAll(textTags.join(",")).forEach((el) => { // MVP UPD_heres where I turn line 35 tags into selectors
+            document.querySelectorAll(textTags.join(",")).forEach((el) => { // Heres where I turn line 42 tags into selectors
                 const elStyle = getComputedStyle(el);
                 textData.push({ 
                     tag: el.tagName.toLowerCase(),
@@ -54,11 +54,11 @@ async function scanTab() {
                 });
             });
 
-            return { colorData, textData }; // Give me thar data from lines 27-29 and 39-45
+            return { colorData, textData }; // Give me thar data from lines 35-37 and 47-53
         }
     });
 
-    // Here I keep all my results from pulling data from lines 27-29 and 39-45 and make it variable. Thus, I make it appropriate for reuse
+    // Here I keep all my results from pulling data from lines 35-37 and 47-53 and make it variable. Thus, I make it appropriate for reuse
     // I use result[0] since Im pulling data from single tab/page.
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
     const retColorRaw = result[0].result.colorData;
@@ -74,7 +74,7 @@ async function scanTab() {
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
     // Source_Line 41-48: https://github.com/astapable/into-data-viz/blob/main/02_quantities/02_stacked_bars/bar_stacked.js
-    // Here I have all unique independant elements so I make an Array.from for every element Im pulling from lines 27-29 and 39-45 to get only unique ones
+    // Here I have all unique independant elements so I make an Array.from for every element Im pulling from lines 35-37 and 47-53 to get only unique ones
 
     // Source Set(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
     // Source new Set(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
