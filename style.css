@@ -73,7 +73,8 @@ main {
     flex-direction: column;
     gap: 2rem;
     padding-inline: 1rem;
-    padding-block: 4.5rem;
+    padding-block-start: 4rem;
+    padding-block-end: 5rem;
     background-color: #fafafa;
 }
 
@@ -109,7 +110,7 @@ li {
     display: flex;
     flex-direction: row;
     position: fixed;
-    padding: 1rem;
+    padding: 0.5rem;
     gap: 0.5rem;
     width: 100%;
     background-color: #fafafa;
