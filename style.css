@@ -34,7 +34,7 @@ h1 {
 h2 {
     font-family: "Geist";
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2rem;
     color: #212121;
 }
 
@@ -182,7 +182,7 @@ button {
 }
 
 .label {
-    color: #cdcdcd;
+    color: #848484;
 }
 
 .value {
@@ -212,13 +212,13 @@ button {
     font-family: "Geist";
     font-weight: 400;
     font-size: 1rem;
-    color: #cdcdcd;
+    color: #848484;
 }
 
 .font-title {
     font-family: "Geist";
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: #212121;
 }
 
