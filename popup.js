@@ -16,17 +16,27 @@ async function getTabId() {
     // async means 'There are something you need to wait for'
     // await means 'Wait for me'
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    return tab.id;
+    return tab; // tab.id; before change
+    // I constantly had an error in the extension page where extension tried to get access to the chrome://. 
+    // TabID do not allow to check urls, so I changed to tab. 
+    // Source: https://developer.chrome.com/docs/extensions/mv2/reference/tabs#perms
+    //Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab#url
 }
 
-async function scanTab() {
+    async function scanTab() {
+    const tab = await getTabId();
+
+    if (tab.url.startsWith("chrome://")) {
+        return; 
+    }
+
     // Wait until line 7_getTabId() is finished and return it as a variable here
-    const tabId = await getTabId();
+    // const tabId = await getTabId();
     const result = await chrome.scripting.executeScript({
-        target: { tabId: tabId },
+        target: { tabId: tab.id },
         func: () => {
             // Select all the elements in the tab. Spirce: https://developer.mozilla.org/en-US/docs/Web/API/Document/all
-            // MVP UPD_So I decided to bring all colors and typo spec colors as a separete callouts. This decision was made to male my life easier.
+            // So I decided to bring all colors and typo spec colors as a separete callouts. This decision was made to male my life easier.
             const allColors = document.querySelectorAll("*"); // I need to run through all the element in the tab. Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
             const colorData = []; // Now I need an empty array to store upcoming data. Source: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array
             allColors.forEach((el) => { 
