@@ -100,6 +100,14 @@ li {
     gap: 1.5rem;
 }
 
+.data-wrapper p:nth-child(1) {
+    width: 20%;
+}
+
+.data-wrapper p:nth-child(2) {
+    width: 80%;
+}
+
 .label {
     color: #cdcdcd;
 }
