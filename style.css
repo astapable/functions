@@ -63,8 +63,7 @@ p {
 
 /* =================== GENERAL WRAPPER STYLES =================== */
 body {
-    min-width: 32rem;
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 section {
