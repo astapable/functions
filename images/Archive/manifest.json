@@ -3,12 +3,14 @@
   "description": "Base Level Extension",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["activeTab", "scripting", "sidePanel"],
+  "permissions": ["activeTab", "scripting"],
 
   "side_panel": {
-    "default_path": "reveel.html"
+    "default_path": "sidepanel.html"
   },
 
+  "action": {"default_popup": "reveel.html"},
+  
   "icons": {
     "16": "images/icon-16.png",
     "32": "images/icon-32.png",
