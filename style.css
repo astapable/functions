@@ -34,7 +34,7 @@ h1 {
 h2 {
     font-family: "Geist";
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #212121;
 }
 
@@ -127,7 +127,7 @@ li {
 .top {
     top: 0;
     left: 0;
-    border-bottom: 1px solid #ebebeb;
+    border-bottom: 1px solid #BDBDBD;
 }
 
 .ext-h1-text {
@@ -146,7 +146,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 0.063rem solid #ebebeb;
+    border-top: 0.063rem solid #BDBDBD;
 }
     button p {
         text-align: center;
@@ -199,7 +199,7 @@ button {
 .text-color-box,
 .summary-color-box {
     display: block;
-    border: 0.063rem solid #ebebeb;
+    border: 0.063rem solid #BDBDBD;
     border-radius: 0.25rem;
 }
 
@@ -218,7 +218,7 @@ button {
 .font-title {
     font-family: "Geist";
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: #212121;
 }
 
@@ -227,7 +227,7 @@ button {
     flex-direction: column;
     gap: 1.25rem;
     padding: 1rem;
-    border: 0.063rem solid #ebebeb;
+    border: 0.063rem solid #BDBDBD;
     border-radius: 0.375rem;
 }
 
@@ -243,6 +243,6 @@ button {
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.75rem;
-    border: 0.063rem solid #ebebeb;
+    border: 0.063rem solid #BDBDBD;
     border-radius: 0.375rem;
 }
