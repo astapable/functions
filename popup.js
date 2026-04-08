@@ -1,3 +1,5 @@
+// Same as I end up with but oldscool (no (x) => - Eric mentioned that it is the modern way): https://www.youtube.com/shorts/0x4Ig5tOIQo
+// Youube RGB to HEX with regular expression explanation:https://www.youtube.com/watch?v=5wMGpvglcfg
 function rgbToHex(r, g, b) {
     const toHex = (c) => c.toString(16).padStart(2, '0');
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
@@ -91,8 +93,8 @@ async function scanTab() {
         Object.entries(fontCategories).map(([category, tags]) => {
             const fonts = [...new Set(
                 tags // tags are specified in line 42 and categorized in line 75-77
-                .filter(tag => tagData[tag])
-                .map(tag => tagData[tag].fontFamily.replaceAll('"', '').substring(0, tagData[tag].fontFamily.indexOf(","))) // Ok we figured oiut substring in line 141.
+                    .filter(tag => tagData[tag])
+                    .map(tag => tagData[tag].fontFamily.replaceAll('"', '').substring(0, tagData[tag].fontFamily.indexOf(","))) // Ok we figured oiut substring in line 141.
             )];
             return`
                 <li>
