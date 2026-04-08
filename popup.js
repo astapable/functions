@@ -16,24 +16,15 @@ async function getTabId() {
     // async means 'There are something you need to wait for'
     // await means 'Wait for me'
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    return tab; // tab.id; before change
-    // I constantly had an error in the extension page where extension tried to get access to the chrome://. 
-    // TabID do not allow to check urls, so I changed to tab. 
-    // Source: https://developer.chrome.com/docs/extensions/mv2/reference/tabs#perms
-    //Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab#url
+    return tab.id;
 }
 
-    async function scanTab() {
-    const tab = await getTabId();
-
-    if (tab.url.startsWith("chrome://")) {
-        return; 
-    }
-
+async function scanTab() {
     // Wait until line 7_getTabId() is finished and return it as a variable here
     // const tabId = await getTabId();
+    const tabId = await getTabId();
     const result = await chrome.scripting.executeScript({
-        target: { tabId: tab.id },
+        target: { tabId: tabId },
         func: () => {
             // Select all the elements in the tab. Spirce: https://developer.mozilla.org/en-US/docs/Web/API/Document/all
             // So I decided to bring all colors and typo spec colors as a separete callouts. This decision was made to male my life easier.
