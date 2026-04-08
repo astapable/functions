@@ -1,3 +1,13 @@
+function rgbToHex(r, g, b) {
+    const toHex = (c) => c.toString(16).padStart(2, '0');
+    return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
+function rgbStringToHex(rgbString) {
+    const [r, g, b] = rgbString.match(/\d+/g).map(Number);
+    return rgbToHex(r, g, b);
+}
+
 // Source: https://developer.chrome.com/docs/extensions/reference/api/tabs#open_an_extension_page_in_a_new_tab
 // Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage
 chrome.runtime.onMessage.addListener((message) => {
@@ -82,7 +92,7 @@ async function scanTab() {
             const fonts = [...new Set(
                 tags // tags are specified in line 42 and categorized in line 75-77
                 .filter(tag => tagData[tag])
-                .map(tag => tagData[tag].fontFamily.substring(0, tagData[tag].fontFamily.indexOf(","))) // Ok we figured oiut substring in line 141
+                .map(tag => tagData[tag].fontFamily.replaceAll('"', '').substring(0, tagData[tag].fontFamily.indexOf(","))) // Ok we figured oiut substring in line 141.
             )];
             return`
                 <li>
@@ -157,7 +167,7 @@ async function scanTab() {
             </header>
             <div class="data-wrapper">
                 <p class="label">Font Family</p>
-                <p class="value">${data.fontFamily.substring(0, data.fontFamily.indexOf(","))}</p>
+                <p class="value">${data.fontFamily.replaceAll('"', '').substring(0, data.fontFamily.indexOf(","))}</p>
             </div>
             <div class="data-wrapper">
                 <p class="label">Font Size</p>
