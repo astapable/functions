@@ -1,3 +1,11 @@
+// Source: https://developer.chrome.com/docs/extensions/reference/api/tabs#open_an_extension_page_in_a_new_tab
+// Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage
+chrome.runtime.onMessage.addListener((message) => {
+    if (message.action === 'tabSwitched') {
+        scanTab();
+    }
+});
+
 // Removed content_scripts from original demo manifest.json since I will use executeScript
 // Why executeScript? My popup.js will control the outcome
 // The extension will not work automatically after the page loads
