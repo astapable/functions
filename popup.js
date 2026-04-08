@@ -123,6 +123,9 @@ async function scanTab() {
     // TYPO SPEC
     document.querySelector("#typography").innerHTML = 
     Object.entries(tagData).map(([tag, data]) => 
+        //line 135 - example from Muchael's link - substring(indexStart, indexEnd)
+        // In my case indexStart = 0 (ie first element, remeber 0 is always first number), indexEnd = indexOf(",")
+        // indexOf(",") looking for value before (",") and take it to my execution
         `
         <li>
             <header class="box-title">
@@ -131,7 +134,7 @@ async function scanTab() {
             </header>
             <div class="data-wrapper">
                 <p class="label">Font Family</p>
-                <p class="value">${data.fontFamily}</p>
+                <p class="value">${data.fontFamily.substring(0, data.fontFamily.indexOf(","))}</p>
             </div>
             <div class="data-wrapper">
                 <p class="label">Font Size</p>
