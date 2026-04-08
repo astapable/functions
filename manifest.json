@@ -4,6 +4,7 @@
   "version": "1.0",
   "manifest_version": 3,
   "permissions": ["activeTab", "scripting", "sidePanel"],
+  "host_permissions": ["<all_urls>"],
 
   "background": {
       "service_worker": "worker.js"
