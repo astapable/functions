@@ -49,6 +49,8 @@ p {
     font-family: "Geist";
     font-weight: 400;
     font-size: 0.75rem;
+    width: fit-content; 
+    /* small fix here */
     color: #212121;
     padding: 0.5rem;
     background-color: #ebebeb;
