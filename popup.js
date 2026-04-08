@@ -71,6 +71,27 @@ async function scanTab() {
         }
     });
 
+    const fontCategories = {
+        Display: ["h1"],
+        Heading: ["h2", "h3", "h4", "h5", "h6"],
+        Body: ["p","li","a","span","label"],
+    };
+
+    document.querySelector("#font-summary").innerHTML =
+        Object.entries(fontCategories).map(([category, tags]) => {
+            const fonts = [...new Set(
+                tags // tags are specified in line 42 and categorized in line 75-77
+                .filter(tag => tagData[tag])
+                .map(tag => tagData[tag].fontFamily.substring(0, tagData[tag].fontFamily.indexOf(","))) // Ok we figured oiut substring in line 141
+            )];
+            return`
+                <li>
+                    <p class="font-category">${category}</p>
+                    <p class="font-title">${fonts.join(", ") || "—"}</p>
+                </li>
+            `;
+        }).join(""); // || means OR. If font.joint is empty JS will return as - (N/A)
+
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
     // Source_Line 41-48: https://github.com/astapable/into-data-viz/blob/main/02_quantities/02_stacked_bars/bar_stacked.js
@@ -130,9 +151,6 @@ async function scanTab() {
         <li>
             <header class="box-title">
                 <p class="tag">${tag}</p>
-                <p style="font-family: ${data.fontFamily}; font-size: ${data.fontSize}; font-weight: ${data.fontWeight}; line-height: ${data.lineHeight}; letter-spacing: ${data.letterSpacing}">
-                    AaBbCcDd
-                </p>
                 <p class="footnote">Number of instances</p>
             </header>
             <div class="data-wrapper">
