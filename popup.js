@@ -111,7 +111,7 @@ async function scanTab() {
     document.querySelector("#color-summary").innerHTML = allUniColors.map(el =>
         `
         <li>
-            <div class="color-box" style="background-color:${el}"></div>  
+            <div class="summary-color-box" style="background-color:${el}"></div>  
         </li>
         `
     ).join("");
