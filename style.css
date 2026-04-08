@@ -105,7 +105,7 @@ li {
 
 #color-summary {
     display: grid;
-    grid-template-columns: repeat(6, max-content);
+    grid-template-columns: repeat(5, max-content);
     gap: 0.5rem;
 }
 
@@ -195,7 +195,7 @@ button {
     align-items: center;
     gap: 0.5rem;
 }
-/* Fixed */
+
 .text-color-box,
 .summary-color-box {
     display: block;
@@ -208,12 +208,12 @@ button {
     height: 1.5rem;
 }
 
+/* ======================= COLOR DATA ======================= */
+
 .summary-color-box{
     width: 3rem;
     height: 3rem;
 }
-
-/* ======================= COLOR DATA ======================= */
 
 .color-box {
     display: flex;
