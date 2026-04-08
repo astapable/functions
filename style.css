@@ -195,7 +195,7 @@ button {
     align-items: center;
     gap: 0.5rem;
 }
-
+/* Fixed */
 .text-color-box,
 .summary-color-box {
     display: block;
