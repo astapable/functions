@@ -77,7 +77,7 @@ async function scanTab() {
         Body: ["p","li","a","span","label"],
     };
 
-    document.querySelector("#font-summary").innerHTML =
+    document.querySelector("#typo-summary").innerHTML =
         Object.entries(fontCategories).map(([category, tags]) => {
             const fonts = [...new Set(
                 tags // tags are specified in line 42 and categorized in line 75-77
@@ -86,8 +86,10 @@ async function scanTab() {
             )];
             return`
                 <li>
-                    <p class="font-category">${category}</p>
-                    <p class="font-title">${fonts.join(", ") || "—"}</p>
+                    <div class="text-category-wrapper">
+                        <p class="font-category">${category}</p>
+                        <p class="font-title">${fonts.join(", ") || "—"}</p>
+                    </div>
                 </li>
             `;
         }).join(""); // || means OR. If font.joint is empty JS will return as - (N/A)
