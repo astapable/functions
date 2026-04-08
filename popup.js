@@ -123,13 +123,16 @@ async function scanTab() {
     // TYPO SPEC
     document.querySelector("#typography").innerHTML = 
     Object.entries(tagData).map(([tag, data]) => 
-        //line 135 - example from Muchael's link - substring(indexStart, indexEnd)
+        //line 135 - example from Muchael's link - substring(indexStart, indexEnd). M's Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
         // In my case indexStart = 0 (ie first element, remeber 0 is always first number), indexEnd = indexOf(",")
-        // indexOf(",") looking for value before (",") and take it to my execution
+        // indexOf(",") looking for value before (",") and take it to my execution. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf#using_indexof
         `
         <li>
             <header class="box-title">
                 <p class="tag">${tag}</p>
+                <p style="font-family: ${data.fontFamily}; font-size: ${data.fontSize}; font-weight: ${data.fontWeight}; line-height: ${data.lineHeight}; letter-spacing: ${data.letterSpacing}">
+                    AaBbCcDd
+                </p>
                 <p class="footnote">Number of instances</p>
             </header>
             <div class="data-wrapper">
