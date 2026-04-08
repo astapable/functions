@@ -5,6 +5,12 @@
   "manifest_version": 3,
   "permissions": ["activeTab", "scripting", "sidePanel"],
 
+  "background": {
+      "service_worker": "worker.js"
+  },
+
+  "action": {},
+
   "side_panel": {
     "default_path": "reveel.html"
   },
