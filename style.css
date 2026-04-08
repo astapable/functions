@@ -101,11 +101,15 @@ li {
 }
 
 .data-wrapper p:nth-child(1) {
-    width: 25%;
+    width: 30%;
 }
 
 .data-wrapper p:nth-child(2) {
-    width: 75%;
+    width: 70%;
+}
+
+.data-wrapper .text-color:nth-child(2) {
+    width: 70%;
 }
 
 .label {
