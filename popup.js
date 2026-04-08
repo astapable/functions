@@ -132,8 +132,8 @@ async function scanTab() {
     document.querySelector("#all-colors").innerHTML = allUniColors.map(el =>
         `
         <li>
-            <div class="color-box" style="background-color:${el}">
-                <p>${el}</p>
+            <div class="color-box" style="background-color:${rgbStringToHex(el)}">
+                <p>${rgbStringToHex(el)}</p>
                 <p class="footnote">Number of instances</p>
             </div>  
         </li>
@@ -143,7 +143,7 @@ async function scanTab() {
     document.querySelector("#color-summary").innerHTML = allUniColors.map(el =>
         `
         <li>
-            <div class="summary-color-box" style="background-color:${el}"></div>  
+            <div class="summary-color-box" style="background-color:${rgbStringToHex(el)}"></div>  
         </li>
         `
     ).join("");
@@ -188,8 +188,8 @@ async function scanTab() {
             <div class="data-wrapper">
                 <p class="label">Text Color</p>
                 <div class="text-color">
-                    <div class="text-color-box" style="background-color:${data.color}"></div>
-                    <p>${data.color}</p>
+                    <div class="text-color-box" style="background-color:${rgbStringToHex(data.color)}"></div>
+                    <p>${rgbStringToHex(data.color)}</p>
                 </div>
             </div>
         </li>
