@@ -1,3 +1,67 @@
+/* FONTS */
+@font-face {
+    font-family: "Geist";
+    src: url("fonts/Geist-Bold.woff") format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url("fonts/Geist-SemiBold.woff") format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url("fonts/Geist-Regular.woff") format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==================== GENERAL TEXT STYLES ==================== */
+h1 {
+    font-family: "Geist";
+    font-weight: 700;
+    font-size: 1rem;
+    color: #212121;
+}
+
+h2 {
+    font-family: "Geist";
+    font-weight: 700;
+    font-size: 1rem;
+    color: #212121;
+}
+
+p {
+    font-family: "Geist";
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #212121;
+}
+
+.tag {
+    font-family: "Geist";
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #212121;
+    padding: 0.5rem;
+    background-color: #ebebeb;
+    border-radius: 0.375rem;
+}
+
+.footnote {
+    font-family: "Geist";
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+
+/* =================== GENERAL WRAPPER STYLES =================== */
 body {
     min-width: 32rem;
     padding: 1.5rem;
@@ -9,6 +73,13 @@ section {
     gap: 2rem;
 }
 
+.box-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* ======================= MAIN LIST ======================= */
 ul {
     display: flex;
     flex-direction: column;
@@ -21,10 +92,19 @@ li {
     gap: 1rem;
 }
 
+/* ======================= TEXT DATA ======================= */
 .data-wrapper {
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
+}
+
+.label {
+    color: #cdcdcd;
+}
+
+.value {
+    color: #212121;
 }
 
 .text-color {
@@ -35,15 +115,11 @@ li {
 
 .text-color-box {
     display: block;
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
-.box-title {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
+/* ======================= COLOR DATA ======================= */
 
 .color-box {
     display: flex;
@@ -51,5 +127,3 @@ li {
     gap: 0.5rem;
     padding: 0.75rem;
 }
-
-
