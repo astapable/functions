@@ -114,27 +114,27 @@ async function scanTab() {
                 <p class="footnote">Number of instances</p>
             </header>
             <div class="data-wrapper">
-                <p>Font Family</p>
-                <p>${data.fontFamily}</p>
+                <p class="label">Font Family</p>
+                <p class="value">${data.fontFamily}</p>
             </div>
             <div class="data-wrapper">
-                <p>Font Size</p>
-                <p>${data.fontSize}</p>
+                <p class="label">Font Size</p>
+                <p class="value">${data.fontSize}</p>
             </div>
             <div class="data-wrapper">
-                <p>Line Height</p>
-                <p>${data.lineHeight}</p>
+                <p class="label">Line Height</p>
+                <p class="value">${data.lineHeight}</p>
             </div>
             <div class="data-wrapper">
-                <p>Font Weight</p>
-                <p>${data.fontWeight}</p>
+                <p class="label">Font Weight</p>
+                <p class="value">${data.fontWeight}</p>
             </div>
             <div class="data-wrapper">
-                <p>Letter Spacing</p>
-                <p>${data.letterSpacing}</p>
+                <p class="label">Letter Spacing</p>
+                <p class="value">${data.letterSpacing}</p>
             </div>
             <div class="data-wrapper">
-                <p>Text Color</p>
+                <p class="label">Text Color</p>
                 <div class="text-color">
                     <div class="text-color-box" style="background-color:${data.color}"></div>
                     <p>${data.color}</p>
