@@ -222,6 +222,10 @@ button {
     color: #212121;
 }
 
+#typo-summary li:nth-child(1) .font-title { font-size: 2rem; }
+#typo-summary li:nth-child(2) .font-title { font-size: 1.5rem;}
+#typo-summary li:nth-child(3) .font-title { font-size: 1rem; }
+
 .text-category-wrapper {
     display: flex;
     flex-direction: column;
