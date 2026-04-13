@@ -64,9 +64,10 @@ p {
 }
 
 /* =================== GENERAL WRAPPER STYLES =================== */
-/* body {
-    padding: 1rem;
-} */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
 
 main {
     display: flex;
@@ -76,6 +77,8 @@ main {
     padding-block-start: 4rem;
     padding-block-end: 5rem;
     background-color: #fafafa;
+    height: 100%;
+    overflow-y: auto;
 }
 
 section {
@@ -254,4 +257,18 @@ button {
     padding: 0.75rem;
     border: 0.063rem solid #bdbdbd;
     border-radius: 0.375rem;
+}
+
+.hidden { display: none; }
+
+main::-webkit-scrollbar {
+    width: 4px;
+}
+main::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 3rem;
+}
+main::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 2px;
 }

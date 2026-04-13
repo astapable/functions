@@ -75,6 +75,15 @@ async function scanTab() {
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
     const retColorRaw = result[0].result.colorData;
     const retTextRaw = result[0].result.textData;
+    
+    // FONTFACE LIBRARY
+    const { scanFonts, addFontSources } = await import('./fontface.js');
+    const fontResult = await chrome.scripting.executeScript({
+        target: { tabId },
+        func: scanFonts,
+    });
+    addFontSources(fontResult[0].result);
+    // FONTFACE LIBRARY
 
     const tagData = {}; // I create normal object  for the future dynamic keys. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 
     retTextRaw.forEach(el => { 
@@ -94,13 +103,20 @@ async function scanTab() {
             const fonts = [...new Set(
                 tags // tags are specified in line 42 and categorized in line 75-77
                     .filter(tag => tagData[tag])
-                    .map(tag => tagData[tag].fontFamily.replaceAll('"', '').substring(0, tagData[tag].fontFamily.indexOf(","))) // Ok we figured oiut substring in line 141.
+                    .map(tag => tagData[tag].fontFamily.replaceAll('"', '').split(',')[0].trim()) // Changed substring(0... to split to cut off all '' and ,
+                    .filter(f => f !== '' && !f.startsWith('-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it
             )];
+             // FONTFACE LIBRARY
+            const firstTag = tags.find(t => tagData[t]);
+            const weight = firstTag ? tagData[firstTag].fontWeight : 'normal';
+            const fontName = fonts[0] || '';
+            // FONTFACE LIBRARY
+
             return`
                 <li>
                     <div class="text-category-wrapper">
                         <p class="font-category">${category}</p>
-                        <p class="font-title">${fonts.join(", ") || "—"}</p>
+                        <p class="font-title" style="font-family: ${fontName}; font-weight: ${weight};">${fonts.join(", ") || "N/A"}</p> 
                     </div>
                 </li>
             `;
@@ -169,7 +185,7 @@ async function scanTab() {
             </header>
             <div class="data-wrapper">
                 <p class="label">Font Family</p>
-                <p class="value">${data.fontFamily.replaceAll('"', '').substring(0, data.fontFamily.indexOf(","))}</p>
+                <p class="value">${data.fontFamily.replaceAll('"', '').split(',')[0].trim()}</p>
             </div>
             <div class="data-wrapper">
                 <p class="label">Font Size</p>
@@ -216,7 +232,7 @@ document.querySelector('.bottom').addEventListener('click', e => {
 
     const filter = tabButton.dataset.filter;
     document.querySelectorAll('main section').forEach(section => {
-        section.hidden = section.dataset.category !== filter;
+        section.classList.toggle('hidden', section.dataset.category !== filter);
     });
 });
 
