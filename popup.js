@@ -151,8 +151,19 @@ async function scanTab() {
                         // collect rules to scan — top level + inside @import
                         const rulesToScan = [rule];
                         if (rule instanceof CSSImportRule && rule.styleSheet) {
-                        console.log('import rules:', rule.styleSheet.href, Array.from(rule.styleSheet.cssRules || []).map(r => r.constructor.name));
-                            try { rulesToScan.push(...Array.from(rule.styleSheet.cssRules || [])); } catch(e) {}
+                            try {
+                                Array.from(rule.styleSheet.cssRules || []).forEach(importedRule => {
+                                    rulesToScan.push(importedRule);
+                                    // @font-face can also be inside @layer inside imported stylesheet
+                                    if (importedRule.cssRules) {
+                                        rulesToScan.push(...Array.from(importedRule.cssRules));
+                                    }
+                                });
+                            } catch(e) {}
+                        }
+                        // also check inside @layer at top level
+                        if (rule.cssRules) {
+                            try { rulesToScan.push(...Array.from(rule.cssRules)); } catch(e) {}
                         }
                         rulesToScan.forEach(r => {
                             if (r instanceof CSSFontFaceRule) {
