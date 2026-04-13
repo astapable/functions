@@ -255,6 +255,10 @@ async function scanTab() {
             `;
         }).join(""); // || means OR. If font.joint is empty JS will return as - (N/A)
 
+        // Trying to apply source URL font to .font-title
+        document.querySelectorAll('.font-title').forEach(el => {
+            el.style.fontFamily = el.textContent;
+        });
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
     // Source_Line 41-48: https://github.com/astapable/into-data-viz/blob/main/02_quantities/02_stacked_bars/bar_stacked.js
