@@ -194,7 +194,7 @@ async function scanTab() {
             }
         } else if (source.type === 'fontface') {
             const style = document.createElement('style');
-            style.textContent = `@font-face { font-family: "${source.family}"; src: ${source.src}; }`;
+            style.textContent = `@font-face { font-family: "${source.family}"; src: ${source.src}; font-weight: 100 900; }`;
             document.head.appendChild(style);
         }
     });
