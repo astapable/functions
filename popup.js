@@ -84,6 +84,11 @@ async function scanTab() {
                 }
             });
 
+            // temp debug
+            Array.from(document.styleSheets).forEach(sheet => {
+                console.log('sheet:', sheet.href, 'rules:', sheet.cssRules ? sheet.cssRules.length : 'blocked');
+            });
+
             // 2. Check @import
             // Some stylesheets has cross-origin so I try to catch skips those
             Array.from(document.styleSheets).forEach(sheet => {
