@@ -105,8 +105,8 @@ async function scanTab() {
             });
             // 3. Check @font-face
             function checkFontFace(rule) {
-                 const fontStyle = rule.style.getPropertyValue('font-style') || 'normal'; // Ыууьы Ш цфы пуеештп шефдшсы фе ашкые
-                if (fontStyle !== 'normal') return; // skip italic and oпуе ещ мфкшфтеы
+                 const fontStyle = rule.style.getPropertyValue('font-style') || 'normal'; // Seems that I was gettin italics firs
+                if (fontStyle !== 'normal') return; // skip italic and non-normal
                 const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim(); // get font name
                 const source = rule.style.getPropertyValue('src'); // get font URL ie where it lives
                 if (!source || !source.includes('url(')) return; // skip prev rule if URL is empty
@@ -194,7 +194,7 @@ async function scanTab() {
             }
         } else if (source.type === 'fontface') {
             const style = document.createElement('style');
-            style.textContent = `@font-face { font-family: "${source.family}"; src: ${source.src}; font-weight: 100 900; }`;
+            style.textContent = `@font-face { font-family: "${source.family}"; src: ${source.src}; }`;
             document.head.appendChild(style);
         }
     });
@@ -221,13 +221,12 @@ async function scanTab() {
                     .map(tag => tagData[tag].fontFamily.replaceAll('"', '').split(',')[0].trim()) // Changed substring(0... to split to cut off all '' and ,
                         .filter(f => f !== '' && !f.startsWith('-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it
             )];
-            const tag = tags.find(tag => tagData[tag]);
-
+            
             return`
                 <li>
                     <div class="text-category-wrapper">
                         <p class="font-category">${category}</p>
-                        <p class="font-title" style="font-size:${tagData[tag]?.fontSize}; font-weight:${tagData[tag]?.fontWeight};">${fonts.join(", ") || "N/A"}</p>
+                        <p class="font-title">${fonts.join(", ") || "N/A"}</p>
                     </div>
                 </li>
             `;
