@@ -128,21 +128,46 @@ async function scanTab() {
             //     } catch (e) { // Catching cross-origin here
             //     }
             // });
+            // Array.from(document.styleSheets).forEach(sheet => {
+            //     try {
+            //         Array.from(sheet.cssRules || []).forEach(rule => {
+            //             if (rule instanceof CSSFontFaceRule) {
+            //                 const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
+            //                 const source = rule.style.getPropertyValue('src');
+            //                 const start = source.indexOf('url(') + 4; // +4 to skip 'url(' itself
+            //                 const end = source.indexOf(')', start);
+            //                 const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
+            //                 const absoluteUrl = new URL(rawUrl, document.baseURI).href;
+            //                 fontSources.push({ type: 'fontface', family, src: `url("${absoluteUrl}")` });
+            //             }
+            //         });
+            //     } catch (e) { // Catching cross-origin here
+            //         console.log('blocked sheet:', sheet.href, e.message)
+            //     }
+            // });
             Array.from(document.styleSheets).forEach(sheet => {
                 try {
                     Array.from(sheet.cssRules || []).forEach(rule => {
-                        if (rule instanceof CSSFontFaceRule) {
-                            const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
-                            const source = rule.style.getPropertyValue('src');
-                            const start = source.indexOf('url(') + 4; // +4 to skip 'url(' itself
-                            const end = source.indexOf(')', start);
-                            const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
-                            const absoluteUrl = new URL(rawUrl, document.baseURI).href;
-                            fontSources.push({ type: 'fontface', family, src: `url("${absoluteUrl}")` });
+                        // collect rules to scan — top level + inside @import
+                        const rulesToScan = [rule];
+                        if (rule instanceof CSSImportRule && rule.styleSheet) {
+                            try { rulesToScan.push(...Array.from(rule.styleSheet.cssRules || [])); } catch(e) {}
                         }
+                        rulesToScan.forEach(r => {
+                            if (r instanceof CSSFontFaceRule) {
+                                const family = r.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
+                                const source = r.style.getPropertyValue('src');
+                                if (!source || !source.includes('url(')) return; // skip if no url()
+                                const start = source.indexOf('url(') + 4;
+                                const end = source.indexOf(')', start);
+                                const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
+                                if (!rawUrl || rawUrl.startsWith('chrome-extension://')) return;
+                                const absoluteUrl = new URL(rawUrl, document.baseURI).href;
+                                fontSources.push({ type: 'fontface', family, src: `url("${absoluteUrl}")` });
+                            }
+                        });
                     });
                 } catch (e) { // Catching cross-origin here
-                    console.log('blocked sheet:', sheet.href, e.message)
                 }
             });
 
