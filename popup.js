@@ -89,6 +89,7 @@ async function scanTab() {
             Array.from(document.styleSheets).forEach(sheet => {
                 try {
                     Array.from(sheet.cssRules || []).forEach(rule => {
+                        console.log('rule:', rule.constructor.name);
                         if (rule instanceof CSSImportRule) {
                             const href = rule.href;
                             if (
