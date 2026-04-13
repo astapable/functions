@@ -103,28 +103,95 @@ async function scanTab() {
                 } catch (e) { // Catching cross-origin here
                 }
             });
+            
             // 3. Check @font-face
-            function checkFontFace(rule) {
-                const fontStyle = rule.style.getPropertyValue('font-style') || 'normal'; // Seems that I was gettin italics firs. SO I check it first and make sure Im not getting empty
-                const weight = rule.style.getPropertyValue('font-weight') || 'normal'; //Same mainly for empty
-                if (fontStyle !== 'normal') return; //  Skip italic and non-normal
-                const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim(); // get font name
-                const source = rule.style.getPropertyValue('src'); // get font URL ie where it lives
-                if (!source || !source.includes('url(')) return; // skip prev rule if URL is empty
-                // 'cut out' the URL and skip url( stage
-                const start = source.indexOf('url(') + 4; 
-                const end = source.indexOf(')', start);
-                const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
-                const absoluteUrl = new URL(rawUrl, document.baseURI).href; // now cnvert relative path to absolute
-                fontSources.push({ type: 'fontface', family, weight, src: `url("${absoluteUrl}")` }); // adding founded fonts to the push
-            }
+            Array.from(document.styleSheets).forEach(sheet => {
+                try {
+                    Array.from(sheet.cssRules || []).forEach(rule => {
+                        // check in @font-face
+                        if (rule instanceof CSSFontFaceRule) {
+                            const fontStyle = rule.style.getPropertyValue('font-style') || 'normal'; // Seems that I was gettin italics firs. SO I check it first and make sure Im not getting empty
+                            const weight = rule.style.getPropertyValue('font-weight') || 'normal'; //Same mainly for empty
+                            if (fontStyle !== 'normal') return; //  Skip italic and non-normal
+                            const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim(); // get font name
+                            const source = rule.style.getPropertyValue('src'); // get font URL ie where it lives
+                            if (!source || !source.includes('url(')) return; // skip prev rule if URL is empty
+                            // 'cut out' the URL and skip url( stage
+                            const start = source.indexOf('url(') + 4;
+                            const end = source.indexOf(')', start);
+                            const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
+                            const absoluteUrl = new URL(rawUrl, document.baseURI).href; // now cnvert relative path to absolute
+                            fontSources.push({ type: 'fontface', family, weight, src: `url("${absoluteUrl}")` }); // adding founded fonts to the push
+                        }
+
+                        // check in @import
+                        if (rule instanceof CSSImportRule && rule.styleSheet) {
+                            try {
+                                Array.from(rule.styleSheet.cssRules || []).forEach(importedRule => {
+                                    if (importedRule instanceof CSSFontFaceRule) {
+                                        const fontStyle = importedRule.style.getPropertyValue('font-style') || 'normal';
+                                        const weight = importedRule.style.getPropertyValue('font-weight') || 'normal';
+                                        if (fontStyle !== 'normal') return;
+                                        const family = importedRule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
+                                        const source = importedRule.style.getPropertyValue('src');
+                                        if (!source || !source.includes('url(')) return;
+                                        const start = source.indexOf('url(') + 4;
+                                        const end = source.indexOf(')', start);
+                                        const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
+                                        const absoluteUrl = new URL(rawUrl, document.baseURI).href;
+                                        fontSources.push({ type: 'fontface', family, weight, src: `url("${absoluteUrl}")` });
+                                    }
+                                    // check in @layer inside @import
+                                    if (importedRule.cssRules) {
+                                        Array.from(importedRule.cssRules).forEach(layerRule => {
+                                            if (layerRule instanceof CSSFontFaceRule) {
+                                                const fontStyle = layerRule.style.getPropertyValue('font-style') || 'normal';
+                                                const weight = layerRule.style.getPropertyValue('font-weight') || 'normal';
+                                                if (fontStyle !== 'normal') return;
+                                                const family = layerRule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
+                                                const source = layerRule.style.getPropertyValue('src');
+                                                if (!source || !source.includes('url(')) return;
+                                                const start = source.indexOf('url(') + 4;
+                                                const end = source.indexOf(')', start);
+                                                const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
+                                                const absoluteUrl = new URL(rawUrl, document.baseURI).href;
+                                                fontSources.push({ type: 'fontface', family, weight, src: `url("${absoluteUrl}")` });
+                                            }
+                                        });
+                                    }
+                                });
+                            } catch(e) {}
+                        }
+
+                        // check in @layer
+                        if (rule.cssRules) {
+                            try {
+                                Array.from(rule.cssRules).forEach(layerRule => {
+                                    if (layerRule instanceof CSSFontFaceRule) {
+                                        const fontStyle = layerRule.style.getPropertyValue('font-style') || 'normal';
+                                        const weight = layerRule.style.getPropertyValue('font-weight') || 'normal';
+                                        if (fontStyle !== 'normal') return;
+                                        const family = layerRule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
+                                        const source = layerRule.style.getPropertyValue('src');
+                                        if (!source || !source.includes('url(')) return;
+                                        const start = source.indexOf('url(') + 4;
+                                        const end = source.indexOf(')', start);
+                                        const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
+                                        const absoluteUrl = new URL(rawUrl, document.baseURI).href;
+                                        fontSources.push({ type: 'fontface', family, weight, src: `url("${absoluteUrl}")` });
+                                    }
+                                });
+                            } catch(e) {}
+                        }
+                    });
+                } catch (e) {}
+            });
 
             Array.from(document.styleSheets).forEach(sheet => {
                 // Stylesheet break the entire executeScript and the popup showed nothing without try...catch on first attempt.
                 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
                 try {
                     Array.from(sheet.cssRules || []).forEach(rule => {
-
                         // check in @font-face
                         if (rule instanceof CSSFontFaceRule) {
                             checkFontFace(rule);
@@ -134,6 +201,7 @@ async function scanTab() {
                         // @import pointing to another file, and inside that file the @font-face was hidden inside an @layer block. So to get font, I had to go inside @import via rule.styleSheet.cssRules first, then go one level deeper into @layer via importedRule.cssRules
                         // Only there did I finally find the @font-face.
                         // check in @import
+                        // Source: https://developer.mozilla.org/en-US/docs/Web/API/CSSImportRule
                         if (rule instanceof CSSImportRule && rule.styleSheet) {
                             try {
                                 Array.from(rule.styleSheet.cssRules || []).forEach(importedRule => {
