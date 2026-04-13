@@ -105,17 +105,18 @@ async function scanTab() {
             });
             // 3. Check @font-face
             function checkFontFace(rule) {
-                 const fontStyle = rule.style.getPropertyValue('font-style') || 'normal'; // Seems that I was gettin italics firs
+                const fontStyle = rule.style.getPropertyValue('font-style') || 'normal'; // Seems that I was gettin italics firs
+                const weight = rule.style.getPropertyValue('font-weight') || 'normal';
                 if (fontStyle !== 'normal') return; // skip italic and non-normal
                 const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim(); // get font name
                 const source = rule.style.getPropertyValue('src'); // get font URL ie where it lives
                 if (!source || !source.includes('url(')) return; // skip prev rule if URL is empty
-                // 'cut out' the URL and skip url( stage and skip url( stage
+                // 'cut out' the URL and skip url( stage
                 const start = source.indexOf('url(') + 4; 
                 const end = source.indexOf(')', start);
                 const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
                 const absoluteUrl = new URL(rawUrl, document.baseURI).href; // now cnvert relative path to absolute
-                fontSources.push({ type: 'fontface', family, src: `url("${absoluteUrl}")` }); // adding founded fonts to the push
+                fontSources.push({ type: 'fontface', family, weight, src: `url("${absoluteUrl}")` }); // adding founded fonts to the push
             }
 
             Array.from(document.styleSheets).forEach(sheet => {
@@ -194,7 +195,7 @@ async function scanTab() {
             }
         } else if (source.type === 'fontface') {
             const style = document.createElement('style');
-            style.textContent = `@font-face { font-family: "${source.family}"; src: ${source.src}; }`;
+            style.textContent = `@font-face { font-family: "${source.family}"; font-weight: ${source.weight}; src: ${source.src}; }`;
             document.head.appendChild(style);
         }
     });
