@@ -32,8 +32,6 @@ async function getTabId() {
 }
 
 async function scanTab() {
-    // LIBRARY_adding fontface.js as library
-    const { scanFontSources, applyFontSources } = await import('./fontface.js');
     // Wait until line 7_getTabId() is finished and return it as a variable here
     const tabId = await getTabId();
     const result = await chrome.scripting.executeScript({
@@ -72,19 +70,11 @@ async function scanTab() {
         }
     });
 
-    // LIBRARY_adding fontface.js as library
-    const fontResult = await chrome.scripting.executeScript({
-        target: { tabId: tabId },
-        func: scanFontSources
-    });
-
     // Here I keep all my results from pulling data from lines 35-37 and 47-53 and make it variable. Thus, I make it appropriate for reuse
     // I use result[0] since Im pulling data from single tab/page.
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
     const retColorRaw = result[0].result.colorData;
     const retTextRaw = result[0].result.textData;
-
-    applyFontSources(fontResult[0].result);  // LIBRARY_adding fontface.js as library
 
     const tagData = {}; // I create normal object  for the future dynamic keys. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 
     retTextRaw.forEach(el => { 
