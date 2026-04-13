@@ -112,7 +112,6 @@ async function scanTab() {
                 const start = source.indexOf('url(') + 4; 
                 const end = source.indexOf(')', start);
                 const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
-                // if (!rawUrl || rawUrl.startsWith('chrome-extension://')) return;
                 const absoluteUrl = new URL(rawUrl, document.baseURI).href; // now cnvert relative path to absolute
                 fontSources.push({ type: 'fontface', family, src: `url("${absoluteUrl}")` }); // adding founded fonts to the push
             }
@@ -217,7 +216,8 @@ async function scanTab() {
             const fonts = [...new Set(
                 tags // tags are specified in line 42 and categorized in line 75-77
                     .filter(tag => tagData[tag])
-                    .map(tag => tagData[tag].fontFamily.replaceAll('"', '').substring(0, tagData[tag].fontFamily.indexOf(","))) // Ok we figured oiut substring in line 141.
+                    .map(tag => tagData[tag].fontFamily.replaceAll('"', '').split(',')[0].trim()) // Changed substring(0... to split to cut off all '' and ,
+                        .filter(f => f !== '' && !f.startsWith('-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it
             )];
             return`
                 <li>
