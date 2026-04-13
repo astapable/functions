@@ -84,7 +84,7 @@ async function scanTab() {
     const retColorRaw = result[0].result.colorData;
     const retTextRaw = result[0].result.textData;
 
-    applyFontSources(fontResult[0].result);
+    applyFontSources(fontResult[0].result);  // LIBRARY_adding fontface.js as library
 
     const tagData = {}; // I create normal object  for the future dynamic keys. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 
     retTextRaw.forEach(el => { 
@@ -229,4 +229,6 @@ document.querySelector('.bottom').addEventListener('click', e => {
         section.hidden = section.dataset.category !== filter;
     });
 });
+
+document.querySelector('.bottom button[data-filter="home"]').click();
 
