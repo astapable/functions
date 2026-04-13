@@ -220,25 +220,24 @@ async function scanTab() {
                 tags // tags are specified in line 42 and categorized in line 75-77
                     .filter(tag => tagData[tag])
                     .map(tag => tagData[tag].fontFamily.replaceAll('"', '').split(',')[0].trim()) // Changed substring(0... to split to cut off all '' and ,
-                        .filter(f => f !== '' && !f.startsWith('-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it
+                    .filter(f => f !== '' && !f.startsWith('-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it
             )];
-            
+            const firstTag = tags.find(t => tagData[t]);
+            const weight = firstTag ? tagData[firstTag].fontWeight : 'normal';
+            const fontName = fonts[0] || '';
+
             return`
                 <li>
                     <div class="text-category-wrapper">
                         <p class="font-category">${category}</p>
-                        <p class="font-title">${fonts.join(", ") || "N/A"}</p>
+                        <p class="font-title" style="font-family: ${fontName}; font-weight: ${weight};">${fonts.join(", ") || "N/A"}</p>
                     </div>
                 </li>
             `;
         }).join(""); // || means OR. If font.joint is empty JS will return as - (N/A)
 
 // NEW NEW NEW  
-        // Trying to apply source URL font to .font-title
-        document.querySelectorAll('.font-title').forEach(el => {
-            const fontName = el.textContent.split(',')[0].trim();
-            el.style.fontFamily = fontName;
-        });
+
 // NEW NEW NEW  
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
