@@ -257,8 +257,8 @@ async function scanTab() {
 
         // Trying to apply source URL font to .font-title
         document.querySelectorAll('.font-title').forEach(el => {
-            console.log('applying font:', el.textContent, 'to element:', el);
-            el.style.fontFamily = el.textContent;
+            const fontName = el.textContent.split(',')[0].trim();
+            el.style.fontFamily = fontName;
         });
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
