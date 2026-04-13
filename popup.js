@@ -66,7 +66,7 @@ async function scanTab() {
                 });
             });
             
-// NEW NEW NEW
+// FONTFACE SCAN UPDATE
             // ChatGPT request: https://chatgpt.com/share/69dd0884-dec0-83ea-981d-0c816b0dbe5d            
             // Since the font can be applied to a site in a multiple ways I need to check all of thouse ways first.
             // Most common are - <link rel="stylesheet">, @import, @font-face
@@ -243,7 +243,7 @@ async function scanTab() {
             return { colorData, textData, fontSources: uniqueFontSources }; // Give me thar data from lines 35-37 and 47-53
         }
     });
-// NEW NEW NEW
+// FONTFACE SCAN UPDATE
 
     // Here I keep all my results from pulling data from lines 35-37 and 47-53 and make it variable. Thus, I make it appropriate for reuse
     // I use result[0] since Im pulling data from single tab/page.
@@ -252,7 +252,7 @@ async function scanTab() {
     const retColorRaw = result[0].result.colorData;
     const retTextRaw = result[0].result.textData;
 
-// NEW NEW NEW
+// FONTFACE SCAN UPDATE
     const retFontSources = result[0].result.fontSources;
     // after checking sources in line 7--137 I need to apply font sources to my  popup so fonts appear correctly in the extension
     retFontSources.forEach(source => {
@@ -269,7 +269,7 @@ async function scanTab() {
             document.head.appendChild(style);
         }
     });
-// NEW NEW NEW  
+// FONTFACE SCAN UPDATE 
 
     const tagData = {}; // I create normal object  for the future dynamic keys. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 
     retTextRaw.forEach(el => { 
@@ -292,6 +292,8 @@ async function scanTab() {
                     .map(tag => tagData[tag].fontFamily.replaceAll('"', '').split(',')[0].trim()) // Changed substring(0... to split to cut off all '' and ,
                     .filter(f => f !== '' && !f.startsWith('-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it
             )];
+            
+// FONTFACE SCAN UPDATE
             const firstTag = tags.find(t => tagData[t]);
             const weight = firstTag ? tagData[firstTag].fontWeight : 'normal';
             const fontName = fonts[0] || '';
@@ -305,10 +307,8 @@ async function scanTab() {
                 </li>
             `;
         }).join(""); // || means OR. If font.joint is empty JS will return as - (N/A)
+// FONTFACE SCAN UPDATE
 
-// NEW NEW NEW  
-
-// NEW NEW NEW  
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
     // Source_Line 41-48: https://github.com/astapable/into-data-viz/blob/main/02_quantities/02_stacked_bars/bar_stacked.js
