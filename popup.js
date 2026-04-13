@@ -101,6 +101,7 @@ async function scanTab() {
                         }
                     });
                 } catch (e) { // Catching cross-origin here
+                    console.log('blocked sheet:', sheet.href, e.message)
                 }
             });
             // 3. Check @font-face
@@ -135,6 +136,7 @@ async function scanTab() {
                         }
                     });
                 } catch (e) { // Catching cross-origin here
+                    console.log('blocked sheet:', sheet.href, e.message)
                 }
             });
 
