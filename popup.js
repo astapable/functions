@@ -105,6 +105,8 @@ async function scanTab() {
             });
             // 3. Check @font-face
             function checkFontFace(rule) {
+                 const fontStyle = rule.style.getPropertyValue('font-style') || 'normal'; // Ыууьы Ш цфы пуеештп шефдшсы фе ашкые
+                if (fontStyle !== 'normal') return; // skip italic and oпуе ещ мфкшфтеы
                 const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim(); // get font name
                 const source = rule.style.getPropertyValue('src'); // get font URL ie where it lives
                 if (!source || !source.includes('url(')) return; // skip prev rule if URL is empty
