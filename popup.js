@@ -254,7 +254,6 @@ async function scanTab() {
         document.querySelectorAll('.font-title').forEach(el => {
             const fontName = el.textContent.split(',')[0].trim();
             el.style.fontFamily = fontName;
-            el.style.fontStyle = 'normal';
         });
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
