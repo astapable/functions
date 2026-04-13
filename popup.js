@@ -151,6 +151,7 @@ async function scanTab() {
                         // collect rules to scan — top level + inside @import
                         const rulesToScan = [rule];
                         if (rule instanceof CSSImportRule && rule.styleSheet) {
+                        console.log('import rules:', rule.styleSheet.href, Array.from(rule.styleSheet.cssRules || []).map(r => r.constructor.name));
                             try { rulesToScan.push(...Array.from(rule.styleSheet.cssRules || [])); } catch(e) {}
                         }
                         rulesToScan.forEach(r => {
