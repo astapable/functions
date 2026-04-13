@@ -105,9 +105,9 @@ async function scanTab() {
             });
             // 3. Check @font-face
             function checkFontFace(rule) {
-                const fontStyle = rule.style.getPropertyValue('font-style'); // Seems that I was gettin italics firs
-                const weight = rule.style.getPropertyValue('font-weight');
-                if (fontStyle !== 'normal') return; // skip italic and non-normal
+                const fontStyle = rule.style.getPropertyValue('font-style') || 'normal'; // Seems that I was gettin italics firs. SO I check it first and make sure Im not getting empty
+                const weight = rule.style.getPropertyValue('font-weight') || 'normal'; //Same mainly for empty
+                if (fontStyle !== 'normal') return; //  Skip italic and non-normal
                 const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim(); // get font name
                 const source = rule.style.getPropertyValue('src'); // get font URL ie where it lives
                 if (!source || !source.includes('url(')) return; // skip prev rule if URL is empty
@@ -120,6 +120,8 @@ async function scanTab() {
             }
 
             Array.from(document.styleSheets).forEach(sheet => {
+                // Stylesheet break the entire executeScript and the popup showed nothing without try...catch on first attempt.
+                // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
                 try {
                     Array.from(sheet.cssRules || []).forEach(rule => {
 
