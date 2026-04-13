@@ -244,7 +244,7 @@ async function scanTab() {
                 <li>
                     <div class="text-category-wrapper">
                         <p class="font-category">${category}</p>
-                        <p class="font-title">${fonts.join(", ") || "—"}</p>
+                        <p class="font-title">${fonts.join(", ") || "N/A"}</p>
                     </div>
                 </li>
             `;
