@@ -84,17 +84,11 @@ async function scanTab() {
                 }
             });
 
-            // temp debug
-            Array.from(document.styleSheets).forEach(sheet => {
-                console.log('sheet:', sheet.href, 'rules:', sheet.cssRules ? sheet.cssRules.length : 'blocked');
-            });
-
             // 2. Check @import
             // Some stylesheets has cross-origin so I try to catch skips those
             Array.from(document.styleSheets).forEach(sheet => {
                 try {
                     Array.from(sheet.cssRules || []).forEach(rule => {
-                        console.log('rule:', rule.constructor.name);
                         if (rule instanceof CSSImportRule) {
                             const href = rule.href;
                             if (
@@ -201,6 +195,7 @@ async function scanTab() {
     // Here I keep all my results from pulling data from lines 35-37 and 47-53 and make it variable. Thus, I make it appropriate for reuse
     // I use result[0] since Im pulling data from single tab/page.
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
+    if (!result[0].result) return;
     const retColorRaw = result[0].result.colorData;
     const retTextRaw = result[0].result.textData;
 
@@ -259,6 +254,7 @@ async function scanTab() {
         document.querySelectorAll('.font-title').forEach(el => {
             const fontName = el.textContent.split(',')[0].trim();
             el.style.fontFamily = fontName;
+            el.style.fontStyle = 'normal';
         });
     // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
     // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
