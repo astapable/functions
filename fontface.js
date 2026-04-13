@@ -1,7 +1,10 @@
+// Source: https://javascript.info/modules-dynamic-imports#the-import-expression
 export function scanFonts() {
-    const fontSources = [];
-
+    // ChatGPT request: https://chatgpt.com/share/69dd0884-dec0-83ea-981d-0c816b0dbe5d            
+    // Since the font can be applied to a site in a multiple ways I need to check all of thouse ways first.
+    // Most common are - <link rel="stylesheet">, @import, @font-face
     // 1. Check <link rel="stylesheet">
+    const fontSources = [];
     document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
         const href = link.href;
         if (
@@ -15,6 +18,7 @@ export function scanFonts() {
     });
 
     // 2. Check @import + @font-face + @layer
+    // Some stylesheets has cross-origin so I try to catch skips those
             Array.from(document.styleSheets).forEach(sheet => {
                 try {
                     Array.from(sheet.cssRules || []).forEach(rule => {
