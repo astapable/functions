@@ -105,17 +105,33 @@ async function scanTab() {
             });
             // 3. Check @font-face
             // Some stylesheets has cross-origin so I try to catch skips those
+            // Array.from(document.styleSheets).forEach(sheet => {
+            //     try {
+            //         Array.from(sheet.cssRules || []).forEach(rule => {
+            //             if (rule instanceof CSSFontFaceRule) {
+            //                 const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
+            //                 const source = rule.style.getPropertyValue('src');
+            //                 const hasAbsoluteUrl = source.includes('http://') || source.includes('https://');
+            //                 const hasBase64 = source.includes('base64');
+            //                 if (hasAbsoluteUrl || hasBase64) {
+            //                     fontSources.push({ type: 'fontface', family, src: source });
+            //                 }
+            //             }
+            //         });
+            //     } catch (e) { // Catching cross-origin here
+            //     }
+            // });
             Array.from(document.styleSheets).forEach(sheet => {
                 try {
                     Array.from(sheet.cssRules || []).forEach(rule => {
                         if (rule instanceof CSSFontFaceRule) {
                             const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
                             const source = rule.style.getPropertyValue('src');
-                            const hasAbsoluteUrl = source.includes('http://') || source.includes('https://');
-                            const hasBase64 = source.includes('base64');
-                            if (hasAbsoluteUrl || hasBase64) {
-                                fontSources.push({ type: 'fontface', family, src: source });
-                            }
+                            const start = source.indexOf('url(') + 4; // +4 to skip 'url(' itself
+                            const end = source.indexOf(')', start);
+                            const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
+                            const absoluteUrl = new URL(rawUrl, document.baseURI).href;
+                            fontSources.push({ type: 'fontface', family, src: `url("${absoluteUrl}")` });
                         }
                     });
                 } catch (e) { // Catching cross-origin here
