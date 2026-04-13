@@ -101,80 +101,58 @@ async function scanTab() {
                         }
                     });
                 } catch (e) { // Catching cross-origin here
-                    console.log('blocked sheet:', sheet.href, e.message)
                 }
             });
             // 3. Check @font-face
-            // Some stylesheets has cross-origin so I try to catch skips those
-            // Array.from(document.styleSheets).forEach(sheet => {
-            //     try {
-            //         Array.from(sheet.cssRules || []).forEach(rule => {
-            //             if (rule instanceof CSSFontFaceRule) {
-            //                 const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
-            //                 const source = rule.style.getPropertyValue('src');
-            //                 const hasAbsoluteUrl = source.includes('http://') || source.includes('https://');
-            //                 const hasBase64 = source.includes('base64');
-            //                 if (hasAbsoluteUrl || hasBase64) {
-            //                     fontSources.push({ type: 'fontface', family, src: source });
-            //                 }
-            //             }
-            //         });
-            //     } catch (e) { // Catching cross-origin here
-            //     }
-            // });
-            // Array.from(document.styleSheets).forEach(sheet => {
-            //     try {
-            //         Array.from(sheet.cssRules || []).forEach(rule => {
-            //             if (rule instanceof CSSFontFaceRule) {
-            //                 const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
-            //                 const source = rule.style.getPropertyValue('src');
-            //                 const start = source.indexOf('url(') + 4; // +4 to skip 'url(' itself
-            //                 const end = source.indexOf(')', start);
-            //                 const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
-            //                 const absoluteUrl = new URL(rawUrl, document.baseURI).href;
-            //                 fontSources.push({ type: 'fontface', family, src: `url("${absoluteUrl}")` });
-            //             }
-            //         });
-            //     } catch (e) { // Catching cross-origin here
-            //         console.log('blocked sheet:', sheet.href, e.message)
-            //     }
-            // });
+            // I pull out font-face handling into a separate function to avoid repeating the same code 3 times
+            function checkFontFace(rule) {
+                const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
+                const source = rule.style.getPropertyValue('src');
+                if (!source || !source.includes('url(')) return;
+                const start = source.indexOf('url(') + 4;
+                const end = source.indexOf(')', start);
+                const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
+                if (!rawUrl || rawUrl.startsWith('chrome-extension://')) return;
+                const absoluteUrl = new URL(rawUrl, document.baseURI).href;
+                fontSources.push({ type: 'fontface', family, src: `url("${absoluteUrl}")` });
+            }
+
             Array.from(document.styleSheets).forEach(sheet => {
                 try {
                     Array.from(sheet.cssRules || []).forEach(rule => {
-                        // collect rules to scan — top level + inside @import
-                        const rulesToScan = [rule];
+
+                        // check @font-face
+                        if (rule instanceof CSSFontFaceRule) {
+                            checkFontFace(rule);
+                        }
+
+                        // check @import
                         if (rule instanceof CSSImportRule && rule.styleSheet) {
                             try {
                                 Array.from(rule.styleSheet.cssRules || []).forEach(importedRule => {
-                                    rulesToScan.push(importedRule);
-                                    // @font-face can also be inside @layer inside imported stylesheet
+                                    if (importedRule instanceof CSSFontFaceRule) {
+                                        checkFontFace(importedRule);
+                                    }
+                                    // check in @layer inside @import. Find it in the typo course site
                                     if (importedRule.cssRules) {
-                                        rulesToScan.push(...Array.from(importedRule.cssRules));
+                                        Array.from(importedRule.cssRules).forEach(layerRule => {
+                                            if (layerRule instanceof CSSFontFaceRule) checkFontFace(layerRule);
+                                        });
                                     }
                                 });
                             } catch(e) {}
                         }
-                        // also check inside @layer at top level
+
+                        // check @layer
                         if (rule.cssRules) {
-                            try { rulesToScan.push(...Array.from(rule.cssRules)); } catch(e) {}
+                            try {
+                                Array.from(rule.cssRules).forEach(layerRule => {
+                                    if (layerRule instanceof CSSFontFaceRule) checkFontFace(layerRule);
+                                });
+                            } catch(e) {}
                         }
-                        rulesToScan.forEach(r => {
-                            if (r instanceof CSSFontFaceRule) {
-                                const family = r.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
-                                const source = r.style.getPropertyValue('src');
-                                if (!source || !source.includes('url(')) return; // skip if no url()
-                                const start = source.indexOf('url(') + 4;
-                                const end = source.indexOf(')', start);
-                                const rawUrl = source.slice(start, end).replace(/['"]/g, '').trim();
-                                if (!rawUrl || rawUrl.startsWith('chrome-extension://')) return;
-                                const absoluteUrl = new URL(rawUrl, document.baseURI).href;
-                                fontSources.push({ type: 'fontface', family, src: `url("${absoluteUrl}")` });
-                            }
-                        });
                     });
-                } catch (e) { // Catching cross-origin here
-                }
+                } catch (e) {}
             });
 
             // This will kill all duplicate URLs if have multiple origins
@@ -201,8 +179,6 @@ async function scanTab() {
 
 // NEW NEW NEW
     const retFontSources = result[0].result.fontSources;
-    console.log('Font sources found:', retFontSources);
-
     // after checking sources in line 7--137 I need to apply font sources to my  popup so fonts appear correctly in the extension
     retFontSources.forEach(source => {
         if (source.type === 'link') {
