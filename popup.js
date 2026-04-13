@@ -105,8 +105,8 @@ async function scanTab() {
             });
             // 3. Check @font-face
             function checkFontFace(rule) {
-                const fontStyle = rule.style.getPropertyValue('font-style') || 'normal'; // Seems that I was gettin italics firs
-                const weight = rule.style.getPropertyValue('font-weight') || 'normal';
+                const fontStyle = rule.style.getPropertyValue('font-style'); // Seems that I was gettin italics firs
+                const weight = rule.style.getPropertyValue('font-weight');
                 if (fontStyle !== 'normal') return; // skip italic and non-normal
                 const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim(); // get font name
                 const source = rule.style.getPropertyValue('src'); // get font URL ie where it lives
