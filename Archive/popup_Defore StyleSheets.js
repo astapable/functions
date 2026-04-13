@@ -65,104 +65,16 @@ async function scanTab() {
                     color: elStyle.color,
                 });
             });
-            
-// NEW NEW NEW
-            // ChatGPT request: https://chatgpt.com/share/69dd0884-dec0-83ea-981d-0c816b0dbe5d            
-            // Since the font can be applied to a site in a multiple ways I need to check all of thouse ways first. Most common are - <link rel="stylesheet">, @import, @font-face:
 
-            // 1. Check <link rel="stylesheet">
-            const fontSources = [];
-            document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
-                const href = link.href;
-                if (
-                    href.includes('fonts.googleapis.com') ||
-                    href.includes('use.typekit.net') ||
-                    href.includes('fonts.adobe.com') ||
-                    href.includes('use.fontawesome.com')
-                ) {
-                    fontSources.push({ type: 'link', url: href });
-                }
-            });
-
-            // 2. Check @import
-            // Some stylesheets has cross-origin so I try to catch skips those
-            Array.from(document.styleSheets).forEach(sheet => {
-                try {
-                    Array.from(sheet.cssRules || []).forEach(rule => {
-                        if (rule instanceof CSSImportRule) {
-                            const href = rule.href;
-                            if (
-                                href.includes('fonts.googleapis.com') ||
-                                href.includes('use.typekit.net') ||
-                                href.includes('fonts.adobe.com')
-                            ) {
-                                fontSources.push({ type: 'link', url: href });
-                            }
-                        }
-                    });
-                } catch (e) { // Catching cross-origin here
-                }
-            });
-            // 3. Check @font-face
-            // Some stylesheets has cross-origin so I try to catch skips those
-            Array.from(document.styleSheets).forEach(sheet => {
-                try {
-                    Array.from(sheet.cssRules || []).forEach(rule => {
-                        if (rule instanceof CSSFontFaceRule) {
-                            const family = rule.style.getPropertyValue('font-family').replace(/['"]/g, '').trim();
-                            const source = rule.style.getPropertyValue('src');
-                            const hasAbsoluteUrl = source.includes('http://') || source.includes('https://');
-                            const hasBase64 = source.includes('base64');
-                            if (hasAbsoluteUrl || hasBase64) {
-                                fontSources.push({ type: 'fontface', family, src: source });
-                            }
-                        }
-                    });
-                } catch (e) { // Catching cross-origin here
-                }
-            });
-
-            // This will kill all duplicate URLs if have multiple origins
-            const seenUrls = new Set();
-            const uniqueFontSources = fontSources.filter(source => {
-                if (source.type === 'link') {
-                    if (seenUrls.has(source.url)) return false;
-                    seenUrls.add(source.url);
-                }
-                return true;
-            });
-
-            return { colorData, textData, fontSources: uniqueFontSources }; // Give me thar data from lines 35-37 and 47-53
+            return { colorData, textData }; // Give me thar data from lines 35-37 and 47-53
         }
     });
-// NEW NEW NEW
 
     // Here I keep all my results from pulling data from lines 35-37 and 47-53 and make it variable. Thus, I make it appropriate for reuse
     // I use result[0] since Im pulling data from single tab/page.
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
     const retColorRaw = result[0].result.colorData;
     const retTextRaw = result[0].result.textData;
-
-// NEW NEW NEW
-    const retFontSources = result[0].result.fontSources;
-    console.log('Font sources found:', retFontSources);
-
-    // after checking sources in line 7--137 I need to apply font sources to my  popup so fonts appear correctly in the extension
-    retFontSources.forEach(source => {
-        if (source.type === 'link') {
-            if (!document.querySelector(`link[href="${source.url}"]`)) {
-                const link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = source.url;
-                document.head.appendChild(link);
-            }
-        } else if (source.type === 'fontface') {
-            const style = document.createElement('style');
-            style.textContent = `@font-face { font-family: "${source.family}"; src: ${source.src}; }`;
-            document.head.appendChild(style);
-        }
-    });
-// NEW NEW NEW  
 
     const tagData = {}; // I create normal object  for the future dynamic keys. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 
     retTextRaw.forEach(el => { 
