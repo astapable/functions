@@ -221,11 +221,13 @@ async function scanTab() {
                     .map(tag => tagData[tag].fontFamily.replaceAll('"', '').split(',')[0].trim()) // Changed substring(0... to split to cut off all '' and ,
                         .filter(f => f !== '' && !f.startsWith('-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it
             )];
+            const tag = tags.find(tag => tagData[tag]);
+
             return`
                 <li>
                     <div class="text-category-wrapper">
                         <p class="font-category">${category}</p>
-                        <p class="font-title">${fonts.join(", ") || "N/A"}</p>
+                        <p class="font-title" style="font-size:${tagData[tag]?.fontSize}; font-weight:${tagData[tag]?.fontWeight};">${fonts.join(", ") || "N/A"}</p>
                     </div>
                 </li>
             `;
