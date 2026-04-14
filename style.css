@@ -153,6 +153,7 @@ section {
     /* background-color: var(--primary-black);
     border-radius: var(--br-large-box);
     corner-shape: squircle; */
+    top: 6.5rem;
     width: 100%;
     padding-inline: var(--br-large-box);
     padding-block: var(--br-xlarge-box);
