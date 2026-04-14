@@ -33,6 +33,7 @@
 
     --br-xsmall-box: 0.25rem;
     --br-small-box: 0.375rem;
+    --br-medium-box: 0.938rem;
     --br-large-box: 1.813rem;
     --br-xlarge-box: 2.5rem;
     --br-max: 100%;
@@ -182,7 +183,7 @@ li {
     right: 0.375rem;
     width: auto;
     justify-content: center;
-    border-radius: -var(--br-large-box) var(--br-large-box) 0 0;
+    border-radius: var(--br-large-box) var(--br-large-box) 0 0;
     corner-shape: squircle;
     background-color: #FFFFFF;
     padding-block-end: 0.5rem;
@@ -295,7 +296,7 @@ button {
 .summary-color-box {
     width: 100%;
     aspect-ratio: 1;
-    border-radius: var(--br-max);
+    border-radius: var(--br-medium-box);
 }
 
 .color-box {
