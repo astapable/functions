@@ -185,9 +185,14 @@ async function scanTab() {
     // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys#description
     // ChatGPT link to clarify the difference in terms of my task: https://chatgpt.com/share/69d56cb5-33f4-8326-b4aa-aedaa2654205
     // TYPO SPEC
-    document.querySelector("#typography").innerHTML = 
-    Object.entries(tagData).map(([tag, data]) => 
-        //line 135 - example from Muchael's link - substring(indexStart, indexEnd). M's Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+    // Added some sorting befor getting into HTML. I didnt like how random it was across mmultiple sites
+    const tagOrder = ["h1","h2","h3","h4","h5","h6","p","li","a","span","label"];
+
+    document.querySelector("#typography").innerHTML =
+    Object.entries(tagData)
+        .sort(([a], [b]) => tagOrder.indexOf(a) - tagOrder.indexOf(b))
+        .map(([tag, data]) =>
+        //line 135 - example from Michael's link - substring(indexStart, indexEnd). M's Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
         // In my case indexStart = 0 (ie first element, remeber 0 is always first number), indexEnd = indexOf(",")
         // indexOf(",") looking for value before (",") and take it to my execution. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf#using_indexof
         `
