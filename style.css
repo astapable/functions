@@ -126,7 +126,7 @@ main {
     background-color: var(--primary-black);
     height: 100%;
     overflow-y: auto;
-    gap: 3rem;
+    gap: 0.5rem;
 }
 
 article {
@@ -152,7 +152,8 @@ section {
     border-radius: var(--br-large-box);
     corner-shape: squircle; */
     width: 100%;
-    padding: var(--br-large-box);
+    padding-inline: var(--br-large-box);
+    padding-block: var(--br-xlarge-box);
 }
 
 .box-title {
