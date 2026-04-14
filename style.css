@@ -287,7 +287,7 @@ button {
     gap: 0.75rem;
     padding: 0.75rem;
     border: 0.063rem solid #D1D5D8;
-    border-radius: var(--br-large-box);
+    border-radius: var(--br-xlarge-box);
     corner-shape: squircle;
 }
 
