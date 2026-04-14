@@ -274,10 +274,10 @@ button {
     display: block;
 }
 
-.active {
+/* .active {
     background-color: var(--primary-black);
     color: var(--primary-white);
-}
+} */
 
 .hidden { display: none; }
 
