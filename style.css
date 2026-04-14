@@ -124,7 +124,7 @@ article {
     flex-direction: column;
     padding-inline: 1rem;
     padding-block-start: 1rem;
-    padding-block-end: 4.75rem;
+    padding-block-end: 5.25rem;
     background-color: var(--primary-white);
     gap: 3rem;
     border-radius: var(--br-xlarge-box);
@@ -238,8 +238,6 @@ li {
 .nav-wrapper-bottom {
     position: relative;
     background-color: var(--primary-light-blue);
-    padding: 0;
-    gap: 0;
 }
 
 button {
