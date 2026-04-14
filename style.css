@@ -81,11 +81,11 @@ p {
 
 /* =================== GENERAL WRAPPER STYLES =================== */
 main::-webkit-scrollbar {
-    width: 0.375rem;
+    width: 0.15rem;
 }
 main::-webkit-scrollbar-track {
     background: transparent;
-    margin-block: 0rem;
+    margin-block: 0.375rem;
 }
 main::-webkit-scrollbar-thumb {
     background: var(--primary-gray);
