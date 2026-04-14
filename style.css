@@ -251,9 +251,12 @@ button {
     height: 100%;
 }
 
+button svg {
+    transition: transform 0.4s ease;
+}
+
 button:hover svg {
-    transform: scale(1.2);
-    transition: transform 0.2s ease;
+    transform: scale(1.15);
 }
 
 .icon-wrapper {
