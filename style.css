@@ -301,8 +301,8 @@ dd {
 .text-color-box,
 .summary-color-box {
     display: block;
-    border: 0.063rem solid var(--primary-gray);
-    border-radius: var(--br-xsmall-box);
+    border: 0.063rem solid var(--secondary-gray);
+    border-radius: var(--br-small-box);
 }
 
 .text-color-box{
