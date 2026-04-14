@@ -87,7 +87,7 @@ p, dt, dd {
     width: fit-content;
     color: var(--primary-black);
     padding: 0.5rem;
-    background-color: var(--primary-gray);
+    background-color: var(--secondary-gray);
     border-radius: var(--br-xsmall-box);
 }
 
