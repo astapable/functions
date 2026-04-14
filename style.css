@@ -302,7 +302,8 @@ dd {
 .summary-color-box {
     display: block;
     border: 0.063rem solid var(--secondary-gray);
-    border-radius: var(--br-small-box);
+    border-radius: var(--br-xsmall-box);
+    corner-shape: squircle;
 }
 
 .text-color-box{
