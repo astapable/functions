@@ -69,6 +69,10 @@ html, body {
     overflow: hidden;
 }
 
+html {
+    background: transparent;
+}
+
 body {
     border-radius: 2.125rem;
     corner-shape: squircle;
