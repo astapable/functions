@@ -149,15 +149,20 @@ section {
     gap: 1rem;
 }
 
+#display {
+    position: relative;
+    position: sticky;
+    top: 6.5rem;
+}
+
 .display-box {
     /* background-color: var(--primary-black);
     border-radius: var(--br-large-box);
     corner-shape: squircle; */
-    top: 6.5rem;
     width: 100%;
     padding-inline: var(--br-large-box);
     padding-block: var(--br-xlarge-box);
-    position: sticky;
+
 }
 
 .box-title {
