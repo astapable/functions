@@ -133,7 +133,7 @@ article {
     display: flex;
     flex-direction: column;
     padding-inline: 1rem;
-    padding-block-start: 3rem;
+    padding-block-start: 1rem;
     padding-block-end: 4.75rem;
     background-color: var(--primary-white);
     gap: 3rem;
