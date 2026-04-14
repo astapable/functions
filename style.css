@@ -251,6 +251,11 @@ button {
     height: 100%;
 }
 
+button:hover svg {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+}
+
 .icon-wrapper {
     display: flex;
     flex-direction: column;
