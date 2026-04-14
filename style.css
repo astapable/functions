@@ -239,7 +239,7 @@ li {
 .nav-wrapper-bottom {
     position: relative;
     background-color: var(--primary-light-blue);
-    padding: 0;
+    padding-block: 2rem;
     gap: 0;
 }
 
