@@ -218,7 +218,7 @@ async function scanTab() {
                 <dd>${data.fontWeight}</dd>
             </dl>
             <dl>
-                <dt>Letter Spacing</dt>
+                <dt>Spacing</dt>
                 <dd>${data.letterSpacing}</dd>
             </dl>
             <dl>
