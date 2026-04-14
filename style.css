@@ -63,6 +63,7 @@ h2 {
     color: var(--primary-black);
 }
 
+/* Fix color number */
 h4 {
     font-family: "Doto-Rounded";
     font-weight: 600;
