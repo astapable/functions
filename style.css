@@ -350,6 +350,6 @@ dd {
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.75rem;
-    border: 0.063rem solid var(--primary-gray);
+    border: 0.063rem solid var(--secondary-gray);
     border-radius: var(--br-medium-box);
 }
