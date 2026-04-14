@@ -172,9 +172,11 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 0.063rem solid #bdbdbd;
+    /* border-top: 0.063rem solid #bdbdbd; */
     background: linear-gradient(0deg, #FEFEFE 0%, rgba(255, 255, 255, 0.00) 100%);
     backdrop-filter: blur(2px);
+    border-radius: 1.813rem 1.813rem 0 0;
+    corner-shape: squircle;
 }
     button p {
         text-align: center;
