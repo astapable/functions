@@ -45,7 +45,7 @@
     --br-medium-box: 0.938rem;
     --br-large-box: 1.813rem;
     --br-xlarge-box: 2.5rem;
-    --br-max: 100%;
+
 }
 
 /* ==================== GENERAL TEXT STYLES ==================== */
@@ -140,7 +140,7 @@ section {
 
 #display {
     position: sticky;
-    top: 0rem;
+    top: 0;
 }
 
 .display-box {
@@ -223,8 +223,6 @@ li {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    padding: 1rem;
-    gap: 0.5rem;
     width: 100%;
     border-radius: var(--br-large-box);
     corner-shape: squircle;
@@ -233,6 +231,8 @@ li {
 
 .nav-wrapper-top {
     background-color: var(--primary-yellow);
+    padding: 1rem;
+    gap: 0.5rem;
 }
 
 .nav-wrapper-bottom {
@@ -263,8 +263,6 @@ button:hover svg {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
 }
 
 .on {
@@ -329,7 +327,6 @@ button:hover svg {
 #typo-summary li:nth-child(1) .font-title { font-size: 2rem; }
 #typo-summary li:nth-child(2) .font-title { font-size: 1.75rem; }
 #typo-summary li:nth-child(3) .font-title { font-size: 1.5rem;}
-#typo-summary li:nth-child(4) .font-title { font-size: 1rem; }
 
 .text-category-wrapper {
     display: flex;
