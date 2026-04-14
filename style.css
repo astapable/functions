@@ -239,8 +239,7 @@ li {
 .nav-wrapper-bottom {
     position: relative;
     background-color: var(--primary-light-blue);
-    padding-block: 2rem;
-    padding-inline: 0rem;
+    padding: 0;
     gap: 0;
 }
 
@@ -248,7 +247,7 @@ button {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    /* padding-block-end: 0.5rem; */
+    padding-block-start: 2rem;
     width: 100%;
     height: 100%;
 }
