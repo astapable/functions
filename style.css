@@ -40,7 +40,6 @@
     --br-max: 100%;
 }
 
-
 /* ==================== GENERAL TEXT STYLES ==================== */
 h1 {
     font-family: "Geist";
@@ -90,7 +89,7 @@ main::-webkit-scrollbar-track {
 }
 main::-webkit-scrollbar-thumb {
     background: var(--primary-gray);
-    border-radius: var(--br-max);
+    border-radius: 2px;
 }
 
 html, body {
@@ -99,22 +98,13 @@ html, body {
 }
 
 main {
-    padding: 0.375rem;
+    padding-inline: 0.375rem;
+    padding-block-start: 3rem;
+    padding-block-end: 4.5rem;
     background-color: var(--primary-black);
     height: 100%;
     overflow-y: auto;
-    border-radius: var(--br-xlarge-box);
-    corner-shape: squircle;
 }
-
-/* main {
-    padding: 0.375rem;
-    background-color: var(--primary-white);
-    height: 100%;
-    overflow-y: auto;
-    border-radius: var(--br-xlarge-box);
-    corner-shape: squircle;
-} */
 
 article {
     display: flex;
