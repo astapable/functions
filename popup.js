@@ -51,7 +51,7 @@ async function scanTab() {
             });
 
             // MVP UPD_Ths is basically the same as line 30-32, the only diff is that Im calling out semantic elements related to text
-            const textTags = ["h1","h2","h3","h4","h5","h6","p","li","a","span","label"]; // Ok, this is a little different from line. 30. Here Im just calling for tag names (Might miss some, double chek later)
+            const textTags = ["h1","h2","h3","h4", "h5","h6","p","li","a","span","label"]; // Ok, this is a little different from line. 30. Here Im just calling for tag names (Might miss some, double chek later)
             const textData = []; 
             document.querySelectorAll(textTags.join(",")).forEach((el) => { // Heres where I turn line 42 tags into selectors
                 const elStyle = getComputedStyle(el);
@@ -93,9 +93,10 @@ async function scanTab() {
     });
 
     const fontCategories = {
-        Display: ["h1"],
-        Heading: ["h2", "h3", "h4", "h5", "h6"],
-        Body: ["p","li","a","span","label"],
+        "Heading 1": ["h1"],
+        "Heading 2": ["h2"],
+        "Heading 3": ["h3, h4, h5, h6"],
+        "Bodycopy": ["p","li","a","span","label"],
     };
 
     document.querySelector("#typo-summary").innerHTML =
