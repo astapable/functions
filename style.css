@@ -89,6 +89,7 @@ p, dt, dd {
     padding: 0.5rem;
     background-color: var(--secondary-gray);
     border-radius: var(--br-xsmall-box);
+    corner-shape: squircle;
 }
 
 /* =================== GENERAL WRAPPER STYLES =================== */
