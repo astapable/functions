@@ -1,5 +1,13 @@
 /* FONTS */
 @font-face {
+    font-family: "Doto-Rounded";
+    src: url("fonts/Doto_Rounded-SemiBold.woff") format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: "Geist";
     src: url("fonts/Geist-Bold.woff") format('woff');
     font-weight: 700;
@@ -53,6 +61,16 @@ h2 {
     font-weight: 700;
     font-size: 1.5rem;
     color: var(--primary-black);
+}
+
+h4 {
+    font-family: "Doto-Rounded";
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--primary-white);
+    line-height: 100%;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 p {
