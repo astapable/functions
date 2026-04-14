@@ -40,6 +40,8 @@
     --primary-light-blue: #DEF1F5;
     --primary-yellow: #FFCC00;
     --secondary-gray: #D1D5D8;
+    --secondary-text-gray: #C1CAD1;
+
 
     --br-xsmall-box: 0.25rem;
     /* --br-small-box: 0.375rem; */
@@ -281,7 +283,7 @@ dl {
 
 dt {
     width: 30%;
-    color: var(--secondary-gray);
+    color: var(--secondary-text-gray);
 }
 
 dd {
@@ -309,7 +311,7 @@ dd {
 }
 
 .font-category {
-    color: var(--secondary-gray);
+    color: var(--secondary-text-gray);
 }
 
 .font-title {
