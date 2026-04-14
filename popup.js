@@ -236,12 +236,20 @@ async function scanTab() {
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 scanTab();
 
+// Source: https://www.youtube.com/shorts/s0iqAUbxuBs
+const navButtons = document.querySelectorAll('.nav-wrapper-bottom button');
+const indicator = document.querySelector('.on');
+
 document.querySelector('.bottom').addEventListener('click', e => {
     const tabButton = e.target.closest('button[data-filter]');
     if (!tabButton) return;
 
     document.querySelectorAll('.bottom button').forEach(b => b.classList.remove('active'));
     tabButton.classList.add('active');
+
+    // Skider part
+    const i = Array.from(navButtons).indexOf(tabButton);
+    indicator.style.left = (100 / navButtons.length) * i + '%';
 
     const filter = tabButton.dataset.filter;
     document.querySelectorAll('main section').forEach(section => {

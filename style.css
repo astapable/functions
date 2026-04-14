@@ -237,6 +237,7 @@ li {
 }
 
 .nav-wrapper-bottom {
+    position: relative;
     background-color: var(--primary-light-blue);
     padding-block-end: 0rem;
     padding-block-start: 2rem;
@@ -260,11 +261,10 @@ button {
 }
 
 .on {
-    display: none;
-}
-
-.active .on {
-    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: left 0.3s ease;
 }
 
 
