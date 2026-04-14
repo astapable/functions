@@ -240,6 +240,7 @@ li {
     position: relative;
     background-color: var(--primary-light-blue);
     padding-block: 2rem;
+    padding-inline: 0rem;
     gap: 0;
 }
 
