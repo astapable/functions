@@ -148,10 +148,9 @@ section {
 }
 
 .display-box {
-    background-color: var(--primary-black);
+    /* background-color: var(--primary-black);
     border-radius: var(--br-large-box);
-    corner-shape: squircle;
-    height: 6rem;
+    corner-shape: squircle; */
     width: 100%;
 }
 
