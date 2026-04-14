@@ -163,8 +163,8 @@ async function scanTab() {
     document.querySelector("#all-colors").innerHTML = allUniColors.map(el =>
         `
         <li>
-            <div class="color-box" style="background-color:${rgbStringToHex(el)}; color:${getContrastColor(rgbStringToHex(el))}">
-                <p>${rgbStringToHex(el)}</p>
+            <div class="color-box" style="background-color:${rgbStringToHex(el)};">
+                <p style="color:${getContrastColor(rgbStringToHex(el))}">${rgbStringToHex(el)}</p>
                 <p class="footnote">Number of instances</p>
             </div>  
         </li>
