@@ -117,6 +117,7 @@ section {
     background-color: var(--primary-black);
     border-radius: var(--br-large-box);
     corner-shape: squircle;
+    height: 6rem;
 }
 
 .box-title {
@@ -299,8 +300,8 @@ button {
 /* ======================= COLOR DATA ======================= */
 
 .summary-color-box{
-    width: 3.75rem;
-    height: 3.75rem;
+    width: 3.25rem;
+    height: 3.25rem;
 }
 
 .color-box {
