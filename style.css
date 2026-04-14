@@ -94,7 +94,7 @@ main::-webkit-scrollbar {
 }
 main::-webkit-scrollbar-track {
     background: transparent;
-    margin-block-start: 3.25rem;
+    margin-block-start: 3.3rem;
     margin-block-end: 5.8rem;
 }
 main::-webkit-scrollbar-thumb {
