@@ -274,10 +274,10 @@ button {
     display: block;
 }
 
-/* .active {
-    background-color: var(--primary-black);
-    color: var(--primary-white);
-} */
+.active {
+    /* background-color: var(--primary-black); */
+    /* color: var(--primary-white); */
+}
 
 .hidden { display: none; }
 
