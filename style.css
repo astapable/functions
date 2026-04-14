@@ -170,6 +170,7 @@ li {
     bottom: 0;
     left: 0.5rem;
     right: 0.5rem;
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
