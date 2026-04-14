@@ -86,9 +86,6 @@ html, body {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
     padding: 0.375rem;
     background-color: var(--primary-white);
     height: 100%;
@@ -107,6 +104,14 @@ main::-webkit-scrollbar-track {
 main::-webkit-scrollbar-thumb {
     background: var(--primary-gray);
     border-radius: var(--br-max);
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-block-start: 3rem;
+    padding-block-end: 4rem;
 }
 
 section {
