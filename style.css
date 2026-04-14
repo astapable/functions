@@ -80,14 +80,14 @@ p {
 }
 
 /* =================== GENERAL WRAPPER STYLES =================== */
-main::-webkit-scrollbar {
-    width: 4px;
+body::-webkit-scrollbar {
+    width: 2px;
 }
-main::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     background: transparent;
     margin-block: 3rem;
 }
-main::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
     background: var(--primary-gray);
     border-radius: 2px;
 }
