@@ -236,10 +236,11 @@ async function scanTab() {
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 scanTab();
 
-// Source: https://www.youtube.com/shorts/s0iqAUbxuBs
+// Youtube tutorial source: https://www.youtube.com/shorts/s0iqAUbxuBs
 const navButtons = document.querySelectorAll('.nav-wrapper-bottom button');
 const indicator = document.querySelector('.on');
 
+// Note for self - filter here
 document.querySelector('.bottom').addEventListener('click', e => {
     const tabButton = e.target.closest('button[data-filter]');
     if (!tabButton) return;
@@ -247,9 +248,9 @@ document.querySelector('.bottom').addEventListener('click', e => {
     document.querySelectorAll('.bottom button').forEach(b => b.classList.remove('active'));
     tabButton.classList.add('active');
 
-    // Slider: center of each button slot = i * slot_width + half_slot
-    const i = Array.from(navButtons).indexOf(tabButton);
-    indicator.style.left = (100 / navButtons.length) * i + (50 / navButtons.length) + '%';
+    // Note for myself - slider here
+    const buttonIndex = Array.from(navButtons).indexOf(tabButton);
+    indicator.style.left = (100 / navButtons.length) * buttonIndex + (50 / navButtons.length) + '%';
 
     const filter = tabButton.dataset.filter;
     document.querySelectorAll('main section').forEach(section => {
