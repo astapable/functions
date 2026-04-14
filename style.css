@@ -117,6 +117,7 @@ html, body {
     overflow: hidden;
 }
 
+/* gap added */
 main {
     padding-inline: 0.375rem;
     padding-block-start: 3rem;
