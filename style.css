@@ -304,6 +304,7 @@ button:hover svg {
 }
 
 .text-color-box{
+    background-color: var(--bg-color);
     width: 1.5rem;
     height: 1.5rem;
 }
@@ -334,6 +335,7 @@ button:hover svg {
 
 /* ======================= COLOR DATA ======================= */
 .summary-color-box {
+    background-color: var(--bg-color);
     width: 100%;
     aspect-ratio: 1;
     border-radius: var(--br-medium-box);
@@ -341,6 +343,7 @@ button:hover svg {
 }
 
 .color-box {
+    background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
