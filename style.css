@@ -249,7 +249,6 @@ button p {
     background-color: var(--primary-light-blue);
     padding-block-end: 0rem;
     padding-block-start: 2.25rem;
-    overflow: hidden;
 }
 
 button {
