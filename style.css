@@ -69,10 +69,6 @@ html, body {
     overflow: hidden;
 }
 
-html {
-    background: transparent;
-}
-
 body {
     border-radius: 2.125rem;
     corner-shape: squircle;
@@ -284,8 +280,9 @@ button {
     flex-direction: column;
     gap: 0.75rem;
     padding: 0.75rem;
-    border: 0.063rem solid #bdbdbd;
-    border-radius: 0.375rem;
+    border: 0.063rem solid #D1D5D8;
+    border-radius: 1.813rem;
+    corner-shape: squircle;
 }
 
 /* ======================= COLOR DATA ======================= */
