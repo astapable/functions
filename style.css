@@ -54,15 +54,7 @@ h1 {
     font-size: 1rem;
     color: var(--primary-black);
 }
-
 h2 {
-    font-family: "Geist";
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--primary-black);
-}
-
-h4 {
     font-family: "Doto-Rounded";
     font-weight: 600;
     font-size: 2rem;
@@ -70,6 +62,13 @@ h4 {
     line-height: 100%;
     text-transform: uppercase;
     text-align: center;
+}
+
+h3 {
+    font-family: "Geist";
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-black);
 }
 
 p, dt, dd {
