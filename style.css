@@ -123,13 +123,14 @@ main {
     background-color: var(--primary-black);
     height: 100%;
     overflow-y: auto;
+    gap: 3rem;
 }
 
 article {
     display: flex;
     flex-direction: column;
     padding-inline: 1rem;
-    padding-block-start: 1rem;
+    padding-block-start: 3rem;
     padding-block-end: 4.75rem;
     background-color: var(--primary-white);
     gap: 3rem;
