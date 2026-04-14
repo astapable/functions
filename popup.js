@@ -247,9 +247,9 @@ document.querySelector('.bottom').addEventListener('click', e => {
     document.querySelectorAll('.bottom button').forEach(b => b.classList.remove('active'));
     tabButton.classList.add('active');
 
-    // Skider part
+    // Slider: center of each button slot = i * slot_width + half_slot
     const i = Array.from(navButtons).indexOf(tabButton);
-    indicator.style.left = (100 / navButtons.length) * i + '%';
+    indicator.style.left = (100 / navButtons.length) * i + (50 / navButtons.length) + '%';
 
     const filter = tabButton.dataset.filter;
     document.querySelectorAll('main section').forEach(section => {

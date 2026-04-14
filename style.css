@@ -239,8 +239,8 @@ li {
 .nav-wrapper-bottom {
     position: relative;
     background-color: var(--primary-light-blue);
-    padding-block-end: 0rem;
-    padding-block-start: 2rem;
+    padding: 0;
+    gap: 0;
 }
 
 button {
@@ -265,6 +265,7 @@ button {
     bottom: 0;
     left: 0;
     transition: left 0.3s ease;
+    transform: translateX(-50%);
 }
 
 
