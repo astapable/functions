@@ -141,9 +141,8 @@ li {
 }
 
 #color-summary {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 0.5rem;
 }
 
@@ -300,9 +299,9 @@ button {
 
 /* ======================= COLOR DATA ======================= */
 
-.summary-color-box{
-    width: 3.25rem;
-    height: 3.25rem;
+.summary-color-box {
+    width: 100%;
+    aspect-ratio: 1;
 }
 
 .color-box {
