@@ -118,9 +118,15 @@ li {
     gap: 1rem;
 }
 
-#color-summary {
+/* #color-summary {
     display: grid;
     grid-template-columns: repeat(5, max-content);
+    gap: 0.5rem;
+} */
+
+#color-summary {
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
 }
 

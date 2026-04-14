@@ -10,6 +10,18 @@ function rgbStringToHex(rgbString) {
     return rgbToHex(r, g, b);
 }
 
+function getContrastColor(hexColor) {
+    const r = parseInt(hexColor.slice(1, 3), 16);
+    const g = parseInt(hexColor.slice(3, 5), 16);
+    const b = parseInt(hexColor.slice(5, 7), 16);
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    if (brightness > 128) {
+        return '#212121';
+    } else {
+        return '#fafafa';
+    }
+}
+
 // Source: https://developer.chrome.com/docs/extensions/reference/api/tabs#open_an_extension_page_in_a_new_tab
 // Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage
 chrome.runtime.onMessage.addListener((message) => {
@@ -151,7 +163,7 @@ async function scanTab() {
     document.querySelector("#all-colors").innerHTML = allUniColors.map(el =>
         `
         <li>
-            <div class="color-box" style="background-color:${rgbStringToHex(el)}">
+            <div class="color-box" style="background-color:${rgbStringToHex(el)}; color:${getContrastColor(rgbStringToHex(el))}">
                 <p>${rgbStringToHex(el)}</p>
                 <p class="footnote">Number of instances</p>
             </div>  
