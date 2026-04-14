@@ -152,7 +152,7 @@ section {
     border-radius: var(--br-large-box);
     corner-shape: squircle; */
     width: 100%;
-    padding: -var(--br-large-box);
+    padding: var(--br-large-box);
 }
 
 .box-title {
