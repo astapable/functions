@@ -104,8 +104,6 @@ main {
     overflow-y: auto;
     border-radius: var(--br-xlarge-box);
     corner-shape: squircle;
-    padding-block-start: 3rem;
-    padding-block-end: 4rem;
 }
 
 /* main {
