@@ -72,7 +72,7 @@ h4 {
     text-align: center;
 }
 
-p {
+p, dt, dd {
     font-family: "Geist";
     font-weight: 400;
     font-size: 0.75rem;
@@ -271,22 +271,19 @@ button:hover svg {
 .hidden { display: none; }
 
 /* ======================= TEXT DATA ======================= */
-.data-wrapper {
+dl {
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
 }
 
-.data-wrapper p:nth-child(1) { width: 30%;}
-.data-wrapper p:nth-child(2) { width: 70%; }
-.data-wrapper .text-color:nth-child(2) { width: 70%;}
-
-.label {
+dt {
+    width: 30%;
     color: var(--primary-gray);
 }
 
-.value {
-    color: var(--primary-black);
+dd {
+    width: 70%;
 }
 
 .text-color {

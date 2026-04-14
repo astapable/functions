@@ -196,33 +196,33 @@ async function scanTab() {
                 <p class="tag">${tag}</p>
                 <p class="footnote">Number of instances</p>
             </header>
-            <div class="data-wrapper">
-                <p class="label">Font Family</p>
-                <p class="value">${data.fontFamily.replaceAll('"', '').split(',')[0].trim()}</p>
-            </div>
-            <div class="data-wrapper">
-                <p class="label">Font Size</p>
-                <p class="value">${data.fontSize}</p>
-            </div>
-            <div class="data-wrapper">
-                <p class="label">Line Height</p>
-                <p class="value">${data.lineHeight}</p>
-            </div>
-            <div class="data-wrapper">
-                <p class="label">Font Weight</p>
-                <p class="value">${data.fontWeight}</p>
-            </div>
-            <div class="data-wrapper">
-                <p class="label">Letter Spacing</p>
-                <p class="value">${data.letterSpacing}</p>
-            </div>
-            <div class="data-wrapper">
-                <p class="label">Text Color</p>
-                <div class="text-color">
+            <dl>
+                <dt>Font Family</dt>
+                <dd>${data.fontFamily.replaceAll('"', '').split(',')[0].trim()}</dd>
+            </dl>
+            <dl>
+                <dt>Font Size</dt>
+                <dd>${data.fontSize}</dd>
+            </dl>
+            <dl>
+                <dt>Line Height</dt>
+                <dd>${data.lineHeight}</dd>
+            </dl>
+            <dl>
+                <dt>Font Weight</dt>
+                <dd>${data.fontWeight}</dd>
+            </dl>
+            <dl>
+                <dt>Letter Spacing</dt>
+                <dd>${data.letterSpacing}</dd>
+            </dl>
+            <dl>
+                <dt>Text Color</dt>
+                <dd class="text-color">
                     <div class="text-color-box" style="--bg-color:${rgbStringToHex(data.color)}"></div>
                     <p>${rgbStringToHex(data.color)}</p>
-                </div>
-            </div>
+                </dd>
+            </dl>
         </li>
         `
     ).join("");
