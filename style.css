@@ -70,10 +70,7 @@ html, body {
 }
 
 body {
-    background-color: Canvas;
-    overflow: hidden;
-    border-radius: 2.5rem;
-    corner-shape: squircle;
+    background-color: transparent;
 }
 
 main {
@@ -84,6 +81,8 @@ main {
     background-color: #FFFFFF;
     height: 100%;
     overflow-y: auto;
+    border-radius: 2.5rem;
+    corner-shape: squircle;
 }
 
 main::-webkit-scrollbar {
