@@ -81,15 +81,15 @@ p {
 
 /* =================== GENERAL WRAPPER STYLES =================== */
 main::-webkit-scrollbar {
-    width: 0.25rem;
+    width: 0.375rem;
 }
 main::-webkit-scrollbar-track {
     background: transparent;
-    margin-block: 1rem;
+    margin-block: 1.5rem;
 }
 main::-webkit-scrollbar-thumb {
     background: var(--primary-gray);
-    border-radius: 2px;
+    border-radius: 1rem;
 }
 
 html, body {
@@ -108,7 +108,8 @@ main {
 article {
     display: flex;
     flex-direction: column;
-    padding-inline: 0.375rem;
+    padding-inline: 1rem;
+    padding-block-start: 1rem;
     padding-block-end: 4.75rem;
     background-color: var(--primary-white);
     gap: 3rem;
