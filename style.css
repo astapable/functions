@@ -118,6 +118,7 @@ section {
     border-radius: var(--br-large-box);
     corner-shape: squircle;
     height: 6rem;
+    width: 100%;
 }
 
 .box-title {
