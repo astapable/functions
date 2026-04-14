@@ -124,7 +124,7 @@ article {
     flex-direction: column;
     padding-inline: 1rem;
     padding-block-start: 1rem;
-    padding-block-end: 7.1rem;
+    padding-block-end: 6.85rem;
     background-color: var(--primary-white);
     gap: 3rem;
     border-radius: var(--br-xlarge-box);
