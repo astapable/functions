@@ -168,7 +168,8 @@ li {
 
 .bottom {
     bottom: 0;
-    left: 0;
+    left: 0.5rem;
+    right: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,8 +178,6 @@ li {
     corner-shape: squircle;
     background-color: #FFFFFF;
     padding-block-end: 0.5rem;
-    margin-inline: 0.5rem;
-    width: auto;
 }
     button p {
         text-align: center;
