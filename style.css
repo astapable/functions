@@ -66,11 +66,14 @@ p {
 /* =================== GENERAL WRAPPER STYLES =================== */
 html, body {
     height: 100%;
-    color-scheme: light dark;
+    overflow: hidden;
 }
 
 body {
-    background-color: transparent;
+    padding: 0.375rem;
+    background-color: #00000;
+    border-radius: 2.5rem;
+    corner-shape: squircle;
 }
 
 main {
