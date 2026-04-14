@@ -150,9 +150,8 @@ section {
 }
 
 #display {
-    position: relative;
     position: sticky;
-    top: 4rem;
+    top: 0rem;
 }
 
 .display-box {
