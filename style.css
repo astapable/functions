@@ -69,6 +69,11 @@ html, body {
     overflow: hidden;
 }
 
+body {
+    border-radius: 2.125rem;
+    corner-shape: squircle;
+}
+
 main {
     display: flex;
     flex-direction: column;
