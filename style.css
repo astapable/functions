@@ -248,6 +248,7 @@ button p {
 .nav-wrapper-bottom {
     background-color: var(--primary-light-blue);
     padding-block-end: 0rem;
+    overflow: hidden;
 }
 
 button {
@@ -266,11 +267,11 @@ button {
     justify-content: space-between;
 }
 
-.icon-wrapper svg {
+.icon-wrapper .on {
     display: none;
 }
 
-.active svg {
+.active .on {
     display: block;
 }
 
