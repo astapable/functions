@@ -85,8 +85,8 @@ main::-webkit-scrollbar {
 }
 main::-webkit-scrollbar-track {
     background: transparent;
-    margin-block-start: 3.5rem;
-    margin-block-start: 5rem;
+    margin-block-start: 3.25rem;
+    margin-block-start: 4.75rem;
 }
 main::-webkit-scrollbar-thumb {
     background: var(--primary-gray);
