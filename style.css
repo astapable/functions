@@ -63,7 +63,6 @@ h2 {
     color: var(--primary-black);
 }
 
-/* Fix color number */
 h4 {
     font-family: "Doto-Rounded";
     font-weight: 600;
@@ -108,7 +107,6 @@ html, body {
     overflow: hidden;
 }
 
-/* gap added */
 main {
     display: flex;
     flex-direction: column;
@@ -146,13 +144,9 @@ section {
 }
 
 .display-box {
-    /* background-color: var(--primary-black);
-    border-radius: var(--br-large-box);
-    corner-shape: squircle; */
     width: 100%;
     padding-inline: var(--br-large-box);
     padding-block: var(--br-xlarge-box);
-
 }
 
 .box-title {
@@ -223,9 +217,6 @@ li {
     padding-block-end: 0.5rem;
 }
 
-button p {
-    text-align: center;
-}
 
 .nav-wrapper-top,
 .nav-wrapper-bottom {
@@ -248,7 +239,7 @@ button p {
 .nav-wrapper-bottom {
     background-color: var(--primary-light-blue);
     padding-block-end: 0rem;
-    padding-block-start: 2.25rem;
+    padding-block-start: 2rem;
 }
 
 button {
@@ -276,10 +267,6 @@ button {
     display: block;
 }
 
-.active {
-    /* background-color: var(--primary-black); */
-    /* color: var(--primary-white); */
-}
 
 .hidden { display: none; }
 
