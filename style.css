@@ -143,7 +143,6 @@ li {
     flex-direction: row;
     align-items: center;
     position: fixed;
-    padding: 0.5rem;
     gap: 0.5rem;
     width: 100%;
     min-height: 3rem;
@@ -154,6 +153,7 @@ li {
     top: 0;
     left: 0;
     border-bottom: 1px solid #bdbdbd;
+    padding: 0.5rem;
 }
 
 .ext-h1-text {
@@ -176,10 +176,6 @@ li {
     border-radius: 1.813rem;
     corner-shape: squircle;
     background-color: #FFFFFF;
-    padding-block-start: 0rem;
-    padding-block-end: 0.5rem;
-    padding-inline: 0.5rem;
-    
 }
     button p {
         text-align: center;
