@@ -113,10 +113,10 @@ section {
     gap: 1rem;
 }
 
-.display {
+.display-box {
     background-color: var(--primary-black);
-    flex: 1;
-    min-height: 0;
+    border-radius: var(--br-large-box);
+    corner-shape: squircle;
 }
 
 .box-title {
