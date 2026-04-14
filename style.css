@@ -247,16 +247,31 @@ button p {
 
 .nav-wrapper-bottom {
     background-color: var(--primary-light-blue);
+    padding-block-end: 0rem;
 }
 
 button {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
+    padding-block-end: 0.5rem;
     width: 100%;
-    height: 2.5rem;
-    background-color: var(--primary-gray);
-    border-radius: var(--br-small-box);
+    height: 100%;
+}
+
+.icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-wrapper svg {
+    display: none;
+}
+
+.active svg {
+    display: block;
 }
 
 .active {
