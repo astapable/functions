@@ -130,6 +130,7 @@ main {
 }
 
 article {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding-inline: 1rem;
@@ -139,6 +140,7 @@ article {
     gap: 3rem;
     border-radius: var(--br-xlarge-box);
     corner-shape: squircle;
+    z-index: 1;
 }
 
 section {
@@ -200,6 +202,7 @@ li {
     width: 100%;
     min-height: 3rem;
     background-color: var(--primary-black);
+    z-index: 2;
 }
 
 .top {
