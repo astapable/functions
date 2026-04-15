@@ -93,7 +93,7 @@ p, dt, dd {
     corner-shape: squircle;
 }
 
-.box-title .tag:second-child {
+.box-title .tag:last-child {
     background-color: var(--primary-white);
     border: 0.063rem solid var(--secondary-gray);
 }
