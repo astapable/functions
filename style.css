@@ -93,6 +93,10 @@ p, dt, dd {
     corner-shape: squircle;
 }
 
+.box-title .tag:first-child {
+    background-color: var(--primary-yellow);
+}
+
 /* =================== GENERAL WRAPPER STYLES =================== */
 main::-webkit-scrollbar {
     width: 0.375rem;
@@ -342,9 +346,6 @@ dd {
     border-radius: var(--br-large-box);
     corner-shape: squircle;
 }
-
-.box-title li:nth-child(1) .tag { background-color: var(--primary-yellow); }
-.box-title  li:nth-child(2) .tag { background-color: var(--primary-light-blue); }
 
 /* ======================= COLOR DATA ======================= */
 .summary-color-box {
