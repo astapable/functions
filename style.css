@@ -73,13 +73,6 @@ h1 {
     color: var(--primary-black);
 }
 
-h3 {
-    font-family: "Geist";
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--primary-black);
-}
-
 h2 {
     font-family: "Doto-Rounded";
     font-weight: 600;
@@ -90,6 +83,12 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    font-family: "Geist";
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-black);
+}
 
 p, dt, dd {
     font-family: "Geist";
@@ -379,4 +378,11 @@ dd {
     padding: var(--padding-medium);
     border: var(--border-size) solid var(--secondary-gray);
     border-radius: var(--br-medium-box);
+}
+
+.color-box:first-child {
+    font-family: "Doto-Rounded";
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--primary-black);
 }
