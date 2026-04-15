@@ -104,6 +104,12 @@ async function scanTab() {
         }
     });
 
+    // Note for myself - Text instance counrer is here
+    const tagCount = {};
+    retTextRaw.forEach(el => {
+        tagCount[el.tag] = (tagCount[el.tag] || 0) + 1;
+    });
+
     const fontCategories = {
         "Heading 1": ["h1"],
         "Heading 2": ["h2"],
@@ -156,11 +162,11 @@ async function scanTab() {
         ...uniBorderColors
     ]));
 
-    // Note for self - Instances counter is here
-    const colorCount = {};
+    // Note for self - Color instances counter is here
+    const colorInstance = {};
     retColorRaw.forEach(el => {
         [el.color, el.backgroundColor, el.borderColor].forEach(c => {
-            colorCount[c] = (colorCount[c] || 0) + 1;
+            colorInstance[c] = (colorInstance[c] || 0) + 1;
         });
     });
 
@@ -173,7 +179,7 @@ async function scanTab() {
         <li>
             <div class="color-box" style="--bg-color:${rgbStringToHex(el)};">
                 <p style="color:${getContrastColor(rgbStringToHex(el))}">${rgbStringToHex(el)}</p>
-                <p class="footnote" style="color:${getContrastColor(rgbStringToHex(el))}">${colorCount[el] || 0} instances</p>
+                <p class="footnote" style="color:${getContrastColor(rgbStringToHex(el))}">${colorInstance[el] || 0} instances</p>
             </div>  
         </li>
         `
@@ -207,7 +213,7 @@ async function scanTab() {
         <li class="text-category-wrapper">
             <header class="box-title">
                 <p class="tag">${tag}</p>
-                <p class="footnote">Number of instances</p>
+                <p class="footnote">${tagCount[tag] || 0} instances</p>
             </header>
             <dl>
                 <dt>Font Family</dt>
