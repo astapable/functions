@@ -90,6 +90,13 @@ h3 {
     color: var(--primary-black);
 }
 
+h4 {
+    font-family: "Doto-Rounded";
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--primary-black);
+}
+
 p, dt, dd {
     font-family: "Geist";
     font-weight: 400;
@@ -378,11 +385,4 @@ dd {
     padding: var(--padding-medium);
     border: var(--border-size) solid var(--secondary-gray);
     border-radius: var(--br-medium-box);
-}
-
-#all-colors li:first-child .color-box {
-    font-family: "Doto-Rounded";
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: var(--primary-black);
 }
