@@ -225,11 +225,6 @@ img {
     color: #51AF7A;
 }
 
-.mata-button svg {
-    width: 100%;
-    height: 100%;
-}
-
 /* ======================= MAIN LIST ======================= */
 ul {
     display: flex;
