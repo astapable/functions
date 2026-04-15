@@ -16,9 +16,9 @@ function getContrastColor(hexColor) {
     const b = parseInt(hexColor.slice(5, 7), 16);
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
     if (brightness > 128) {
-        return '#212121';
+        return 'var(--primary-black)';
     } else {
-        return '#fafafa';
+        return 'var(--primary-white)';
     }
 }
 
@@ -165,7 +165,7 @@ async function scanTab() {
         <li>
             <div class="color-box" style="--bg-color:${rgbStringToHex(el)};">
                 <p style="color:${getContrastColor(rgbStringToHex(el))}">${rgbStringToHex(el)}</p>
-                <p class="footnote">Number of instances</p>
+                <p class="footnote" style="color:${getContrastColor(rgbStringToHex(el))}>Number of instances</p>
             </div>  
         </li>
         `
