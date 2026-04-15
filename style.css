@@ -148,7 +148,8 @@ section {
     top: 0;
 }
 
-.display-box{
+.display-box,
+figure {
     width: 100%;
     padding-inline: var(--br-large-box);
     padding-block: var(--br-xlarge-box);
@@ -158,13 +159,6 @@ section {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-}
-
-figure {
-    width: 100%;
-    padding-inline-start: var(--br-medium-box);
-    padding-inline-end: var(--br-large-box);
-    padding-block: var(--br-xlarge-box);
 }
 
 img {
