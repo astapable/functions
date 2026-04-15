@@ -343,6 +343,9 @@ dd {
     corner-shape: squircle;
 }
 
+#typography li:nth-child(1) .tag { background-color: var(--primary-yellow); }
+#typography li:nth-child(2) .tag { background-color: var(--primary-light-blue); }
+
 /* ======================= COLOR DATA ======================= */
 .summary-color-box {
     background-color: var(--bg-color);
