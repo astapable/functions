@@ -203,7 +203,7 @@ img {
     font-family: "Geist";
     font-weight: 400;
     font-size: 1rem;
-    color: var(--secondary-text-gray);
+    color: #444C52;
     text-transform: uppercase;
     text-align: center;
 }
