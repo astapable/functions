@@ -191,6 +191,20 @@ img {
     width: 100%;
 }
 
+.site-metadata {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.site-metadata p {
+    font-family: "Geist";
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--primary-gray);
+}
+
 /* ======================= MAIN LIST ======================= */
 ul {
     display: flex;
