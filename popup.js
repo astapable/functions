@@ -156,6 +156,14 @@ async function scanTab() {
         ...uniBorderColors
     ]));
 
+    // Note for self - Instances counter is here
+    const colorCount = {};
+    retColorRaw.forEach(el => {
+        [el.color, el.backgroundColor, el.borderColor].forEach(c => {
+            colorCount[c] = (colorCount[c] || 0) + 1;
+        });
+    });
+
     // I need empty separator betveen data elements so I use .join() to remove default comma as I wrap it in <li> with flex colun=mn in HTML
     // Moreover, .join() required to merge all elements in one string for HTML use. 
     // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
@@ -165,7 +173,7 @@ async function scanTab() {
         <li>
             <div class="color-box" style="--bg-color:${rgbStringToHex(el)};">
                 <p style="color:${getContrastColor(rgbStringToHex(el))}">${rgbStringToHex(el)}</p>
-                <p class="footnote" style="color:${getContrastColor(rgbStringToHex(el))}">Number of instances</p>
+                <p class="footnote" style="color:${getContrastColor(rgbStringToHex(el))}">${colorCount[el] || 0} instances</p>
             </div>  
         </li>
         `
@@ -199,7 +207,7 @@ async function scanTab() {
         <li class="text-category-wrapper">
             <header class="box-title">
                 <p class="tag">${tag}</p>
-                <p class="footnote">Number of instances</p>
+                <p class="footnote">${colorCount[el] || 0} instances</p>
             </header>
             <dl>
                 <dt>Font Family</dt>
