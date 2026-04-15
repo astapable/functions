@@ -37,8 +37,8 @@
     --primary-black: #000000;
     --primary-white: #FFFFFF;
     --primary-gray: #EAEDEF;
-    /* --primary-light-blue: #DEF1F5; */
-    --primary-light-blue: #ACDDE7;
+    --primary-light-blue: #DEF1F5;
+    /* --primary-light-blue: #ACDDE7; */
     --primary-yellow: #FFCC00;
     --secondary-gray: #D1D5D8;
     --secondary-text-gray: #AFBCC5;
@@ -148,7 +148,7 @@ section {
     top: 0;
 }
 
-.display-box {
+.display-box{
     width: 100%;
     padding-inline: var(--br-large-box);
     padding-block: var(--br-xlarge-box);
@@ -158,6 +158,16 @@ section {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+figure {
+    width: 100%;
+    padding-inline: var(--br-medium-box);
+    padding-block: var(--br-xlarge-box);
+}
+
+img {
+    width: 100%;
 }
 
 /* ======================= MAIN LIST ======================= */
