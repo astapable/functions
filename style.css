@@ -202,8 +202,21 @@ img {
     font-family: "Geist";
     font-weight: 400;
     font-size: 1rem;
-    color: var(--primary-gray);
+    color: var(--secondary-text-gray);
+    text-transform: uppercase;
+    text-align: center;
 }
+
+.meta-btn-dark {
+    background-color: #202020;
+}
+
+.meta-btn-green {
+    background-color: #0A3019;
+    color: #51AF7A;
+}
+
+
 
 /* ======================= MAIN LIST ======================= */
 ul {
