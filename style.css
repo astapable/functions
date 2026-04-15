@@ -37,7 +37,8 @@
     --primary-black: #000000;
     --primary-white: #FFFFFF;
     --primary-gray: #EAEDEF;
-    --primary-light-blue: #DEF1F5;
+    /* --primary-light-blue: #DEF1F5; */
+    --primary-light-blue: #ACDDE7;
     --primary-yellow: #FFCC00;
     --secondary-gray: #D1D5D8;
     --secondary-text-gray: #AFBCC5;
@@ -142,7 +143,7 @@ section {
     gap: 1rem;
 }
 
-#display {
+.display-title {
     position: sticky;
     top: 0;
 }
