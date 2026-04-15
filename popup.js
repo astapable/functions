@@ -213,7 +213,7 @@ async function scanTab() {
         <li class="text-category-wrapper">
             <header class="box-title">
                 <p class="tag">${tag}</p>
-                <p class="footnote">${tagCount[tag] || 0} instances</p>
+                <p class="tag">${tagCount[tag] || 0} instances</p>
             </header>
             <dl>
                 <dt>Font Family</dt>
