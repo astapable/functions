@@ -93,8 +93,9 @@ p, dt, dd {
     corner-shape: squircle;
 }
 
-.box-title .tag:first-child {
-    background-color: var(--primary-yellow);
+.box-title .tag:second-child {
+    background-color: var(--primary-white);
+    border: 0.063rem solid var(--secondary-gray);
 }
 
 /* =================== GENERAL WRAPPER STYLES =================== */
