@@ -222,7 +222,18 @@ img {
 
 .green {
     background-color: #0A3019;
-    color: #51AF7A;
+}
+
+.mata-button:hover svg {
+    transform: none;
+}
+
+.mata-button .dark:hover {
+    border: var(--border-size) solid var(--primary-white);
+}
+
+.mata-button .green:hover {
+    border: var(--border-size) solid #51AF7A;
 }
 
 /* ======================= MAIN LIST ======================= */
