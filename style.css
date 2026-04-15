@@ -380,7 +380,7 @@ dd {
     border-radius: var(--br-medium-box);
 }
 
-.color-box:first-child {
+#all-colors li:first-child .color-box {
     font-family: "Doto-Rounded";
     font-weight: 600;
     font-size: 1.5rem;
