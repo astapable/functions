@@ -194,6 +194,7 @@ img {
 .site-metadata {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     justify-content: space-between;
     width: 100%;
 }
@@ -215,8 +216,6 @@ img {
     background-color: #0A3019;
     color: #51AF7A;
 }
-
-
 
 /* ======================= MAIN LIST ======================= */
 ul {
