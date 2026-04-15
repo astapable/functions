@@ -37,8 +37,8 @@
     --primary-black: #000000;
     --primary-white: #FFFFFF;
     --primary-gray: #EAEDEF;
-    --primary-light-blue: #DEF1F5;
-    /* --primary-light-blue: #ACDDE7; */
+    /* --primary-light-blue: #DEF1F5; */
+    --primary-light-blue: #ACDDE7;
     --primary-yellow: #FFCC00;
     --secondary-gray: #D1D5D8;
     --secondary-text-gray: #A2ADB5;
@@ -209,10 +209,10 @@ img {
 }
 
 .mata-button {
-    padding: 0;
+    padding: var(--padding-small);
     border-radius: 100%;
-    width: 2rem;
-    height: 2rem;
+    width: auto;
+    height: auto;
     align-items: center;
 }
 
