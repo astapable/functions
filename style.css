@@ -211,6 +211,8 @@ img {
 .mata-button {
     padding: var(--padding-small);
     border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
 }
 
 .dark {
@@ -220,6 +222,11 @@ img {
 .green {
     background-color: #0A3019;
     color: #51AF7A;
+}
+
+.mata-button svg {
+    width: 100%;
+    height: 100%;
 }
 
 /* ======================= MAIN LIST ======================= */
