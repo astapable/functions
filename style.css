@@ -157,8 +157,9 @@ figure {
 
 .box-title {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
+    justify-content: space-between;
 }
 
 img {
