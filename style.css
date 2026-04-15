@@ -194,7 +194,7 @@ img {
 .site-metadata {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
 }
@@ -208,11 +208,16 @@ img {
     text-align: center;
 }
 
-.meta-btn-dark {
+.mata-button {
+    padding: var(--padding-small);
+    border-radius: 100%;
+}
+
+.dark {
     background-color: #202020;
 }
 
-.meta-btn-green {
+.green {
     background-color: #0A3019;
     color: #51AF7A;
 }
