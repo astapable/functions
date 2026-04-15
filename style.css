@@ -218,10 +218,12 @@ img {
 
 .dark {
     background-color: #202020;
+    color: var(--primary-white);
 }
 
 .green {
     background-color: #0A3019;
+    color: #51AF7A;
 }
 
 .mata-button:hover svg {
@@ -229,11 +231,13 @@ img {
 }
 
 .mata-button.dark:hover {
-    border: var(--border-size) solid var(--primary-white);
+    background-color: var(--primary-yellow);
+    color: var(--primary-black);
 }
 
 .mata-button.green:hover {
-    border: var(--border-size) solid #51AF7A;
+    background-color: #51AF7A;
+    color: var(--primary-white);
 }
 
 /* ======================= MAIN LIST ======================= */
