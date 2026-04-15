@@ -178,7 +178,7 @@ async function scanTab() {
         `
         <li>
             <div class="color-box" style="--bg-color:${rgbStringToHex(el)};">
-                <p style="color:${getContrastColor(rgbStringToHex(el))}">${rgbStringToHex(el)}</p>
+                <h3 style="color:${getContrastColor(rgbStringToHex(el))}">${rgbStringToHex(el)}</h3>
                 <p class="footnote" style="color:${getContrastColor(rgbStringToHex(el))}">${colorInstance[el] || 0} instances</p>
             </div>  
         </li>
