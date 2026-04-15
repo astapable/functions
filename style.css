@@ -209,7 +209,7 @@ img {
 }
 
 .mata-button {
-    padding: var(--padding-small);
+    padding: var(--padding-medium);
     border-radius: 100%;
     width: auto;
     height: auto;
