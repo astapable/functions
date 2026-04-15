@@ -162,7 +162,8 @@ section {
 
 figure {
     width: 100%;
-    padding-inline: var(--br-medium-box);
+    padding-inline-start: var(--br-medium-box);
+    padding-inline-end: var(--br-large-box);
     padding-block: var(--br-xlarge-box);
 }
 
