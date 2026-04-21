@@ -297,20 +297,22 @@ li {
     clip-path: inset(50%);
 }
 
-#refresh {
+.refresh {
     display: flex;
     align-items: center;
-    justify-items: center;
-    padding: var(--padding-small);
+    width: auto;
+    height: auto;
+    padding: var(--padding-medium);
     border: var(--border-size) solid var(--primary-black);
     border-radius: var(--br-medium-box);
     corner-shape: squircle;
     cursor: pointer;
     background-color: var(--primary-yellow);
     color: var(--primary-black);
+
 }
 
-#refresh:hover {
+.refresh:hover {
     background-color: var(--secondary-charcoal);
     color: var(--primary-white);
 }
