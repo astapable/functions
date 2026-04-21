@@ -146,7 +146,7 @@ main {
     display: flex;
     flex-direction: column;
     padding-inline: var(--padding-xsmall);
-    padding-block-start: 3.75rem;
+    padding-block-start: 4.75rem;
     background-color: var(--primary-black);
     height: 100%;
     overflow-y: auto;
@@ -159,7 +159,7 @@ article {
     flex-direction: column;
     padding-inline: var(--padding-large);
     padding-block-start: var(--padding-large);
-    padding-block-end: 6.95rem;
+    padding-block-end: 6.45rem;
     background-color: var(--primary-white);
     gap: var(--gap-xlarge);
     border-radius: var(--br-xlarge-box);
@@ -233,9 +233,6 @@ img {
     color: var(--secondary-light-green);
 }
 
-/* .mata-button:hover svg {
-    transform: none;
-} */
 
 .mata-button.dark:hover {
     background-color: var(--primary-yellow);
