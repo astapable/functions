@@ -207,6 +207,10 @@ img {
     color: #444C52;
     text-transform: uppercase;
     text-align: center;
+    max-width: 45%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .mata-button {
