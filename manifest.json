@@ -1,6 +1,6 @@
 {
   "name": "revEel",
-  "description": "Base Level Extension",
+  "description": "Turn any website into a quick design reference — inspect fonts, text styles, and colors in your browser side panel",
   "version": "1.0",
   "manifest_version": 3,
   "permissions": ["activeTab", "scripting", "sidePanel"],
