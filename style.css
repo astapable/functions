@@ -324,7 +324,7 @@ li {
     align-items: center;
 }
 
-.refresh {
+/* .refresh {
     display: flex;
     align-items: center;
     width: auto;
@@ -341,7 +341,7 @@ li {
 .refresh:hover {
     background-color: var(--secondary-charcoal);
     color: var(--primary-white);
-}
+} */
 
 .nav-wrapper-bottom {
     position: relative;
