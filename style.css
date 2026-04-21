@@ -485,8 +485,8 @@ dd {
 
 .clipboard-wrapper {
     display: flex;
-    flex-direction: columb;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: flex-end;
     gap: var(--gap-xsmall);
 }
