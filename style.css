@@ -335,7 +335,6 @@ li {
     cursor: pointer;
     background-color: var(--secondary-pale-yellow);
     color: var(--primary-black);
-
 }
 
 #ext-refresh:hover {
