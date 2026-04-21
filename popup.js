@@ -34,11 +34,6 @@ document.querySelector('#ext-refresh').addEventListener('click', () => {
     scanTab(); // same thing as in line 27-31, just another button do refresh
 });
 
-document.querySelector('#scanned-website-link').addEventListener('click', () => {
-    const url = document.querySelector('#scanned-website-link').dataset.url;
-    if (url) chrome.windows.create({ url });
-});
-
 // Removed content_scripts from original demo manifest.json since I will use executeScript
 // Why executeScript? My popup.js will control the outcome
 // The extension will not work automatically after the page loads
