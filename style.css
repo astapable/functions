@@ -118,11 +118,6 @@ p, dt, dd {
     corner-shape: squircle;
 }
 
-.box-title .tag:last-child {
-    background-color: var(--primary-white);
-    border: var(--border-size) solid var(--secondary-gray);
-}
-
 /* =================== GENERAL WRAPPER STYLES =================== */
 
 
@@ -194,6 +189,11 @@ figure {
     flex-direction: row;
     gap: var(--gap-xsmall);
     justify-content: space-between;
+
+    & .tag:last-child {
+        background-color: var(--primary-white);
+        border: var(--border-size) solid var(--secondary-gray);
+    }
 }
 
 img {
@@ -206,18 +206,19 @@ img {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+
+    & p {
+        font-size: 1rem;
+        color: var(--secondary-dark-gray);
+        text-transform: uppercase;
+        text-align: center;
+        max-width: 45%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
-.site-metadata p {
-    font-size: 1rem;
-    color: var(--secondary-dark-gray);
-    text-transform: uppercase;
-    text-align: center;
-    max-width: 45%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
 .mata-button {
     padding: var(--padding-medium);
@@ -229,22 +230,21 @@ img {
     &.dark {
         background-color: var(--secondary-charcoal);
         color: var(--primary-white);
+
+        &:hover {
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
+        }
     }
     
     &.green {
         background-color: var(--secondary-dark-green);
         color: var(--secondary-light-green);
-    }
-    
-    
-    &.dark:hover {
-        background-color: var(--primary-yellow);
-        color: var(--primary-black);
-    }
-    
-    &.green:hover {
-        background-color: var(--secondary-light-green);
-        color: var(--primary-white);
+
+        &:hover {
+            background-color: var(--secondary-light-green);
+            color: var(--primary-white);
+        }
     }
 }
 
@@ -433,9 +433,12 @@ dd {
     color: var(--primary-black);
 }
 
-#typo-summary li:nth-child(1) .font-title { font-size: 2rem; }
-#typo-summary li:nth-child(2) .font-title { font-size: 1.75rem; }
-#typo-summary li:nth-child(3) .font-title { font-size: 1.5rem;}
+#typo-summary {
+    & li:nth-child(1) .font-title { font-size: 2rem; }
+    & li:nth-child(2) .font-title { font-size: 1.75rem; }
+    & li:nth-child(3) .font-title { font-size: 1.5rem;}
+}
+
 
 .text-category-wrapper {
     display: flex;
