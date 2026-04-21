@@ -470,7 +470,7 @@ dd {
     height: auto;
     padding: var(--padding-xsmall);
     border-radius: var(--br-medium-box);
-    border: var(--border-size) solid var(--secondary-gray);
+    border: var(--border-size);
     corner-shape: squircle;
     cursor: pointer;
 }
