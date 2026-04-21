@@ -185,6 +185,9 @@ async function scanTab() {
         });
     });
 
+    // Simple sort by instances that I mentioned in the last class to Eric
+    allUniColors.sort((a, b) => (colorInstance[b] || 0) - (colorInstance[a] || 0));
+
     // I need empty separator betveen data elements so I use .join() to remove default comma as I wrap it in <li> with flex colun=mn in HTML
     // Moreover, .join() required to merge all elements in one string for HTML use. 
     // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
