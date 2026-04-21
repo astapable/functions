@@ -146,7 +146,7 @@ main {
     display: flex;
     flex-direction: column;
     padding-inline: var(--padding-xsmall);
-    padding-block-start: 4.4rem;
+    padding-block-start: 4.55rem;
     background-color: var(--primary-black);
     height: 100%;
     overflow-y: auto;
