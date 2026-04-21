@@ -483,7 +483,21 @@ dd {
     cursor: pointer;
 }
 
-.copied {
+.clipboard-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--gap-xsmall);
+}
+
+.copy-note {
+    display: none;
+    font-family: "Geist";
+    font-size: 0.75rem;
+    padding: var(--padding-xsmall);
+    border-radius: var(--br-small-box);
+    corner-shape: squircle;
     background-color: var(--secondary-dark-green);
     color: var(--secondary-light-green);
     border-color: var(--secondary-light-green);
