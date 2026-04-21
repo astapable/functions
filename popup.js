@@ -50,6 +50,7 @@ async function getTabId() {
 async function scanTab() {
     // Wait until line 7_getTabId() is finished and return it as a variable here
     const tabId = await getTabId();
+    // returned activeTab since I need to get #scanned-website-name, #scanned-website-link and being able to #back-to-tab
     const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
     const scanNameResult = await chrome.scripting.executeScript({
@@ -302,11 +303,14 @@ document.querySelector('.bottom').addEventListener('click', e => {
 
 document.querySelector('.bottom button[data-filter="home"]').click();
 
+// I figured I need some button to get back to specific source tab cuz Im going to disable refresh on click on the tab. Same logic here, just manipulating with tabId
+// Source: https://developer.chrome.com/docs/extensions/reference/api/tabs#method-update
 document.querySelector('#back-to-tab').addEventListener('click', () => {
     const tabId = document.querySelector('#back-to-tab').dataset.tabId;
     if (tabId) chrome.tabs.update(parseInt(tabId), { active: true });
 });
 
+// For colors specifically I needed copy to clipboard CTA and and agnolidged that content is dynamic. Gobless MDN
 // Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard
 document.addEventListener('click', e => {
     const clipButton = e.target.closest('.copy-to-clipboard');
