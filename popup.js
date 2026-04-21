@@ -58,7 +58,7 @@ async function scanTab() {
     });
     document.querySelector('#scanned-website-name').textContent = scanNameResult[0].result || 'Ooops, no title here';
     document.querySelector('#scanned-website-link').href = activeTab.url;
-    ocument.querySelector('#back-to-tab').dataset.tabId = activeTab.id;
+    document.querySelector('#back-to-tab').dataset.tabId = activeTab.id;
 
     const result = await chrome.scripting.executeScript({
         target: { tabId: tabId },
