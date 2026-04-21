@@ -58,6 +58,7 @@ async function scanTab() {
     });
     document.querySelector('#scanned-website-name').textContent = scanNameResult[0].result || 'Ooops, no title here';
     document.querySelector('#scanned-website-link').href = activeTab.url;
+    ocument.querySelector('#back-to-tab').dataset.tabId = activeTab.id;
 
     const result = await chrome.scripting.executeScript({
         target: { tabId: tabId },
@@ -291,4 +292,9 @@ document.querySelector('.bottom').addEventListener('click', e => {
 });
 
 document.querySelector('.bottom button[data-filter="home"]').click();
+
+document.querySelector('#back-to-tab').addEventListener('click', () => {
+    const tabId = document.querySelector('#back-to-tab').dataset.tabId;
+    if (tabId) chrome.tabs.update(parseInt(tabId), { active: true });
+});
 
