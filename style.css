@@ -45,6 +45,7 @@
     --secondary-text-gray: #A2ADB5;
     --secondary-dark-green: #0A3019;
     --secondary-light-green: #51AF7A;
+    --secondary-pale-yellow: #FFE371;
 
     --br-xsmall-box: 0.25rem;
     --br-small-box: 0.625rem;
@@ -65,6 +66,7 @@
     --padding-small: 0.5rem;
     --padding-medium: 0.75rem;
     --padding-large: 1rem;
+    --padding-nav-btn: 1.25rem;
     --padding-xlarge: 2rem;
 }
 
@@ -334,7 +336,7 @@ li {
     border-radius: var(--br-medium-box);
     corner-shape: squircle;
     cursor: pointer;
-    background-color: var(--primary-yellow);
+    background-color: var(--secondary-pale-yellow);
     color: var(--primary-black);
 
 }
@@ -353,7 +355,7 @@ button {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding-block: var(--padding-large);
+    padding-block: var(--padding-nav-btn);
     width: 100%;
     height: 100%;
 }
