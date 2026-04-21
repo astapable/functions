@@ -287,6 +287,16 @@ li {
     padding-block-start: var(--padding-xsmall);
 }
 
+figure {
+    display: flex;
+    align-items: flex-start;
+}
+
+figure img {
+    width: auto;
+    height: 100%;
+}
+
 .ext-h1-text {
     position: absolute;
     width: 0;
