@@ -38,9 +38,9 @@
     --primary-white: #FFFFFF;
     --primary-gray: #EAEDEF;
     --primary-light-blue: #DEF1F5;
-    /* --primary-light-blue: #ACDDE7; */
     --primary-yellow: #FFCC00;
     --secondary-charcoal: #202020;
+    --secondary-dark-gray: #444C52;
     --secondary-gray: #D1D5D8;
     --secondary-text-gray: #A2ADB5;
     --secondary-dark-green: #0A3019;
@@ -124,18 +124,7 @@ p, dt, dd {
 }
 
 /* =================== GENERAL WRAPPER STYLES =================== */
-main::-webkit-scrollbar {
-    width: 0.375rem;
-}
-main::-webkit-scrollbar-track {
-    background: transparent;
-    margin-block-start: 3.3rem;
-    margin-block-end: 5.8rem;
-}
-main::-webkit-scrollbar-thumb {
-    background: var(--primary-gray);
-    border-radius: 1rem;
-}
+
 
 html, body {
     height: 100%;
@@ -151,6 +140,21 @@ main {
     height: 100%;
     overflow-y: auto;
     gap: var(--gap-xsmall);
+
+    &::-webkit-scrollbar {
+        width: 0.375rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        margin-block-start: 3.3rem;
+        margin-block-end: 5.8rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--primary-gray);
+        border-radius: 1rem;
+    }
 }
 
 article {
@@ -206,7 +210,7 @@ img {
 
 .site-metadata p {
     font-size: 1rem;
-    color: #444C52;
+    color: var(--secondary-dark-gray);
     text-transform: uppercase;
     text-align: center;
     max-width: 45%;
@@ -221,28 +225,29 @@ img {
     align-items: center;
     width: auto;
     height: auto;
+
+    &.dark {
+        background-color: var(--secondary-charcoal);
+        color: var(--primary-white);
+    }
+    
+    &.green {
+        background-color: var(--secondary-dark-green);
+        color: var(--secondary-light-green);
+    }
+    
+    
+    &.dark:hover {
+        background-color: var(--primary-yellow);
+        color: var(--primary-black);
+    }
+    
+    &.green:hover {
+        background-color: var(--secondary-light-green);
+        color: var(--primary-white);
+    }
 }
 
-.dark {
-    background-color: var(--secondary-charcoal);
-    color: var(--primary-white);
-}
-
-.green {
-    background-color: var(--secondary-dark-green);
-    color: var(--secondary-light-green);
-}
-
-
-.mata-button.dark:hover {
-    background-color: var(--primary-yellow);
-    color: var(--primary-black);
-}
-
-.mata-button.green:hover {
-    background-color: var(--secondary-light-green);
-    color: var(--primary-white);
-}
 
 /* ======================= MAIN LIST ======================= */
 ul {
@@ -335,11 +340,11 @@ li {
     cursor: pointer;
     background-color: var(--secondary-pale-yellow);
     color: var(--primary-black);
-}
 
-#ext-refresh:hover {
-    background-color: var(--secondary-charcoal);
-    color: var(--primary-white);
+    &:hover {
+        background-color: var(--secondary-charcoal);
+        color: var(--primary-white);
+    }
 }
 
 .nav-wrapper-bottom {
@@ -355,16 +360,14 @@ a {
     padding-block: var(--padding-nav-btn);
     width: 100%;
     height: 100%;
-}
 
-button svg,
-a svg {
-    transition: transform 0.4s ease;
-}
-
-button:hover svg,
-a:hover svg {
-    transform: scale(1.15);
+    & svg {
+        transition: transform 0.4s ease;
+    }
+    
+    &:hover svg {
+        transform: scale(1.15);
+    }
 }
 
 .icon-wrapper {
@@ -478,7 +481,6 @@ dd {
     height: auto;
     padding: var(--padding-xsmall);
     border-radius: var(--br-medium-box);
-    border: var(--border-size);
     corner-shape: squircle;
     cursor: pointer;
 }
@@ -500,5 +502,4 @@ dd {
     corner-shape: squircle;
     background-color: var(--secondary-dark-green);
     color: var(--secondary-light-green);
-    border-color: var(--secondary-light-green);
 }
