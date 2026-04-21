@@ -485,8 +485,8 @@ dd {
 
 .clipboard-wrapper {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: columb;
+    align-items: flex-end;
     justify-content: flex-end;
     gap: var(--gap-xsmall);
 }
@@ -501,5 +501,4 @@ dd {
     background-color: var(--secondary-dark-green);
     color: var(--secondary-light-green);
     border-color: var(--secondary-light-green);
-    align-self: center;
 }
