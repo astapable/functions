@@ -34,6 +34,11 @@ document.querySelector('.refresh').addEventListener('click', () => {
     scanTab(); // same thing as in line 27-31, just another button do refresh
 });
 
+document.querySelector('#scanned-website-link').addEventListener('click', () => {
+    const url = document.querySelector('#scanned-website-link').dataset.url;
+    if (url) chrome.windows.create({ url });
+});
+
 // Removed content_scripts from original demo manifest.json since I will use executeScript
 // Why executeScript? My popup.js will control the outcome
 // The extension will not work automatically after the page loads
@@ -56,11 +61,6 @@ async function scanTab() {
         func: () => document.title
     });
     document.querySelector('#scanned-website-name').textContent = scanNameResult[0].result || 'Ooops, no title here';
-
-    const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    const url = new URL(activeTab.url);
-    document.querySelector('#scanned-website-link').dataset.url = activeTab.url;
-
 
     const result = await chrome.scripting.executeScript({
         target: { tabId: tabId },
