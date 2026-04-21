@@ -30,6 +30,10 @@ chrome.runtime.onMessage.addListener((message) => {
     }
 });
 
+document.querySelector('#refresh').addEventListener('click', () => {
+    scanTab(); // same thing as in line 27-31, just another button do refresh
+});
+
 // Removed content_scripts from original demo manifest.json since I will use executeScript
 // Why executeScript? My popup.js will control the outcome
 // The extension will not work automatically after the page loads
@@ -285,8 +289,4 @@ document.querySelector('.bottom').addEventListener('click', e => {
 });
 
 document.querySelector('.bottom button[data-filter="home"]').click();
-
-document.querySelector('#refresh').addEventListener('click', () => {
-    scanTab(); // same thing as in line 27-31, just another button do refresh
-});
 
