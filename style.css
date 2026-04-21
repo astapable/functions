@@ -298,10 +298,21 @@ li {
 }
 
 #refresh {
-    width: auto;
-    height: auto;
-    padding: var(--padding-medium);
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: var(--padding-small);
+    border: var(--border-size) solid var(--primary-black);
+    border-radius: var(--br-medium-box);
+    corner-shape: squircle;
     cursor: pointer;
+    background-color: var(--primary-yellow);
+    color: var(--primary-black);
+}
+
+#refresh:hover {
+    background-color: var(--secondary-charcoal);
+    color: var(--primary-white);
 }
 
 .bottom {
