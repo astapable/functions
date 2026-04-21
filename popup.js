@@ -314,7 +314,7 @@ document.addEventListener('click', e => {
     const hex = clipButton.closest('li').querySelector('h4').textContent;
     navigator.clipboard.writeText(hex).then(
         () => {
-            const msg = clipButton.closest('.copy-row').querySelector('.copied-msg');
+            const msg = clipButton.closest('.clipboard-wrapper').querySelector('.copy-note');
             msg.style.display = 'block';
             setTimeout(() => msg.style.display = 'none', 1000);
         }
