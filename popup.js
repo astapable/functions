@@ -57,6 +57,11 @@ async function scanTab() {
     });
     document.querySelector('#scanned-website-name').textContent = scanNameResult[0].result || 'Ooops, no title here';
 
+    const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    const url = new URL(activeTab.url);
+    document.querySelector('#scanned-website-link').dataset.url = activeTab.url;
+
+
     const result = await chrome.scripting.executeScript({
         target: { tabId: tabId },
         func: () => {
