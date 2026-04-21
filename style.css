@@ -348,7 +348,8 @@ li {
     background-color: var(--primary-light-blue);
 }
 
-button {
+button,
+a {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -357,11 +358,13 @@ button {
     height: 100%;
 }
 
-button svg {
+button svg,
+a svg {
     transition: transform 0.4s ease;
 }
 
-button:hover svg {
+button:hover svg,
+a:hover svg {
     transform: scale(1.15);
 }
 
