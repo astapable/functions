@@ -456,11 +456,18 @@ dd {
 .color-box {
     background-color: var(--bg-color);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     gap: var(--gap-xsmall);
     padding: var(--padding-medium);
     border: var(--border-size) solid var(--secondary-gray);
     border-radius: var(--br-medium-box);
+}
+
+.color-box-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xsmall);
 }
 
 .copy-to-clipboard {
