@@ -44,11 +44,15 @@ async function getTabId() {
 }
 
 async function scanTab() {
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    document.querySelector('#scanned-website-name').textContent = tab.title || 'Ooops, no title here';
-    
     // Wait until line 7_getTabId() is finished and return it as a variable here
     const tabId = await getTabId();
+
+    const scanNameResult = await chrome.scripting.executeScript({
+        target: { tabId },
+        func: () => document.title
+    });
+    document.querySelector('#scanned-website-name').textContent = scanNameResult[0].result || 'Ooops, no title here';
+
     const result = await chrome.scripting.executeScript({
         target: { tabId: tabId },
         func: () => {
