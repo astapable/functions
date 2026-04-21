@@ -301,6 +301,7 @@ li {
     width: auto;
     height: auto;
     padding: var(--padding-medium);
+    cursor: pointer;
 }
 
 .bottom {
