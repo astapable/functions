@@ -231,9 +231,9 @@ img {
     color: var(--secondary-light-green);
 }
 
-.mata-button:hover svg {
+/* .mata-button:hover svg {
     transform: none;
-}
+} */
 
 .mata-button.dark:hover {
     background-color: var(--primary-yellow);
@@ -319,7 +319,7 @@ li {
 
 .nav-wrapper-top {
     background-color: var(--primary-yellow);
-    padding: var(--padding-large);
+    padding: var(--padding-medium);
     gap: var(--gap-xsmall);
     justify-content: space-between;
     align-items: center;
@@ -331,7 +331,6 @@ li {
     width: auto;
     height: auto;
     padding: var(--padding-small);
-    border: var(--border-size) solid var(--primary-black);
     border-radius: var(--br-medium-box);
     corner-shape: squircle;
     cursor: pointer;
@@ -354,7 +353,7 @@ button {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding-block: var(--padding-xlarge);
+    padding-block: var(--padding-large);
     width: 100%;
     height: 100%;
 }
