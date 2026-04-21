@@ -462,3 +462,20 @@ dd {
     border: var(--border-size) solid var(--secondary-gray);
     border-radius: var(--br-medium-box);
 }
+
+.copy-to-clipboard {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    padding: var(--padding-xsmall);
+    border-radius: var(--br-medium-box);
+    border: var(--border-size) solid var(--secondary-gray);
+    corner-shape: squircle;
+    cursor: pointer;
+}
+
+.copy-to-clipboard:hover {
+    background-color: var(--primary-light-blue);
+    color: var(--primary-black);
+}
