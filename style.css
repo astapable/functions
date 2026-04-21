@@ -482,3 +482,9 @@ dd {
     corner-shape: squircle;
     cursor: pointer;
 }
+
+.copied {
+    background-color: var(--secondary-dark-green);
+    color: var(--secondary-light-green);
+    border-color: var(--secondary-light-green);
+}
