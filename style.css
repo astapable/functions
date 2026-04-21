@@ -119,13 +119,12 @@ p, dt, dd {
 }
 
 /* =================== GENERAL WRAPPER STYLES =================== */
-
-
 html, body {
     height: 100%;
     overflow: hidden;
 }
 
+/* I think I OVER nested in my last project - no more things like that */
 main {
     display: flex;
     flex-direction: column;
@@ -219,8 +218,7 @@ img {
     }
 }
 
-
-.mata-button {
+.meta-button {
     padding: var(--padding-medium);
     border-radius: 100%;
     align-items: center;
@@ -247,7 +245,6 @@ img {
         }
     }
 }
-
 
 /* ======================= MAIN LIST ======================= */
 ul {
@@ -438,7 +435,6 @@ dd {
     & li:nth-child(2) .font-title { font-size: 1.75rem; }
     & li:nth-child(3) .font-title { font-size: 1.5rem;}
 }
-
 
 .text-category-wrapper {
     display: flex;
