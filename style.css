@@ -472,17 +472,14 @@ dd {
 
 .copy-to-clipboard {
     display: flex;
+    align-self: flex-start;
     align-items: center;
     width: auto;
     height: auto;
     padding: var(--padding-xsmall);
     border-radius: var(--br-medium-box);
     border: var(--border-size);
+    border-color: ;
     corner-shape: squircle;
     cursor: pointer;
-}
-
-.copy-to-clipboard:hover {
-    background-color: var(--primary-light-blue);
-    color: var(--primary-black);
 }
