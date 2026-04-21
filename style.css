@@ -287,6 +287,11 @@ li {
     padding-block-start: var(--padding-xsmall);
 }
 
+.figure {
+    height: 100%;
+    width: auto;
+}
+
 .ext-h1-text {
     position: absolute;
     width: 0;
