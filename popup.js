@@ -49,11 +49,7 @@ async function scanTab() {
 
     const scanNameResult = await chrome.scripting.executeScript({
         target: { tabId },
-        // func: () => document.title
-        func: () => {
-            return document.querySelector('meta[property="og:title"]')?.content
-                || document.title;
-        }
+        func: () => document.title
     });
     document.querySelector('#scanned-website-name').textContent = scanNameResult[0].result || 'Ooops, no title here';
 
