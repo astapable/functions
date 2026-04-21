@@ -32,8 +32,13 @@
 }
 
 /* ==================== VARIABLES ==================== */
-/* COLOR */
+
+
+
+
+
 :root {
+    /* COLOR */
     --primary-black: #000000;
     --primary-white: #FFFFFF;
     --primary-gray: #EAEDEF;
@@ -47,14 +52,24 @@
     --secondary-light-green: #51AF7A;
     --secondary-pale-yellow: #FFD93F;
 
+    /* FONT SIZES */
+    --heading-1: 2rem;
+    --heading-2: 1.75rem;
+    --heading-3: 1.5rem;
+    --bodycopy: 1rem;
+    --footnote: 0.75rem;
+
+    /* BORDER RADIUS */
     --br-xsmall-box: 0.25rem;
     --br-small-box: 0.625rem;
     --br-medium-box: 0.938rem;
     --br-large-box: 1.813rem;
     --br-xlarge-box: 2.5rem;
 
+    /* BORDER SIZE */
     --border-size: 0.063rem;
 
+    /* GAP */
     --gap-grid: 0.25rem;
     --gap-xsmall: 0.5rem;
     --gap-small: 0.75rem;
@@ -62,6 +77,7 @@
     --gap-large: 1.5rem;
     --gap-xlarge: 3rem;
 
+    /* PADDING/MARGIN */
     --padding-xsmall: 0.375rem;
     --padding-small: 0.5rem;
     --padding-medium: 0.75rem;
@@ -74,14 +90,14 @@
 h1 {
     font-family: "Geist";
     font-weight: 700;
-    font-size: 1rem;
+    font-size: var(--bodycopy);
     color: var(--primary-black);
 }
 
 h2 {
     font-family: "Doto-Rounded";
     font-weight: 600;
-    font-size: 2rem;
+    font-size: var(--heading-1);
     color: var(--primary-white);
     line-height: 100%;
     text-transform: uppercase;
@@ -91,21 +107,21 @@ h2 {
 h3 {
     font-family: "Geist";
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: var(--heading-3);
     color: var(--primary-black);
 }
 
 h4 {
     font-family: "Doto-Rounded";
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: var(--heading-3);
     color: var(--primary-black);
 }
 
 p, dt, dd {
     font-family: "Geist";
     font-weight: 400;
-    font-size: 0.75rem;
+    font-size: var(--footnote);
     color: var(--primary-black);
 }
 
@@ -141,8 +157,8 @@ main {
 
     &::-webkit-scrollbar-track {
         background: transparent;
-        margin-block-start: 3.3rem;
-        margin-block-end: 5.8rem;
+        margin-block-start: 3.5rem;
+        margin-block-end: 5.25rem;
     }
 
     &::-webkit-scrollbar-thumb {
@@ -207,7 +223,7 @@ img {
     width: 100%;
 
     & p {
-        font-size: 1rem;
+        font-size: var(--bodycopy);
         color: var(--secondary-dark-gray);
         text-transform: uppercase;
         text-align: center;
@@ -426,14 +442,14 @@ dd {
 
 .font-title {
     font-weight: 700;
-    font-size: 1rem;
+    font-size: var(--bodycopy);
     color: var(--primary-black);
 }
 
 #typo-summary {
-    & li:nth-child(1) .font-title { font-size: 2rem; }
-    & li:nth-child(2) .font-title { font-size: 1.75rem; }
-    & li:nth-child(3) .font-title { font-size: 1.5rem;}
+    & li:nth-child(1) .font-title { font-size: var(--heading-1); }
+    & li:nth-child(2) .font-title { font-size: var(--heading-2); }
+    & li:nth-child(3) .font-title { font-size: var(--heading-3); }
 }
 
 .text-category-wrapper {
@@ -495,7 +511,7 @@ dd {
 .copy-note {
     display: none;
     font-family: "Geist";
-    font-size: 0.75rem;
+    font-size: var(--footnote);
     padding: var(--padding-xsmall);
     border-radius: var(--br-small-box);
     corner-shape: squircle;
