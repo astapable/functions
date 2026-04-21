@@ -286,3 +286,7 @@ document.querySelector('.bottom').addEventListener('click', e => {
 
 document.querySelector('.bottom button[data-filter="home"]').click();
 
+document.querySelector('#refresh').addEventListener('click', () => {
+    scanTab(); // same thing as in line 27-31, just another button do refresh
+});
+
