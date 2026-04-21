@@ -157,7 +157,7 @@ main {
 
     &::-webkit-scrollbar-track {
         background: transparent;
-        margin-block-start: 3.75rem;
+        margin-block-start: 3.85rem;
         margin-block-end: 5.25rem;
     }
 
