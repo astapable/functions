@@ -22,13 +22,14 @@ function getContrastColor(hexColor) {
     }
 }
 
+// Removed refresh on new tab click since it affected user experince
 // Source: https://developer.chrome.com/docs/extensions/reference/api/tabs#open_an_extension_page_in_a_new_tab
 // Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage
-chrome.runtime.onMessage.addListener((message) => {
-    if (message.action === 'tabSwitched') {
-        scanTab(); // When user switch tab run scanTab()
-    }
-});
+// chrome.runtime.onMessage.addListener((message) => {
+//     if (message.action === 'tabSwitched') {
+//         scanTab(); // When user switch tab run scanTab()
+//     }
+// });
 
 document.querySelector('#ext-refresh').addEventListener('click', () => {
     scanTab(); // same thing as in line 27-31, just another button do refresh
