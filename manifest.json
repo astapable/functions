@@ -3,7 +3,7 @@
   "description": "Turn any website into a quick design reference — inspect fonts, text styles, and colors in your browser side panel",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["activeTab", "scripting", "sidePanel"],
+  "permissions": ["activeTab", "scripting", "sidePanel", "clipboardWrite"],
   "host_permissions": ["<all_urls>"],
 
   "background": {
