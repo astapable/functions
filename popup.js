@@ -30,7 +30,7 @@ chrome.runtime.onMessage.addListener((message) => {
     }
 });
 
-document.querySelector('#refresh').addEventListener('click', () => {
+document.querySelector('.refresh').addEventListener('click', () => {
     scanTab(); // same thing as in line 27-31, just another button do refresh
 });
 
