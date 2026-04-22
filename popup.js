@@ -131,7 +131,7 @@ async function scanTab() {
                 tags // Note for future self - tags are specified in line 74 and categorized in line 120-124
                     .filter(tag => tagData[tag])
                     .map(tag => tagData[tag].fontFamily.replaceAll('"', '').split(',')[0].trim()) // Changed substring(0... to split to cut off all '' and ,
-                    .filter(f => f !== '' && !f.startsWith('-') && !f.startsWith('ui-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it
+                    .filter(f => f !== '' && !f.startsWith('-') && !f.startsWith('ui-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it. Apr 22 - found thaty I had still getting system and fswap fonts so removed it by manually adding part of their text
             )];
              // FONTFACE LIBRARY
             const firstTag = tags.find(t => tagData[t]);
