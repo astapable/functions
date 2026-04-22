@@ -203,6 +203,10 @@ figure {
     gap: var(--gap-xsmall);
     justify-content: space-between;
 
+    & .tag:first-child {
+        min-width: 4rem;
+    }
+
     & .tag:last-child {
         background-color: var(--primary-white);
         border: var(--border-size) solid var(--secondary-gray);
