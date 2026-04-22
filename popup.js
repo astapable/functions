@@ -120,9 +120,8 @@ async function scanTab() {
     const fontCategories = {
         "Heading 1": ["h1"],
         "Heading 2": ["h2"],
-        "Heading 3": ["h3", "h4", "h5", "h6"],
-        // "Bodycopy": ["p","li","a","span","label","button","blockquote","figcaption"],
-        "Bodycopy": ["p","li","a","span","label"],
+        "Heading 3": ["h3", "h4", "h5", "h6"],  // This range is making sure that we get something as h3. Spec if dev accidentaly selecteh or nameh h3 as h4, h5 or whatever
+        "Bodycopy": ["p","li","a","span","label"],  // Played around with this to make sure Im getting data here
     };
 
     document.querySelector("#typo-summary").innerHTML =
@@ -138,7 +137,8 @@ async function scanTab() {
             const weight = firstTag ? tagData[firstTag].fontWeight : 'normal';
             const fontName = fonts[0] || '';
             // FONTFACE LIBRARY
-
+            
+            // Changed ${fonts.join(", ") || "N/A"} to ${fonts[0] || "N/A"} as it was giving me a full list but I need the first one (h3) and if theres no h3 then h4...h5...h6.
             return`
                 <li>
                     <div class="text-category-wrapper">
