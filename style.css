@@ -371,7 +371,7 @@ li {
 button,
 a {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     padding-block: var(--padding-nav-btn);
     width: 100%;
@@ -504,7 +504,6 @@ dd {
 }
 
 ol {
-    list-style: disc;
     display: flex;
     flex-direction: column;
     gap: var(--gap-xsmall);
