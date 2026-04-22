@@ -163,7 +163,7 @@ main {
     &::-webkit-scrollbar-track {
         background: transparent;
         margin-block-start: var(--scroll-margin-top);
-        margin-block-end: var(--primary-yellow);
+        margin-block-end: var(--scroll-margin-bottom);
     }
 
     &::-webkit-scrollbar-thumb {
