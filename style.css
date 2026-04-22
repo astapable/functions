@@ -510,7 +510,8 @@ ol li {
     margin-left: 0.75rem;
 }
 
-figure {
+.guide-wrapper {
     border-radius: var(--br-medium-box);
     corner-shape: squircle;
 }
+
