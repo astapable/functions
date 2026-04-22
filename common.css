@@ -29,3 +29,19 @@
     font-style: normal;
     font-display: swap;
 }
+
+:root {
+    /* COLOR */
+    --primary-black: #000000;
+    --primary-white: #FFFFFF;
+    --primary-gray: #EAEDEF;
+    --primary-light-blue: #DEF1F5;
+    --primary-yellow: #FFCC00;
+    --secondary-charcoal: #202020;
+    --secondary-dark-gray: #444C52;
+    --secondary-gray: #D1D5D8;
+    --secondary-text-gray: #A2ADB5;
+    --secondary-dark-green: #0A3019;
+    --secondary-light-green: #51AF7A;
+    --secondary-pale-yellow: #FFD93F;
+}

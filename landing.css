@@ -1,11 +1,8 @@
 /* ==================== VARIABLES ==================== */
 :root {
+    background-color: var(--primary-black);
 	font-size: 120%;
     scroll-behavior: smooth;
-
-    /* COLOR */
-    --landing-white: #FFFFFF;
-    --landing-black: #000000;
 
     /* FONT SIZES */
     --landing-h1: 2rem;
@@ -34,16 +31,30 @@
     --main-padding-block: 1rem;
     --main-padding-inline: 0.5rem;
     --section-padding: 1.5rem;
+    --nav-padding: 0.375rem;
+    --nav-btn-width: 4.5rem;
+    --nav-btn-padding: 0.5rem;
+    --nav-logo-height: 1.25rem;
+    --nav-top: 0.5rem;
+    --nav-offset: 4rem;
+    --section-gap: 1rem;
 
     /* BORDER RADIUS */
     --br-section: 4rem;
     --br-element: 2rem;
+    --br-btn: 0.75rem;
 
     @media (width > 600px) {
         --gap-main: 2rem;
         --main-padding-block: 2rem;
         --main-padding-inline: 2rem;
         --section-padding: 2rem;
+        --nav-padding: 0.75rem;
+        --nav-btn-width: 8rem;
+        --nav-logo-height: 1.75rem;
+        --nav-top: 0.75rem;
+        --nav-offset: 5rem;
+        --section-gap: 1.25rem;
     }
 
     @media (width > 900px) {
@@ -51,6 +62,12 @@
         --main-padding-block: 3rem;
         --main-padding-inline: 5rem;
         --section-padding: 2.5rem;
+        --nav-padding: 1rem;
+        --nav-btn-width: 10rem;
+        --nav-btn-padding: 0.75rem;
+        --nav-logo-height: 2rem;
+        --nav-top: 1rem;
+        --nav-offset: 6rem;
     }
 
     @media (width > 1200px) {
@@ -70,7 +87,7 @@ h1 {
     font-family: "Doto-Rounded";
     font-weight: 600;
     font-size: var(--landing-h1);
-    color: var(--landing-white);
+    color: var(--primary-white);
     line-height: 100%;
     text-transform: uppercase;
     text-align: center;
@@ -80,14 +97,14 @@ h2 {
     font-family: "Geist";
     font-weight: 700;
     font-size: var(--landing-h2);
-    color: var(--landing-black);
+    color: var(--primary-black);
 }
 
 p {
     font-family: "Geist";
     font-weight: 400;
     font-size: var(--landing-bodycopy);
-    color: var(--landing-black);
+    color: var(--primary-black);
     line-height: 140%;
 }
 
@@ -101,9 +118,56 @@ strong {
     padding: var(--padding-large);
 }
 
+.landing-nav {
+    position: fixed;
+    top: var(--nav-top);
+    left: var(--main-padding-inline);
+    right: var(--main-padding-inline);
+    z-index: 1;
+}
+
+.landing-nav-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-yellow);
+    border-radius: var(--br-section);
+    corner-shape: squircle;
+    padding: var(--nav-padding);
+}
+
+.landing-nav-wrapper img {
+    width: auto;
+    height: var(--nav-logo-height);
+    max-block-size: unset;
+}
+
+.landing-nav-wrapper a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Geist";
+    font-weight: 600;
+    font-size: var(--landing-bodycopy);
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    padding: var(--nav-btn-padding);
+    border-radius: var(--br-btn);
+    corner-shape: squircle;
+    cursor: pointer;
+    width: var(--nav-btn-width);
+
+    &:hover {
+        background-color: var(--primary-white);
+        color: var(--primary-black);
+    }
+}
+
 main {
-    background-color: var(--landing-black);
-    padding-block: var(--main-padding-block);
+    background-color: var(--primary-black);
+    padding-block-start: calc(var(--main-padding-block) + var(--nav-offset));
+    padding-block-end: var(--main-padding-block);
     padding-inline: var(--main-padding-inline);
     display: flex;
     flex-direction: column;
@@ -119,8 +183,8 @@ article {
 section {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    background-color: var(--landing-white);
+    gap: var(--section-gap);
+    background-color: var(--primary-white);
     border-radius: var(--br-section);
     padding: var(--section-padding);
     corner-shape: squircle;
