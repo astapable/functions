@@ -23,14 +23,6 @@ function getContrastColor(hexColor) {
 }
 
 // Removed refresh on new tab click since it affected user experince
-// Source: https://developer.chrome.com/docs/extensions/reference/api/tabs#open_an_extension_page_in_a_new_tab
-// Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage
-// chrome.runtime.onMessage.addListener((message) => {
-//     if (message.action === 'tabSwitched') {
-//         scanTab(); // When user switch tab run scanTab()
-//     }
-// });
-
 document.querySelector('#ext-refresh').addEventListener('click', () => {
     scanTab(); // same thing as in line 27-31, just another button do refresh
 });
@@ -63,7 +55,7 @@ async function scanTab() {
     document.querySelector('#back-to-tab').dataset.tabId = activeTab.id;
 
     const result = await chrome.scripting.executeScript({
-        target: { tabId: tabId },
+        target: { tabId },
         func: () => {
             // Select all the elements in the tab. Spirce: https://developer.mozilla.org/en-US/docs/Web/API/Document/all
             // So I decided to bring all colors and typo spec colors as a separete callouts. This decision was made to male my life easier.
@@ -128,7 +120,7 @@ async function scanTab() {
     const fontCategories = {
         "Heading 1": ["h1"],
         "Heading 2": ["h2"],
-        "Heading 3": ["h3, h4, h5, h6"],
+        "Heading 3": ["h3", "h4", "h5", "h6"],
         "Bodycopy": ["p","li","a","span","label"],
     };
 
@@ -155,27 +147,6 @@ async function scanTab() {
                 </li>
             `;
         }).join(""); // || means OR. If font.joint is empty JS will return as - (N/A)
-
-    // I used the knowledge I got from my other JS class. We used Array.from to merge data into one array to sort it later
-    // The difference here is ther data in other class is taken from the same objects. So its like differen properties of the same thing
-    // Source_Line 41-48: https://github.com/astapable/into-data-viz/blob/main/02_quantities/02_stacked_bars/bar_stacked.js
-    // Here I have all unique independant elements so I make an Array.from for every element Im pulling from lines 35-37 and 47-53 to get only unique ones
-
-    // Source Set(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
-    // Source new Set(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
-    // Source Array.from(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
-    // ChatGPT link: https://chatgpt.com/share/69cc847f-0c98-8329-b513-9815df07996a
-    // FOR FUTURE UPDATES_Source about spread: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-    // COLOR SPEC
-    // ChatGPT link: https://chatgpt.com/share/69d5808c-6a78-832a-a0c1-b0f049a9d6c1
-    // const uniColors = Array.from(new Set(retColorRaw.map(el => el.color)));
-    // const uniBackColors = Array.from(new Set(retColorRaw.map(el => el.backgroundColor)));
-    // const uniBorderColors = Array.from(new Set(retColorRaw.map(el => el.borderColor)));
-    // const allUniColors = Array.from(new Set([
-    //     ...uniColors,
-    //     ...uniBackColors,
-    //     ...uniBorderColors
-    // ]));
 
     // Note for self - Color instances counter is here
     // Browsers storeв colors as raw strings so black color on T&I site was like rgb(0, 0, 0), rgba(0, 0, 0, 1) and rgba(0, 0, 0, 0.5)
