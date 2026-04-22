@@ -40,18 +40,18 @@ Tendril can also help identify development issues related to semantics and SEO. 
 That’s it — the extension is ready to use.
 
 ## Learnings
-Key learning for this very challengin project:
+Key learning for this very challenging project:
 1. Building a new kind of product — a Chrome extension
 2. Scanning and processing computed styles across all DOM elements
 3. Converting RGB values to HEX by parsing color strings
 4. Dynamic font rendering using @font-face injection from scanned pages — this part was especially hard
 5. Sorting and filtering data before rendering it into HTML
 6. Improving the overall code structure and CSS variable system
-7. Last but not least - time management.I handled this project better then previous ones in terms of time quatity
+7. Last but not least - time management.I handled this project better than previous ones in terms of time quality
 
 ## Sources
 Key resources that helped bring this project to life:
-Chrome Extensions API (What kind of bast extension is) — https://developer.chrome.com/docs/extensions/reference/api/scripting
+Chrome Extensions API (What kind of best extension is) — https://developer.chrome.com/docs/extensions/reference/api/scripting
 Chrome Side Panel API (User experience defining) — https://developer.chrome.com/docs/extensions/reference/api/sidePanel
 MDN (overal coding resource) - https://developer.mozilla.org/en-US/docs/Web/JavaScript
 MDN getComputedStyle (most important) — https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
