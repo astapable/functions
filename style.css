@@ -500,7 +500,13 @@ ol {
     padding-left: 1rem;
 }
 
+ol li {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--gap-xsmall);
+}
+
 ol li::before {
-    content: "•";
-    margin-right: var(--gap-xsmall);
+    content: "-";
+    flex-shrink: 0;
 }
