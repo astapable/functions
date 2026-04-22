@@ -1,3 +1,4 @@
+// Per Michael's approval made this separate .js file as a library. Slak link to the chat - https://mpscd.slack.com/archives/C09A1HDNBBN/p1776093400459879
 // Source: https://javascript.info/modules-dynamic-imports#the-import-expression
 export function scanFonts() {
     // ChatGPT request: https://chatgpt.com/share/69dd0884-dec0-83ea-981d-0c816b0dbe5d            
