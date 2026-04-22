@@ -5,7 +5,7 @@
     scroll-behavior: smooth;
 
     /* FONT SIZES */
-    --landing-h1: 2rem;
+    --landing-h1: 1.5rem;
     --landing-h2: 1.25rem;
     --landing-bodycopy: 0.75rem;
 
@@ -27,7 +27,7 @@
 
     /* PADDING */
     --padding-normal: 1rem;
-    --padding-large: 2rem;
+    --padding-large: 1.5rem;
     --main-padding-block: 1rem;
     --main-padding-inline: 0.5rem;
     --section-padding: 1.5rem;
@@ -159,7 +159,7 @@ strong {
     color: var(--primary-white);
     padding: var(--nav-btn-padding);
     border-radius: var(--br-btn);
-    corner-shape: squircle;
+    /* corner-shape: squircle; */
     cursor: pointer;
     width: var(--nav-btn-width);
 
