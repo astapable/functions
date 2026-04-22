@@ -121,6 +121,7 @@ async function scanTab() {
         "Heading 1": ["h1"],
         "Heading 2": ["h2"],
         "Heading 3": ["h3", "h4", "h5", "h6"],
+        // "Bodycopy": ["p","li","a","span","label","button","blockquote","figcaption"],
         "Bodycopy": ["p","li","a","span","label"],
     };
 
@@ -142,7 +143,7 @@ async function scanTab() {
                 <li>
                     <div class="text-category-wrapper">
                         <p class="font-category">${category}</p>
-                        <p class="font-title" style="font-family: ${fontName}; font-weight: ${weight};">${fonts.join(", ") || "N/A"}</p> 
+                        <p class="font-title" style="font-family: ${fontName}; font-weight: ${weight};">${fonts[0] || "N/A"}</p> 
                     </div>
                 </li>
             `;
@@ -297,4 +298,3 @@ document.addEventListener('click', e => {
         }
     );
 });
-
