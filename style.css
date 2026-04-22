@@ -81,10 +81,13 @@
     --nav-top-height: 4.55rem;
     --nav-bottom-height: 6.45rem;
 
-     /* SCROLLBAR */
+    /* SCROLLBAR */
     --scroll-width: 0.375rem;
     --scroll-margin-top: calc(var(--nav-top-height) - 0.55rem);
     --scroll-margin-bottom: calc(var(--nav-bottom-height) - 1.2rem);
+
+    /* FONT DATA COLMN */
+    --line-name: 30%;
 }
 
 /* ==================== GENERAL TEXT STYLES ==================== */
@@ -302,7 +305,6 @@ li {
     align-items: center;
     position: fixed;
     gap: var(--gap-xsmall);
-    min-height: 3rem;
     background-color: var(--primary-black);
     z-index: 2;
 }
@@ -418,12 +420,12 @@ dl {
 }
 
 dt {
-    width: 30%;
+    width: var(--line-name);
     color: var(--secondary-text-gray);
 }
 
 dd {
-    width: 70%;
+    width: calc(100% - var(--dt-width));
 }
 
 .summary-color-box {
@@ -520,7 +522,7 @@ ol {
 ol li {
     display: list-item;
     list-style: disc;
-    margin-left: 0.75rem;
+    margin-left: var(--padding-medium);
 }
 
 .guide {
