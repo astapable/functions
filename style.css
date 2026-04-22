@@ -501,12 +501,7 @@ ol {
 }
 
 ol li {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: var(--gap-xsmall);
-}
-
-ol li::before {
-    content: "•";
-    flex-shrink: 0;
+    display: list-item;
+    list-style: disc;
+    margin-left: 1rem;
 }
