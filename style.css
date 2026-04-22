@@ -416,9 +416,10 @@ dd {
 }
 
 .summary-color-box {
-    display: block;
-    border: var(--border-size) solid var(--secondary-gray);
-    border-radius: var(--br-small-box);
+    background-color: var(--bg-color);
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--br-medium-box);
     corner-shape: squircle;
 }
 
@@ -449,13 +450,7 @@ dd {
 }
 
 /* ======================= COLOR DATA ======================= */
-.summary-color-box {
-    background-color: var(--bg-color);
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: var(--br-medium-box);
-    corner-shape: squircle;
-}
+
 
 .color-box {
     background-color: var(--bg-color);
