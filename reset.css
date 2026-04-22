@@ -20,7 +20,7 @@ html {
 a, button, summary { cursor: revert }
 
 /* Remove list styles (bullets/numbers). */
-ol, ul, menu, summary { list-style: none }
+ul, menu, summary { list-style: none }
 
 /* For images to not be able to exceed their container. */
 img {
