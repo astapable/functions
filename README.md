@@ -34,8 +34,7 @@ Tendril can also help identify development issues related to semantics and SEO. 
 1. Download or clone this repository
 2. Open Chrome and go to chrome://extensions
 3. Enable Developer Mode in the top right
-4. Click Load unpacked and select the project folder
-5. in the extension
+4. Click Load unpacked and select the project folder in the extension
 6. Click the Tendril icon in the toolbar to open the side panel
 
 That’s it — the extension is ready to use.
