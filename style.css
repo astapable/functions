@@ -79,6 +79,9 @@
     --padding-nav-btn: 1.75rem;
     --padding-xlarge: 2rem;
 }
+    /* NO MAGIC NUMBERS PADDINGS */
+    --nav-top-padding: calc(3rem + var(--padding-xsmall));
+    --nav-bottom-padding: calc(3rem + var(--padding-xsmall));
 
 /* ==================== GENERAL TEXT STYLES ==================== */
 h1 {
@@ -143,7 +146,7 @@ main {
     display: flex;
     flex-direction: column;
     padding-inline: var(--padding-xsmall);
-    padding-block-start: 4.55rem;
+    padding-block-start: var(--nav-top-padding);
     background-color: var(--primary-black);
     height: 100%;
     overflow-y: auto;
@@ -171,7 +174,7 @@ article {
     flex-direction: column;
     padding-inline: var(--padding-large);
     padding-block-start: var(--padding-large);
-    padding-block-end: 6.45rem;
+    padding-block-end: var(--nav-bottom-padding);
     background-color: var(--primary-white);
     gap: var(--gap-xlarge);
     border-radius: var(--br-xlarge-box);
