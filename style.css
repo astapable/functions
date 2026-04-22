@@ -78,10 +78,9 @@
     --padding-large: 1rem;
     --padding-nav-btn: 1.75rem;
     --padding-xlarge: 2rem;
+    --nav-top-height: 4.55rem;
+    --nav-bottom-height: 6.45rem;
 }
-    /* NO MAGIC NUMBERS PADDINGS */
-    --nav-top-padding: calc(3rem + var(--padding-xsmall));
-    --nav-bottom-padding: calc(3rem + var(--padding-xsmall));
 
 /* ==================== GENERAL TEXT STYLES ==================== */
 h1 {
@@ -146,7 +145,7 @@ main {
     display: flex;
     flex-direction: column;
     padding-inline: var(--padding-xsmall);
-    padding-block-start: var(--nav-top-padding);
+    padding-block-start: var(--nav-top-height);
     background-color: var(--primary-black);
     height: 100%;
     overflow-y: auto;
@@ -174,7 +173,7 @@ article {
     flex-direction: column;
     padding-inline: var(--padding-large);
     padding-block-start: var(--padding-large);
-    padding-block-end: var(--nav-bottom-padding);
+    padding-block-end: var(--nav-bottom-height);
     background-color: var(--primary-white);
     gap: var(--gap-xlarge);
     border-radius: var(--br-xlarge-box);
