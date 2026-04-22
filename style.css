@@ -492,3 +492,9 @@ dd {
     background-color: var(--secondary-dark-green);
     color: var(--secondary-light-green);
 }
+
+ol {
+    display: flex;
+    list-style: disc;
+    padding-left: 1.25rem;
+}
