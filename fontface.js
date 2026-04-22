@@ -19,23 +19,23 @@ export function scanFonts() {
 
     // 2. Check @import + @font-face + @layer
     // Some stylesheets has cross-origin so I try to catch skips those
-            Array.from(document.styleSheets).forEach(sheet => {
-                try {
-                    Array.from(sheet.cssRules || []).forEach(rule => {
-                        if (rule instanceof CSSImportRule) {
-                            const href = rule.href;
-                            if (
-                                href.includes('fonts.googleapis.com') ||
-                                href.includes('use.typekit.net') ||
-                                href.includes('fonts.adobe.com')
-                            ) {
-                                fontSources.push({ type: 'link', url: href });
-                            }
-                        }
-                    });
-                } catch (e) { // Catching cross-origin here
+    Array.from(document.styleSheets).forEach(sheet => {
+        try {
+            Array.from(sheet.cssRules || []).forEach(rule => {
+                if (rule instanceof CSSImportRule) {
+                    const href = rule.href;
+                    if (
+                        href.includes('fonts.googleapis.com') ||
+                        href.includes('use.typekit.net') ||
+                        href.includes('fonts.adobe.com')
+                    ) {
+                        fontSources.push({ type: 'link', url: href });
+                    }
                 }
             });
+        } catch (e) { // Catching cross-origin here
+        }
+    });
             
             // 3. Check @font-face
             Array.from(document.styleSheets).forEach(sheet => {
