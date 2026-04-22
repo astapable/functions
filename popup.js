@@ -34,14 +34,11 @@ document.querySelector('#ext-refresh').addEventListener('click', () => {
 // Also executeScript can return data to my popup.js. On contrary content_scripts requires sendMessage to do so
 // Source: https://developer.chrome.com/docs/extensions/reference/api/scripting
 async function getTabId() {
-    // async means 'There are something you need to wait for'
-    // await means 'Wait for me'
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     return tab.id;
 }
 
 async function scanTab() {
-    // Wait until line 36_getTabId() is finished and return it as a variable here
     const tabId = await getTabId();
     // returned activeTab since I need to get #scanned-website-name, #scanned-website-link and being able to #back-to-tab
     const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -63,17 +60,17 @@ async function scanTab() {
             const colorData = []; // Now I need an empty array to store upcoming data. Source: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array
             allColors.forEach((el) => { 
                 const elStyle = getComputedStyle(el); // This picks the element and returns its properties data applied in CSS. Source: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle. ChatGPT link where I accidentally found this function: https://chatgpt.com/share/69cc26c7-e5ac-8325-80d5-40bb5e8833c0
-                colorData.push({ // While im running throug the elements in line 32, this picks data array and add elements to the end of data array until it runs out of the elements described in lines 27-29. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+                colorData.push({ // While im running throug the elements in line 62, this picks data array and add elements to the end of data array until it runs out of the elements described in lines 64-66. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
                     color: elStyle.color,
                     backgroundColor: elStyle.backgroundColor,
                     borderColor: elStyle.borderColor,
                 });
             });
 
-            // MVP UPD_Ths is basically the same as line 30-32, the only diff is that Im calling out semantic elements related to text
-            const textTags = ["h1","h2","h3","h4","h5","h6","p","li","a","span","label","button","blockquote","figcaption"]; // Ok, this is a little different from line. 30. Here Im just calling for tag names (Might miss some, double chek later)
+            // Ths is basically the same as line 59-66, the only diff is that Im calling out semantic elements related to text
+            const textTags = ["h1","h2","h3","h4","h5","h6","p","li","a","span","label","button","blockquote","figcaption"]; 
             const textData = []; 
-            document.querySelectorAll(textTags.join(",")).forEach((el) => { // Heres where I turn line 74 tags into selectors
+            document.querySelectorAll(textTags.join(",")).forEach((el) => {
                 const elStyle = getComputedStyle(el);
                 textData.push({ 
                     tag: el.tagName.toLowerCase(),
@@ -85,11 +82,11 @@ async function scanTab() {
                 });
             });
 
-            return { colorData, textData }; // Give me thar data from lines 35-37 and 47-53
+            return { colorData, textData }; // Give me thar data from lines 59-66 and 71-81
         }
     });
 
-    // Here I keep all my results from pulling data from lines 35-37 and 47-53 and make it variable. Thus, I make it appropriate for reuse
+    // Here I keep all my results from pulling data from lines 59-66 and 71-81 and make it variable. Thus, I make it appropriate for reuse
     // I use result[0] since Im pulling data from single tab/page.
     // JS arrays starts from 0, so 1 frame/tab = [0]. 
     const retColorRaw = result[0].result.colorData;
@@ -106,7 +103,7 @@ async function scanTab() {
 
     const tagData = {}; // I create normal object  for the future dynamic keys. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 
     retTextRaw.forEach(el => { 
-        if (!tagData[el.tag]) { // firs, I check if there are tag like h1, if there are not (logical NOT (!)) - move on. If there are, I add it to the {} from linr 60 and un throug other elements of forEach.
+        if (!tagData[el.tag]) { // firs, I check if there are tag like h1, if there are not (logical NOT (!)) - move on. If there are, I add it to the {} from linr 104 and un throug other elements of forEach.
             tagData[el.tag] = el; // This what allow to put element with tag in the key and its properties in the value of the key. Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#property_names
         }
     });
