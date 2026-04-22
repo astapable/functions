@@ -159,7 +159,7 @@ strong {
     color: var(--primary-white);
     padding: var(--nav-btn-padding);
     border-radius: var(--br-btn);
-    /* corner-shape: squircle; */
+    corner-shape: squircle;
     cursor: pointer;
     width: var(--nav-btn-width);
 
