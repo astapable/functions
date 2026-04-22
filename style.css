@@ -416,12 +416,20 @@ dd {
 }
 
 .summary-color-box {
+    display: block;
+    border: var(--border-size) solid var(--secondary-gray);
+    border-radius: var(--br-small-box);
+    corner-shape: squircle;
+}
+
+/* .summary-color-box {
     background-color: var(--bg-color);
     width: 100%;
     aspect-ratio: 1;
+    border: var(--border-size) solid var(--secondary-gray);
     border-radius: var(--br-medium-box);
     corner-shape: squircle;
-}
+} */
 
 .font-category {
     color: var(--secondary-text-gray);
