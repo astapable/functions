@@ -415,27 +415,6 @@ dd {
     width: 70%;
 }
 
-.text-color {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--gap-xsmall);
-}
-
-.text-color-box,
-.summary-color-box {
-    display: block;
-    border: var(--border-size) solid var(--secondary-gray);
-    border-radius: var(--br-small-box);
-    corner-shape: squircle;
-}
-
-.text-color-box{
-    background-color: var(--bg-color);
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
 .font-category {
     color: var(--secondary-text-gray);
 }

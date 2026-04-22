@@ -90,7 +90,6 @@ async function scanTab() {
                     lineHeight: elStyle.lineHeight,
                     fontWeight: elStyle.fontWeight,
                     letterSpacing: elStyle.letterSpacing,
-                    color: elStyle.color,
                 });
             });
 
@@ -268,13 +267,6 @@ async function scanTab() {
             <dl>
                 <dt>Spacing</dt>
                 <dd>${data.letterSpacing}</dd>
-            </dl>
-            <dl>
-                <dt>Text Color</dt>
-                <dd class="text-color">
-                    <div class="text-color-box" style="--bg-color:${rgbStringToHex(data.color)}"></div>
-                    <p>${rgbStringToHex(data.color)}</p>
-                </dd>
             </dl>
         </li>
         `
