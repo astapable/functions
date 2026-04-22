@@ -415,6 +415,13 @@ dd {
     width: 70%;
 }
 
+.summary-color-box {
+    display: block;
+    border: var(--border-size) solid var(--secondary-gray);
+    border-radius: var(--br-small-box);
+    corner-shape: squircle;
+}
+
 .font-category {
     color: var(--secondary-text-gray);
 }
