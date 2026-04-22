@@ -41,7 +41,7 @@
 
     /* BORDER RADIUS */
     --br-section: 2rem;
-    --br-element: 1rem;
+    --br-element: 0.75rem;
     --br-btn: 0.5rem;
 
     @media (width > 600px) {
