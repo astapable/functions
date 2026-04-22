@@ -498,11 +498,15 @@ ol {
     display: flex;
     flex-direction: column;
     gap: var(--gap-xsmall);
-    padding-left: 1rem;
 }
 
 ol li {
     flex-direction: row;
     align-items: flex-start;
     gap: var(--gap-xsmall);
+}
+
+ol li::before {
+    content: "•";
+    flex-shrink: 0;
 }
