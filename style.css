@@ -32,11 +32,6 @@
 }
 
 /* ==================== VARIABLES ==================== */
-
-
-
-
-
 :root {
     /* COLOR */
     --primary-black: #000000;
@@ -282,7 +277,6 @@ li {
 }
 
 /* ======================= NAVS ======================= */
-
 .top,
 .bottom {
     left: var(--padding-xsmall);
@@ -449,9 +443,7 @@ dd {
     border-radius: var(--br-large-box);
     corner-shape: squircle;
 }
-
 /* ======================= COLOR DATA ======================= */
-
 
 .color-box {
     background-color: var(--bg-color);
