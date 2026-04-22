@@ -204,8 +204,9 @@ figure {
     justify-content: space-between;
 
     & .tag:first-child {
-        min-width: 4rem;
-        align-items: center;
+        display: flex;
+        min-width: 2rem;
+        text-align: center; 
     }
 
     & .tag:last-child {
