@@ -495,6 +495,12 @@ dd {
 
 ol {
     display: flex;
-    list-style: disc;
-    padding-left: 1.25rem;
+    flex-direction: column;
+    gap: var(--gap-xsmall);
+    padding-left: 1rem;
+}
+
+ol li::before {
+    content: "•";
+    margin-right: var(--gap-xsmall);
 }
