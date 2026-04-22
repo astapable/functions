@@ -22,9 +22,9 @@ function getContrastColor(hexColor) {
     }
 }
 
-// Removed refresh on new tab click since it affected user experince
+// Removed refresh on new tab click since it affected user experince. Better way in terms of user actual;ly using multiple tabs and figma
 document.querySelector('#ext-refresh').addEventListener('click', () => {
-    scanTab(); // same thing as in line 27-31, just another button do refresh
+    scanTab();
 });
 
 // Removed content_scripts from original demo manifest.json since I will use executeScript
@@ -41,7 +41,7 @@ async function getTabId() {
 }
 
 async function scanTab() {
-    // Wait until line 7_getTabId() is finished and return it as a variable here
+    // Wait until line 36_getTabId() is finished and return it as a variable here
     const tabId = await getTabId();
     // returned activeTab since I need to get #scanned-website-name, #scanned-website-link and being able to #back-to-tab
     const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -73,7 +73,7 @@ async function scanTab() {
             // MVP UPD_Ths is basically the same as line 30-32, the only diff is that Im calling out semantic elements related to text
             const textTags = ["h1","h2","h3","h4", "h5","h6","p","li","a","span","label"]; // Ok, this is a little different from line. 30. Here Im just calling for tag names (Might miss some, double chek later)
             const textData = []; 
-            document.querySelectorAll(textTags.join(",")).forEach((el) => { // Heres where I turn line 42 tags into selectors
+            document.querySelectorAll(textTags.join(",")).forEach((el) => { // Heres where I turn line 74 tags into selectors
                 const elStyle = getComputedStyle(el);
                 textData.push({ 
                     tag: el.tagName.toLowerCase(),
@@ -127,7 +127,7 @@ async function scanTab() {
     document.querySelector("#typo-summary").innerHTML =
         Object.entries(fontCategories).map(([category, tags]) => {
             const fonts = [...new Set(
-                tags // tags are specified in line 42 and categorized in line 75-77
+                tags // Note for future self - tags are specified in line 74 and categorized in line 120-124
                     .filter(tag => tagData[tag])
                     .map(tag => tagData[tag].fontFamily.replaceAll('"', '').split(',')[0].trim()) // Changed substring(0... to split to cut off all '' and ,
                     .filter(f => f !== '' && !f.startsWith('-') && f !== 'system-ui') // I was still getting -apple-system sometimes so removed it
@@ -244,11 +244,11 @@ async function scanTab() {
     ).join("");
 }
 
-// Called out the function denoted in line 22
+// Called out the function from line 43
 // The browser read the core from top to bottom
-// When it sees the function from line 22 it accnowledge it but not stert it
+// When it sees the function from line 43 it accnowledge it but not stert it
 // When browser reads scanTab() that is when it starts it. This was mentioned by Eric in the extension loom demo
-// Line 15_async function getTabId() doesnt need to start as it is called in line 22
+// Line 36_async function getTabId() doesnt need to start as it is called in line 43
 // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 scanTab();
 
