@@ -40,9 +40,9 @@
     --section-gap: 1rem;
 
     /* BORDER RADIUS */
-    --br-section: 4rem;
-    --br-element: 2rem;
-    --br-btn: 0.75rem;
+    --br-section: 1.5rem;
+    --br-element: 1rem;
+    --br-btn: 0.5rem;
 
     @media (width > 600px) {
         --gap-main: 2rem;
@@ -55,6 +55,9 @@
         --nav-top: 0.75rem;
         --nav-offset: 5rem;
         --section-gap: 1.25rem;
+        --br-section: 2.5rem;
+        --br-element: 1.5rem;
+        --br-btn: 0.75rem;
     }
 
     @media (width > 900px) {
@@ -68,6 +71,8 @@
         --nav-logo-height: 2rem;
         --nav-top: 1rem;
         --nav-offset: 6rem;
+        --br-section: 4rem;
+        --br-element: 2rem;
     }
 
     @media (width > 1200px) {
