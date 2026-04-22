@@ -205,7 +205,7 @@ figure {
 
     & .tag:first-child {
         display: flex;
-        min-width: 2.5rem;
+        min-width: 2rem;
         justify-content: center;
     }
 
