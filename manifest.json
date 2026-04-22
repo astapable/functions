@@ -1,5 +1,5 @@
 {
-  "name": "revEel",
+  "name": "Tendril",
   "description": "Turn any website into a quick design reference — inspect fonts, text styles, and colors in your browser side panel",
   "version": "1.0",
   "manifest_version": 3,
@@ -13,7 +13,7 @@
   "action": {},
 
   "side_panel": {
-    "default_path": "reveel.html"
+    "default_path": "tendril.html"
   },
 
   "icons": {
