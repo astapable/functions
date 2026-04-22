@@ -509,3 +509,8 @@ ol li {
     list-style: disc;
     margin-left: 0.75rem;
 }
+
+figure {
+    border-radius: var(--br-medium-box);
+    corner-shape: squircle;
+}
