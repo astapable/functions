@@ -511,6 +511,7 @@ ol li {
 }
 
 .guide-wrapper {
+    padding: 0;
     border-radius: var(--br-medium-box);
     corner-shape: squircle;
 }
