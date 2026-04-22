@@ -137,7 +137,7 @@ strong {
     align-items: center;
     justify-content: space-between;
     background-color: var(--primary-yellow);
-    border-radius: var(--br-section);
+    border-radius: var(--br-element);
     corner-shape: squircle;
     padding: var(--nav-padding);
 }
