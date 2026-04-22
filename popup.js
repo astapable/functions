@@ -71,7 +71,7 @@ async function scanTab() {
             });
 
             // MVP UPD_Ths is basically the same as line 30-32, the only diff is that Im calling out semantic elements related to text
-            const textTags = ["h1","h2","h3","h4", "h5","h6","p","li","a","span","label"]; // Ok, this is a little different from line. 30. Here Im just calling for tag names (Might miss some, double chek later)
+            const textTags = ["h1","h2","h3","h4","h5","h6","p","li","a","span","label","button","blockquote","figcaption"]; // Ok, this is a little different from line. 30. Here Im just calling for tag names (Might miss some, double chek later)
             const textData = []; 
             document.querySelectorAll(textTags.join(",")).forEach((el) => { // Heres where I turn line 74 tags into selectors
                 const elStyle = getComputedStyle(el);
@@ -204,7 +204,7 @@ async function scanTab() {
     // ChatGPT link to clarify the difference in terms of my task: https://chatgpt.com/share/69d56cb5-33f4-8326-b4aa-aedaa2654205
     // TYPO SPEC
     // Added some sorting befor getting into HTML. I didnt like how random it was across mmultiple sites
-    const tagOrder = ["h1","h2","h3","h4","h5","h6","p","li","a","span","label"];
+    const tagOrder = ["h1","h2","h3","h4","h5","h6","p","li","a","span","label","button","blockquote","figcaption"];
 
     document.querySelector("#typography").innerHTML =
     Object.entries(tagData)
