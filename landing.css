@@ -1,0 +1,182 @@
+/* FONTS */
+@font-face {
+    font-family: "Doto-Rounded";
+    src: url("fonts/Doto_Rounded-SemiBold.woff") format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url("fonts/Geist-Bold.woff") format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url("fonts/Geist-SemiBold.woff") format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url("fonts/Geist-Regular.woff") format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==================== VARIABLES ==================== */
+:root {
+	font-size: 120%;
+    scroll-behavior: smooth;
+
+    /* COLOR */
+    --landing-white: #FFFFFF;
+    --landing-black: #000000;
+
+    /* FONT SIZES */
+    --landing-h1: 2rem;
+    --landing-h2: 1.25rem;
+    --landing-bodycopy: 0.75rem;
+
+    @media (width > 600px) {
+        --landing-h1: 2.5rem;
+        --landing-h2: 1.25rem;
+        --landing-bodycopy: 1rem;
+    }
+
+    @media (width > 900px) {
+        --landing-h1: 4rem;
+        --landing-h2: 2rem;
+        --landing-bodycopy: 1rem;
+    }
+
+    /* GAP */
+    --gap-main: 1.5rem;
+    --gap-article: 0.5rem;
+
+    /* PADDING */
+    --padding-normal: 1rem;
+    --padding-large: 2rem;
+    --main-padding-block: 1rem;
+    --main-padding-inline: 0.5rem;
+    --section-padding: 1.5rem;
+
+    /* BORDER RADIUS */
+    --br-section: 4rem;
+    --br-element: 2rem;
+
+    @media (width > 600px) {
+        --gap-main: 2rem;
+        --main-padding-block: 2rem;
+        --main-padding-inline: 2rem;
+        --section-padding: 2rem;
+    }
+
+    @media (width > 900px) {
+        --gap-main: 3rem;
+        --main-padding-block: 3rem;
+        --main-padding-inline: 5rem;
+        --section-padding: 2.5rem;
+    }
+
+    @media (width > 1200px) {
+        --gap-main: 4rem;
+        --main-padding-block: 5rem;
+        --main-padding-inline: 12rem;
+        --section-padding: 3rem;
+    }
+
+    @media (width > 1600px) {
+        --main-padding-inline: 15rem;
+    }
+}
+
+/* ==================== TEXT ==================== */
+h1 {
+    font-family: "Doto-Rounded";
+    font-weight: 600;
+    font-size: var(--landing-h1);
+    color: var(--landing-white);
+    line-height: 100%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Geist";
+    font-weight: 700;
+    font-size: var(--landing-h2);
+    color: var(--landing-black);
+}
+
+p {
+    font-family: "Geist";
+    font-weight: 400;
+    font-size: var(--landing-bodycopy);
+    color: var(--landing-black);
+    line-height: 140%;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* ==================== LAYOUT ==================== */
+.landing-title {
+    width: 100%;
+    padding: var(--padding-large);
+}
+
+main {
+    background-color: var(--landing-black);
+    padding-block: var(--main-padding-block);
+    padding-inline: var(--main-padding-inline);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-main);
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-article);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background-color: var(--landing-white);
+    border-radius: var(--br-section);
+    padding: var(--section-padding);
+    corner-shape: squircle;
+}
+
+img {
+    width: 100%;
+}
+
+.guide {
+    border-radius: var(--br-element);
+    corner-shape: squircle;
+    overflow: hidden;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-article);
+    padding-left: var(--padding-normal);
+}
+
+ol li {
+    display: list-item;
+    list-style: disc;
+}
