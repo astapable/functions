@@ -1,5 +1,4 @@
-# Project 5: Functions
-by Evgenii Astapov
+# Project 5: Functions by Evgenii Astapov
 ## About
 This Chrome extension was created as a final Project 5 for Typography & Interaction Course at Parsons School of Design in 2026.
 
