@@ -462,6 +462,7 @@ dd {
     padding: var(--padding-medium);
     border: var(--border-size) solid var(--secondary-gray);
     border-radius: var(--br-medium-box);
+    corner-shape: squircle;
 }
 
 .color-box-text {
